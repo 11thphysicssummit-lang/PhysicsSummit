@@ -3,53 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Animated BG</title>
+<title>Pink Animated BG</title>
 
 <style>
 body{
   margin:0;
   height:100vh;
   overflow:hidden;
-  background: linear-gradient(135deg,#f7f9ff,#eef2ff,#fff0ff);
+
+  /* base clean pink-white */
+  background: linear-gradient(135deg,#fff0f6,#ffe4f1,#fff7fb);
 }
 
-/* ANIMATED GRADIENT LAYER */
+/* BIG PINK ANIMATED GLOW */
 .bg{
   position:fixed;
   inset:0;
-  background: linear-gradient(120deg,#ff4da6,#7c4dff,#00c2ff,#ffcc70);
-  background-size:400% 400%;
-  animation: gradientMove 12s ease infinite;
-  opacity:0.25;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 0, 122, 0.35), transparent 45%),
+              radial-gradient(circle at 70% 40%, rgba(255, 77, 166, 0.25), transparent 50%),
+              radial-gradient(circle at 50% 80%, rgba(255, 0, 180, 0.18), transparent 55%);
+  animation: softMove 10s ease-in-out infinite;
 }
 
-@keyframes gradientMove{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+@keyframes softMove{
+  0%,100%{transform:scale(1) translate(0,0);}
+  50%{transform:scale(1.08) translate(10px,-10px);}
 }
 
-/* FLOATING BLUR BUBBLES */
+/* FLOATING PINK BUBBLES */
 .blob{
   position:absolute;
   border-radius:50%;
-  filter: blur(70px);
-  opacity:0.5;
-  animation: float 8s ease-in-out infinite;
+  filter: blur(80px);
+  opacity:0.6;
+  animation: float 9s ease-in-out infinite;
 }
 
+/* DOMINAN PINK */
 .blob1{
-  width:300px;
-  height:300px;
-  background:#ff4da6;
+  width:340px;
+  height:340px;
+  background:#ff007a;
   top:10%;
   left:10%;
 }
 
 .blob2{
-  width:340px;
-  height:340px;
-  background:#7c4dff;
+  width:300px;
+  height:300px;
+  background:#ff4da6;
   top:20%;
   right:10%;
   animation-delay:2s;
@@ -58,7 +60,7 @@ body{
 .blob3{
   width:260px;
   height:260px;
-  background:#00c2ff;
+  background:#ff66b3;
   bottom:10%;
   left:30%;
   animation-delay:4s;
@@ -67,46 +69,50 @@ body{
 .blob4{
   width:220px;
   height:220px;
-  background:#ffcc70;
+  background:#ffb3d9;
   bottom:20%;
-  right:25%;
+  right:20%;
   animation-delay:6s;
 }
 
 @keyframes float{
-  0%,100%{transform:translateY(0) translateX(0) scale(1);}
-  50%{transform:translateY(-30px) translateX(20px) scale(1.05);}
+  0%,100%{
+    transform:translateY(0) translateX(0) scale(1);
+  }
+  50%{
+    transform:translateY(-35px) translateX(15px) scale(1.07);
+  }
 }
 
-/* MOVING GRID */
+/* SOFT GRID (VERY LIGHT) */
 .grid{
   position:fixed;
   inset:0;
   background-image:
-    linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
-  background-size:70px 70px;
-  opacity:0.08;
-  animation: gridMove 20s linear infinite;
+    linear-gradient(rgba(255,0,122,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,0,122,0.06) 1px, transparent 1px);
+  background-size:80px 80px;
+  opacity:0.12;
+  animation: gridMove 18s linear infinite;
 }
 
 @keyframes gridMove{
   from{transform:translateY(0);}
-  to{transform:translateY(-80px);}
+  to{transform:translateY(-90px);}
 }
 
-/* LIGHT GLOW WAVE */
-.wave{
+/* LIGHT PULSE GLOW */
+.pulse{
   position:absolute;
   width:120%;
   height:120%;
-  background: radial-gradient(circle at center, rgba(255,77,166,0.15), transparent 60%);
-  animation: pulse 6s ease-in-out infinite;
+  background: radial-gradient(circle at center, rgba(255,0,122,0.18), transparent 60%);
+  animation: pulseAnim 6s ease-in-out infinite;
 }
 
-@keyframes pulse{
-  0%,100%{transform:scale(1); opacity:0.4;}
-  50%{transform:scale(1.2); opacity:0.7;}
+@keyframes pulseAnim{
+  0%,100%{transform:scale(1); opacity:0.35;}
+  50%{transform:scale(1.15); opacity:0.65;}
 }
 </style>
 </head>
@@ -114,7 +120,7 @@ body{
 <body>
 
 <div class="bg"></div>
-<div class="wave"></div>
+<div class="pulse"></div>
 <div class="grid"></div>
 
 <div class="blob blob1"></div>
