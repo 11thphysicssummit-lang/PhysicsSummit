@@ -37,7 +37,6 @@
             position: relative;
         }
 
-        /* --- CERAH & GLOWING ACCENTS --- */
         body::before, body::after {
             content: '';
             position: fixed;
@@ -49,16 +48,8 @@
             filter: blur(150px);
             opacity: 0.15;
         }
-        body::before {
-            top: 10%;
-            left: -5%;
-            background: var(--neon-pink);
-        }
-        body::after {
-            bottom: 10%;
-            right: -5%;
-            background: var(--neon-blue);
-        }
+        body::before { top: 10%; left: -5%; background: var(--neon-pink); }
+        body::after { bottom: 10%; right: -5%; background: var(--neon-blue); }
 
         .container {
             max-width: 1200px;
@@ -89,32 +80,13 @@
             justify-content: space-between;
             align-items: center;
         }
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .logo-img-nav {
-            height: 32px;
-            width: auto;
-        }
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            list-style: none;
-        }
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .nav-links a:hover {
-            color: var(--neon-pink);
-        }
+        .logo-area { display: flex; align-items: center; gap: 10px; }
+        .logo-img-nav { height: 32px; width: auto; }
+        .nav-links { display: flex; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--neon-pink); }
 
-        /* --- BUTTONS & HYPERLINKS --- */
+        /* --- BUTTONS --- */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -134,20 +106,9 @@
             border: none;
             box-shadow: var(--glow-pink);
         }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(255, 42, 133, 0.5);
-        }
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-dark);
-            border: 2px solid var(--neon-purple);
-        }
-        .btn-secondary:hover {
-            background: rgba(157, 77, 221, 0.05);
-            transform: translateY(-3px);
-            box-shadow: var(--glow-pink);
-        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 5px 20px rgba(255, 42, 133, 0.5); }
+        .btn-secondary { background: transparent; color: var(--text-dark); border: 2px solid var(--neon-purple); }
+        .btn-secondary:hover { background: rgba(157, 77, 221, 0.05); transform: translateY(-3px); box-shadow: var(--glow-pink); }
 
         /* --- #home1: HERO SECTION --- */
         #home1 {
@@ -156,7 +117,6 @@
             position: relative;
             background: radial-gradient(circle at center, rgba(0, 240, 255, 0.05) 0%, transparent 70%);
         }
-        /* Pendaran Horizontal Neon Border */
         .neon-glow-line {
             position: absolute;
             background: linear-gradient(90deg, transparent, var(--neon-pink), var(--neon-blue), transparent);
@@ -167,287 +127,99 @@
         }
         .glow-top { top: 85px; }
         .glow-bottom { bottom: 0; }
-
-        .logo-main {
-            height: 150px;
-            width: auto;
-            margin-bottom: 24px;
-            filter: drop-shadow(0 0 10px rgba(157, 77, 221, 0.2));
-        }
+        .logo-main { height: 150px; width: auto; margin-bottom: 24px; filter: drop-shadow(0 0 10px rgba(157, 77, 221, 0.2)); }
         #home1 h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 8px;
+            font-size: 3.5rem; font-weight: 900; margin-bottom: 8px;
             background: linear-gradient(45deg, var(--text-dark), var(--neon-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-        .subtitle {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            color: var(--neon-pink);
-            font-weight: 700;
-            margin-bottom: 16px;
-            letter-spacing: 2px;
-        }
-        .theme-tag {
-            display: inline-block;
-            background: rgba(157, 77, 221, 0.08);
-            border: 1px solid var(--neon-purple);
-            padding: 6px 18px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: var(--neon-purple);
-            margin-bottom: 32px;
-            font-family: 'Orbitron', sans-serif;
-        }
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
+        .subtitle { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: var(--neon-pink); font-weight: 700; margin-bottom: 16px; letter-spacing: 2px; }
+        .theme-tag { display: inline-block; background: rgba(157, 77, 221, 0.08); border: 1px solid var(--neon-purple); padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; color: var(--neon-purple); margin-bottom: 32px; font-family: 'Orbitron', sans-serif; }
+        .hero-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
 
         /* --- #home2: ABOUT SECTION --- */
-        #home2 {
-            padding: 100px 0;
-            background-color: var(--bg-section);
-        }
-        .section-header {
-            text-align: center;
-            margin-bottom: 48px;
-        }
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-        .section-header .bar {
-            height: 4px;
-            width: 60px;
-            background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
-            margin: 12px auto 0 auto;
-            border-radius: 2px;
-        }
-        .about-box {
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-            text-align: center;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .about-box strong {
-            color: var(--text-dark);
-        }
-        .highlight-text {
-            color: var(--neon-pink) !important;
-            font-weight: 700;
-        }
+        #home2 { padding: 100px 0; background-color: var(--bg-section); }
+        .section-header { text-align: center; margin-bottom: 48px; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 700; }
+        .section-header .bar { height: 4px; width: 60px; background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue)); margin: 12px auto 0 auto; border-radius: 2px; }
+        .about-box { background: #ffffff; border: 1px solid var(--border-color); padding: 40px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); text-align: center; line-height: 1.8; font-size: 1.1rem; color: var(--text-muted); max-width: 900px; margin: 0 auto; }
+        .about-box strong { color: var(--text-dark); }
+        .highlight-text { color: var(--neon-pink) !important; font-weight: 700; }
 
-        /* --- #home3: EVENTS SECTION --- */
-        #home3 {
-            padding: 100px 0;
-        }
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
-        }
-        .card {
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 32px;
-            transition: all 0.3s ease;
-            position: relative;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-        }
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 4px;
-            background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
-            border-radius: 24px 24px 0 0;
-        }
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(157, 77, 221, 0.1);
-            border-color: rgba(157, 77, 221, 0.3);
-        }
-        .card-icon {
-            font-size: 2.5rem;
-            color: var(--neon-purple);
-            margin-bottom: 20px;
-        }
-        .card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 16px;
-        }
-        .card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
+        /* --- #home3: EVENTS SECTION WITH COLLAPSIBLE DETAIL --- */
+        #home3 { padding: 100px 0; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
+        .card { background: #ffffff; border: 1px solid var(--border-color); border-radius: 24px; padding: 32px; transition: all 0.3s ease; position: relative; box-shadow: 0 4px 20px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between; }
+        .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue)); border-radius: 24px 24px 0 0; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(157, 77, 221, 0.1); border-color: rgba(157, 77, 221, 0.3); }
+        .card-icon { font-size: 2.5rem; color: var(--neon-purple); margin-bottom: 20px; }
+        .card h3 { font-size: 1.25rem; margin-bottom: 12px; }
+        
+        /* Collapsible Mechanism */
+        .card-brief { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px; }
+        .card-detail { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; border-top: 0px dashed var(--border-color); padding-top: 0; }
+        .btn-readmore { background: none; border: none; color: var(--neon-pink); font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 4px 0; transition: 0.2s; }
+        .btn-readmore:hover { color: var(--neon-purple); }
+        .btn-readmore i { transition: transform 0.3s; }
+        
+        /* Active Collapsible Classes via JS */
+        .card.expanded .card-detail { max-height: 300px; border-top: 1px dashed var(--border-color); padding-top: 12px; margin-top: 8px; }
+        .card.expanded .btn-readmore i { transform: rotate(180deg); }
+
+        /* --- HARGA TIKET & INVESTASI SECTION --- */
+        #home-harga { padding: 100px 0; background-color: var(--bg-light); }
+        .pricing-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 32px; margin-top: 30px; }
+        @media(max-width: 550px){ .pricing-container { grid-template-columns: 1fr; } }
+        .pricing-box { background: var(--bg-section); border: 1px solid var(--border-color); border-radius: 24px; padding: 28px; box-shadow: 0 4px 15px rgba(0,0,0,0.01); }
+        .pricing-box h3 { font-size: 1.3rem; margin-bottom: 20px; color: var(--text-dark); display: flex; align-items: center; gap: 10px; }
+        .table-responsive { width: 100%; overflow-x: auto; }
+        .table-pricing { width: 100%; border-collapse: collapse; text-align: left; background: #ffffff; border-radius: 14px; overflow: hidden; font-size: 0.9rem; }
+        .table-pricing th, .table-pricing td { padding: 12px 14px; border-bottom: 1px solid var(--border-color); }
+        .table-pricing th { background: var(--text-dark); color: white; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.5px; }
+        .table-pricing tr:last-child td { border: none; }
+        .price-tag { font-family: 'Orbitron', sans-serif; font-weight: 700; color: var(--neon-pink); }
+        .pricing-box.psic-box .price-tag { color: var(--neon-purple); }
+        
+        /* RSVP Open House Custom Badge */
+        .rsvp-section { max-width: 600px; margin: 40px auto 0 auto; background: linear-gradient(135deg, rgba(255, 42, 133, 0.05), rgba(0, 240, 255, 0.05)); border: 2px dashed var(--neon-blue); border-radius: 20px; padding: 24px; text-align: center; }
+        .badge-free { display: inline-block; background: #22c55e; color: white; font-family: 'Orbitron', sans-serif; font-weight: 900; padding: 6px 16px; border-radius: 30px; font-size: 1.1rem; margin-bottom: 10px; box-shadow: 0 4px 10px rgba(34, 197, 94, 0.3); }
 
         /* --- #home4: PRIZES SECTION --- */
-        #home4 {
-            padding: 100px 0;
-            background-color: var(--bg-section);
-        }
-        .prizes-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
-        @media(max-width: 550px){
-            .prizes-wrapper { grid-template-columns: 1fr; }
-        }
-        .prize-category {
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 32px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.01);
-        }
+        #home4 { padding: 100px 0; background-color: var(--bg-section); }
+        .prizes-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 40px; margin-top: 40px; }
+        .prize-category { background: #ffffff; border: 1px solid var(--border-color); border-radius: 24px; padding: 32px; }
         .prize-category.pso-box { border-left: 5px solid var(--neon-pink); }
         .prize-category.psic-box { border-left: 5px solid var(--neon-blue); }
-        
-        .prize-category h3 {
-            font-size: 1.2rem;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        .prize-category h3 { font-size: 1.2rem; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
         .pso-box h3 { color: var(--neon-pink); }
         .psic-box h3 { color: var(--neon-purple); }
-
-        .prize-list {
-            list-style: none;
-        }
-        .prize-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 14px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
+        .prize-list { list-style: none; }
+        .prize-item { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border-color); }
         .prize-item:last-child { border: none; }
-        .rank {
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-dark);
-        }
-        .reward {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            color: var(--neon-pink);
-        }
-        .psic-box .reward {
-            color: var(--text-dark);
-        }
-        .cert-note {
-            margin-top: 32px;
-            padding: 20px;
-            background: #ffffff;
-            border-radius: 16px;
-            text-align: center;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            border: 1px dashed var(--neon-purple);
-        }
+        .rank { font-weight: 600; display: flex; align-items: center; gap: 8px; color: var(--text-dark); }
+        .reward { font-family: 'Orbitron', sans-serif; font-weight: 700; color: var(--neon-pink); }
+        .psic-box .reward { color: var(--text-dark); }
+        .cert-note { margin-top: 32px; padding: 20px; background: #ffffff; border-radius: 16px; text-align: center; font-size: 0.95rem; color: var(--text-muted); border: 1px dashed var(--neon-purple); }
 
         /* --- #home5: TIMELINE SECTION --- */
-        #home5 {
-            padding: 100px 0;
-        }
-        .timeline {
-            position: relative;
-            max-width: 850px;
-            margin: 40px auto 0 auto;
-            padding: 20px 0;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--neon-pink), var(--neon-purple), var(--neon-blue));
-            top: 0; bottom: 0; left: 50%;
-            margin-left: -2px;
-            border-radius: 2px;
-        }
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            right: -8px;
-            background-color: white;
-            border: 4px solid var(--neon-purple);
-            top: 24px;
-            border-radius: 50%;
-            z-index: 1;
-            box-shadow: 0 0 8px rgba(157, 77, 221, 0.5);
-            transition: 0.3s;
-        }
+        #home5 { padding: 100px 0; }
+        .timeline { position: relative; max-width: 850px; margin: 40px auto 0 auto; padding: 20px 0; }
+        .timeline::before { content: ''; position: absolute; width: 4px; background: linear-gradient(to bottom, var(--neon-pink), var(--neon-purple), var(--neon-blue)); top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 2px; }
+        .timeline-item { padding: 10px 40px; position: relative; width: 50%; box-sizing: border-box; }
+        .timeline-item::after { content: ''; position: absolute; width: 16px; height: 16px; right: -8px; background-color: white; border: 4px solid var(--neon-purple); top: 24px; border-radius: 50%; z-index: 1; box-shadow: 0 0 8px rgba(157, 77, 221, 0.5); transition: 0.3s; }
         .left { left: 0; text-align: right; }
         .right { left: 50%; text-align: left; }
         .right::after { left: -8px; }
-        
-        .timeline-content {
-            padding: 24px;
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            position: relative;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-        }
-        .timeline-item:hover .timeline-content {
-            border-color: var(--neon-pink);
-            box-shadow: 0 4px 20px rgba(255, 42, 133, 0.1);
-        }
-        .date {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            color: var(--neon-pink);
-            font-weight: 700;
-            margin-bottom: 8px;
-            display: block;
-        }
+        .timeline-content { padding: 24px; background: #ffffff; border: 1px solid var(--border-color); position: relative; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .timeline-item:hover .timeline-content { border-color: var(--neon-pink); box-shadow: 0 4px 20px rgba(255, 42, 133, 0.1); }
+        .date { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: var(--neon-pink); font-weight: 700; margin-bottom: 8px; display: block; }
         .right .date { color: var(--neon-purple); }
-        .timeline-content h4 {
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            font-weight: 700;
-        }
+        .timeline-content h4 { font-size: 1.1rem; color: var(--text-dark); font-weight: 700; }
 
         /* --- FOOTER --- */
-        footer {
-            padding: 40px 0;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-            background: var(--bg-section);
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
+        footer { padding: 40px 0; border-top: 1px solid var(--border-color); text-align: center; background: var(--bg-section); color: var(--text-muted); font-size: 0.95rem; }
         footer p strong { color: var(--text-dark); }
 
-        /* --- RESPONSIVE BREAKPOINTS --- */
         @media (max-width: 768px) {
             .nav-links { display: none; } 
             #home1 h1 { font-size: 2.4rem; }
@@ -473,6 +245,7 @@
                 <li><a href="#home1">Home</a></li>
                 <li><a href="#home2">Tentang</a></li>
                 <li><a href="#home3">Rangkaian</a></li>
+                <li><a href="#home-harga">Biaya</a></li>
                 <li><a href="#home4">Hadiah</a></li>
                 <li><a href="#home5">Timeline</a></li>
             </ul>
@@ -483,7 +256,6 @@
     <header id="home1">
         <div class="container">
             <img src="logo.png" alt="11th Physics Summit Logo" class="logo-main" id="mainLogo">
-            
             <h1>11th Physics Summit</h1>
             <div class="subtitle">DEPARTEMEN FISIKA ITS</div>
             <div class="theme-tag"><i class="fa-solid fa-atom"></i> TEMA: ATOMIC HORIZON</div>
@@ -492,7 +264,6 @@
                 <a href="https://forms.google.com/LINK-GOOGLE-FORM-ANDA" target="_blank" class="btn btn-primary">
                     <i class="fa-solid fa-file-pen"></i> Daftar Sekarang (Google Form)
                 </a>
-                
                 <a href="guidebook.pdf" download="Guidebook_11th_Physics_Summit.pdf" class="btn btn-secondary">
                     <i class="fa-solid fa-arrow-down-integrate"></i> Unduh Guidebook
                 </a>
@@ -523,21 +294,164 @@
                 <div class="bar"></div>
             </div>
             <div class="grid-3">
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-user-graduate" style="color: var(--neon-pink);"></i></div>
-                    <h3>Physics Summit Olympiad (PSO)</h3>
-                    <p>Olimpiade fisika tingkat nasional bagi siswa SMA/SMK/sederajat yang dilaksanakan secara berkelompok dengan dua peserta dalam satu Tim. Olimpiade ini dirancang untuk menguji kemampuan analisis dan pemecahan masalah melalui tiga tahapan seleksi, yaitu babak penyisihan, semifinal, dan final.</p>
+                <div class="card" id="card-pso">
+                    <div>
+                        <div class="card-icon"><i class="fa-solid fa-user-graduate" style="color: var(--neon-pink);"></i></div>
+                        <h3>Physics Summit Olympiad (PSO)</h3>
+                        <p class="card-brief">Olimpiade fisika tingkat nasional bagi siswa SMA/SMK/sederajat yang dilaksanakan secara berkelompok...</p>
+                        <div class="card-detail">
+                            Olimpiade ini dirancang dengan sistem beregu yang beranggotakan dua peserta dalam satu Tim. Kompetisi bergengsi ini dibangun secara komprehensif untuk menguji kemampuan analisis teoritis, penalaran logika, dan pemecahan masalah kompleks melalui tiga tahapan seleksi ketat nasional, yaitu babak penyisihan, semifinal, dan babak final.
+                        </div>
+                    </div>
+                    <button class="btn-readmore" onclick="toggleCard('card-pso')">Lihat Selengkapnya <i class="fa-solid fa-chevron-down"></i></button>
                 </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-lightbulb" style="color: var(--neon-purple);"></i></div>
-                    <h3>Physics Summit Innovation Competition (PSIC)</h3>
-                    <p>Kompetisi inovasi bagi siswa SMA/SMK/sederajat yang bertujuan mengembangkan kemampuan berpikir kritis, kreatif, dan solutif dalam menyelesaikan permasalahan nyata melalui pendekatan sains dan teknologi. Peserta yang lolos ke tahap final akan mempresentasikan karyanya serta menampilkan prototipe inovatif di hadapan dewan juri.</p>
+                
+                <div class="card" id="card-psic">
+                    <div>
+                        <div class="card-icon"><i class="fa-solid fa-lightbulb" style="color: var(--neon-purple);"></i></div>
+                        <h3>Physics Summit Innovation Competition (PSIC)</h3>
+                        <p class="card-brief">Kompetisi inovasi bagi siswa SMA/SMK/sederajat yang bertujuan mengembangkan kemampuan berpikir kritis...</p>
+                        <div class="card-detail">
+                            Ajang kreativitas ilmiah ini fokus mewadahi pemikiran solutif dalam menyelesaikan permasalahan nyata di masyarakat melalui pendekatan sains terapan dan teknologi inovatif. Seluruh peserta yang berhasil lolos ke tahap final akan mendapatkan panggung kehormatan untuk mempresentasikan karyanya serta menampilkan prototipe fisik langsung di hadapan dewan juri.
+                        </div>
+                    </div>
+                    <button class="btn-readmore" onclick="toggleCard('card-psic')">Lihat Selengkapnya <i class="fa-solid fa-chevron-down"></i></button>
                 </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-school" style="color: var(--neon-blue);"></i></div>
-                    <h3>Open House Departemen Fisika</h3>
-                    <p>Kegiatan interaktif yang bertujuan memperkenalkan Departemen Fisika ITS kepada siswa SMA/SMK/sederajat serta masyarakat umum. Melalui kegiatan ini, pengunjung dapat mengenal berbagai laboratorium, fasilitas, bidang keilmuan, karya mahasiswa, serta melihat langsung pameran prototipe dari para finalis PSIC.</p>
+                
+                <div class="card" id="card-oh">
+                    <div>
+                        <div class="card-icon"><i class="fa-solid fa-school" style="color: var(--neon-blue);"></i></div>
+                        <h3>Open House Departemen Fisika</h3>
+                        <p class="card-brief">Kegiatan interaktif yang bertujuan memperkenalkan Departemen Fisika ITS kepada siswa dan masyarakat umum...</p>
+                        <div class="card-detail">
+                            Melalui kegiatan keterbukaan publik ini, para pengunjung dapat menjelajahi berbagai klaster laboratorium canggih, fasilitas akademik mutakhir, pengenalan bidang minat keilmuan, pameran hasil karya teknologi riset mahasiswa, serta melihat langsung pameran prototipe mahakarya dari para finalis nasional PSIC.
+                        </div>
+                    </div>
+                    <button class="btn-readmore" onclick="toggleCard('card-oh')">Lihat Selengkapnya <i class="fa-solid fa-chevron-down"></i></button>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="home-harga">
+        <div class="container">
+            <div class="section-header">
+                <h2>Investasi & Biaya Pendaftaran</h2>
+                <div class="bar"></div>
+            </div>
+            
+            <div class="pricing-container">
+                <div class="pricing-box pso-box">
+                    <h3><i class="fa-solid fa-tags" style="color:var(--neon-pink)"></i> Kategori PSO (Olimpiade)</h3>
+                    <div class="table-responsive">
+                        <table class="table-pricing">
+                            <thead>
+                                <tr>
+                                    <th>Kategori</th>
+                                    <th>Periode</th>
+                                    <th>Paket</th>
+                                    <th>Harga</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Early Bird</strong></td>
+                                    <td>3 Hari</td>
+                                    <td>1 Tim</td>
+                                    <td><span class="price-tag">Rp100.000</span></td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3"><strong>Gelombang 1</strong></td>
+                                    <td rowspan="3">11 Hari</td>
+                                    <td>1 Tim</td>
+                                    <td><span class="price-tag">Rp110.000</span></td>
+                                </tr>
+                                <tr>
+                                    <td>2+1 Tim</td>
+                                    <td><span class="price-tag">Rp315.000</span></td>
+                                </tr>
+                                <tr>
+                                    <td>4+1 Tim</td>
+                                    <td><span class="price-tag">Rp500.000</span></td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3"><strong>Gelombang 2</strong></td>
+                                    <td rowspan="3">11 Hari</td>
+                                    <td>1 Tim</td>
+                                    <td><span class="price-tag">Rp125.000</span></td>
+                                </tr>
+                                <tr>
+                                    <td>2+1 Tim</td>
+                                    <td><span class="price-tag">Rp360.000</span></td>
+                                </tr>
+                                <tr>
+                                    <td>4+1 Tim</td>
+                                    <td><span class="price-tag">Rp575.000</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="pricing-box psic-box">
+                    <h3><i class="fa-solid fa-tags" style="color:var(--neon-purple)"></i> Kategori PSIC (Inovasi)</h3>
+                    <div class="table-responsive">
+                        <table class="table-pricing">
+                            <thead>
+                                <tr>
+                                    <th>Kategori</th>
+                                    <th>Periode</th>
+                                    <th>Paket</th>
+                                    <th>Harga</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Early Bird</strong></td>
+                                    <td>3 Hari</td>
+                                    <td>1 Tim</td>
+                                    <td><span class="price-tag">Rp30.000</span></td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3"><strong>Gelombang 1</strong></td>
+                                    <td rowspan="3">11 Hari</td>
+                                    <td>1 Tim</td>
+                                    <td><span class="price-tag">Rp40.000</span></td>
+                                </tr>
+                                <tr>
+                                    <td>2+1 Tim</td>
+                                    <td><span class="price-tag">Rp111.000</span></td>
+                                </tr>
+                                <tr>
+                                    <td>4+1 Tim</td>
+                                    <td><span class="price-tag">Rp170.000</span></td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3"><strong>Gelombang 2</strong></td>
+                                    <td rowspan="3">11 Hari</td>
+                                    <td>1 Tim</td>
+                                    <td><span class="price-tag">Rp50.000</span></td>
+                                </tr>
+                                <tr>
+                                    <td>2+1 Tim</td>
+                                    <td><span class="price-tag">Rp141.000</span></td>
+                                </tr>
+                                <tr>
+                                    <td>4+1 Tim</td>
+                                    <td><span class="price-tag">Rp220.000</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rsvp-section">
+                <div class="badge-free">GRATIS</div>
+                <h3 style="margin-bottom:8px;">RSVP OPEN HOUSE DEPARTEMEN FISIKA</h3>
+                <p style="color: var(--text-muted); font-size:0.95rem;">
+                    Kunjungan pameran laboratorium, fasilitas program studi, dan stand prototipe teknologi finalis terbuka secara umum tanpa dipungut biaya sepeser pun.
+                </p>
             </div>
         </div>
     </section>
@@ -658,5 +572,19 @@
         </div>
     </footer>
 
+    <script>
+        function toggleCard(cardId) {
+            const card = document.getElementById(cardId);
+            const btn = card.querySelector('.btn-readmore');
+            
+            card.classList.toggle('expanded');
+            
+            if(card.classList.contains('expanded')) {
+                btn.innerHTML = `Sembunyikan Detail <i class="fa-solid fa-chevron-up"></i>`;
+            } else {
+                btn.innerHTML = `Lihat Selengkapnya <i class="fa-solid fa-chevron-down"></i>`;
+            }
+        }
+    </script>
 </body>
 </html>
