@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>11th Physics Summit - Departemen Fisika ITS</title>
-    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
@@ -17,15 +15,16 @@
             --blue: #00f0ff;
             --dark: #0f172a;
             --light: #ffffff;
-            --bg-gradient: linear-gradient(135deg, #fff5f8 0%, #f0f4ff 100%);
+            --bg-gradient: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
             --text-main: #1e293b;
             --text-muted: #64748b;
         }
 
+        /* --- RESET & DASAR --- */
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border-box; /* Sangat penting agar padding tidak merusak lebar */
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
         }
@@ -33,164 +32,193 @@
         body {
             background: var(--bg-gradient);
             color: var(--text-main);
-            overflow-x: hidden;
+            overflow-x: hidden; /* Mencegah layar geser ke samping */
+            width: 100%;
             position: relative;
         }
 
-        /* --- BACKGROUND GLOW EFFECT --- */
-        .bg-glow-1 {
-            position: absolute; width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(255, 42, 133, 0.08) 0%, rgba(255,255,255,0) 70%);
-            top: -100px; left: -100px; pointer-events: none; z-index: 1;
-        }
-        .bg-glow-2 {
-            position: absolute; width: 800px; height: 800px;
-            background: radial-gradient(circle, rgba(157, 77, 221, 0.06) 0%, rgba(255,255,255,0) 70%);
-            top: 30%; right: -200px; pointer-events: none; z-index: 1;
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        /* --- ELEMEN HIASAN RAKSASA (DINAIKKAN Z-INDEX AGAR MUNCUL DI ATAS BACKGROUND) --- */
+        /* --- ELEMEN HIASAN RAKSASA --- */
+        /* Animasi Mengambang Halus */
         @keyframes float-smooth {
-            0% { transform: translateY(0px) rotate(0deg) scale(1); }
-            50% { transform: translateY(-25px) rotate(6deg) scale(1.02); }
-            100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(4deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
         @keyframes float-alt {
             0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(-8deg); }
+            50% { transform: translateY(-15px) rotate(-4deg); }
             100% { transform: translateY(0px) rotate(0deg); }
         }
 
         .deco-giant {
             position: absolute;
             pointer-events: none;
-            z-index: 5; /* Di atas latar belakang, di bawah konten teks utama */
-            filter: drop-shadow(0 15px 30px rgba(157, 77, 221, 0.12));
-            opacity: 0.8;
+            z-index: 1; /* Ditaruh di atas background tapi di bawah teks */
+            opacity: 0.9;
         }
-        .float-hero-1 { animation: float-smooth 7s ease-in-out infinite; width: 150px; top: 12%; left: 8%; }
-        .float-hero-2 { animation: float-alt 5s ease-in-out infinite; width: 110px; top: 22%; right: 10%; }
-        .float-mid-1 { animation: float-smooth 8s ease-in-out infinite; width: 160px; top: 45%; left: 3%; opacity: 0.6; }
-        .float-mid-2 { animation: float-alt 6s ease-in-out infinite; width: 120px; top: 62%; right: 5%; }
+        
+        /* Posisi Hiasan (Maksimal 3 per section) */
+        .float-hero-1 { animation: float-smooth 6s ease-in-out infinite; width: 180px; top: 15%; left: 5%; }
+        .float-hero-2 { animation: float-alt 5s ease-in-out infinite; width: 140px; top: 25%; right: 8%; }
+        .float-mid-1 { animation: float-smooth 7s ease-in-out infinite; width: 200px; top: 45%; left: -2%; opacity: 0.5; }
+        .float-mid-2 { animation: float-alt 6s ease-in-out infinite; width: 150px; top: 60%; right: 2%; }
+        .float-bot-1 { animation: float-smooth 8s ease-in-out infinite; width: 120px; bottom: 10%; left: 8%; }
 
         /* --- STICKY NAVIGATION --- */
         nav {
             position: fixed;
-            top: 0; width: 100%;
+            top: 0; 
+            left: 0;
+            width: 100%;
             background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(15px);
             z-index: 1000;
             padding: 16px 0;
-            border-bottom: 1px solid rgba(157, 77, 221, 0.08);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.01);
+            border-bottom: 1px solid rgba(157, 77, 221, 0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
         .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .logo-nav { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.3rem; color: var(--dark); }
+        .logo-nav { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            font-weight: 800; 
+            font-size: 1.3rem; 
+            color: var(--dark); 
+        }
         .logo-nav img { height: 42px; }
-        .nav-links { display: flex; gap: 35px; list-style: none; align-items: center; }
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--pink); }
-        .btn-nav-reg { background: linear-gradient(45deg, var(--pink), var(--purple)); padding: 12px 26px; border-radius: 50px; color: white !important; box-shadow: 0 4px 15px rgba(255, 42, 133, 0.2); }
+        .btn-nav-reg { 
+            background: linear-gradient(45deg, var(--pink), var(--purple)); 
+            padding: 10px 24px; 
+            border-radius: 50px; 
+            color: white !important; 
+            box-shadow: 0 4px 15px rgba(255, 42, 133, 0.2); 
+            transition: 0.3s;
+        }
+        .btn-nav-reg:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 42, 133, 0.3); }
 
-        /* --- HERO SECTION (FIX MENCENG & SIMETRIS SEMPURNA) --- */
+        /* --- HERO SECTION (SIMETRIS TENGAH SEMPURNA) --- */
         .hero {
-            padding: 180px 20px 100px;
-            min-height: 85vh;
+            /* Kunci agar konten 100% di tengah tanpa geser */
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
+            
+            width: 100%;
+            min-height: 100vh; /* Memenuhi tinggi layar */
+            padding: 120px 20px 80px; /* Jarak aman dari navbar */
             position: relative;
             z-index: 10;
-            max-width: 1000px;
-            margin: 0 auto;
         }
-        .hero img.main-logo { height: 210px; margin-bottom: 30px; filter: drop-shadow(0 15px 30px rgba(157, 77, 221, 0.15)); }
-        .hero h1 { font-size: 4.5rem; font-weight: 800; line-height: 1.2; letter-spacing: -1px; margin-bottom: 15px; background: linear-gradient(45deg, var(--dark), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero h2 { color: var(--pink); font-weight: 700; font-size: 1.8rem; margin-bottom: 40px; letter-spacing: 6px; }
+        .hero img.main-logo { height: 220px; margin-bottom: 25px; filter: drop-shadow(0 15px 35px rgba(157, 77, 221, 0.15)); }
+        .hero h1 { 
+            font-size: 4.5rem; 
+            font-weight: 800; 
+            line-height: 1.2; 
+            letter-spacing: -1px; 
+            margin-bottom: 10px; 
+            background: linear-gradient(45deg, var(--dark), var(--purple)); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        .hero h2 { 
+            color: var(--pink); 
+            font-weight: 700; 
+            font-size: 1.8rem; 
+            margin-bottom: 35px; 
+            letter-spacing: 5px; 
+        }
         
         .btn-group { display: flex; justify-content: center; gap: 20px; }
-        .btn { padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; cursor: pointer; border: none; font-size: 1rem; }
+        .btn { padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; cursor: pointer; border: none; font-size: 1rem; display: inline-block;}
         .btn-primary { background: linear-gradient(45deg, var(--pink), var(--purple)); color: white; box-shadow: 0 8px 25px rgba(255, 42, 133, 0.25); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(255, 42, 133, 0.35); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(255, 42, 133, 0.4); }
         .btn-secondary { background: white; color: var(--purple); border: 2px solid var(--purple); }
-        .btn-secondary:hover { transform: translateY(-3px); background: rgba(157, 77, 221, 0.04); }
+        .btn-secondary:hover { transform: translateY(-3px); background: rgba(157, 77, 221, 0.05); }
 
-        /* --- SECTION HEADERS --- */
+        /* --- GLOBAL HEADERS --- */
         .section-header { text-align: center; margin-bottom: 50px; position: relative; z-index: 10; }
-        .section-header h2 { font-size: 2.5rem; font-weight: 800; color: var(--dark); }
-        .section-header .bar { height: 5px; width: 80px; background: linear-gradient(to right, var(--pink), var(--purple)); margin: 12px auto; border-radius: 10px; }
+        .section-header h2 { font-size: 2.6rem; font-weight: 800; color: var(--dark); }
+        .section-header .bar { height: 5px; width: 80px; background: linear-gradient(to right, var(--pink), var(--purple)); margin: 15px auto; border-radius: 10px; }
 
-        /* --- RANGKAIAN ACARA (INTERACTIVE CARDS) --- */
-        .events-section { padding: 80px 20px; position: relative; z-index: 10; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        /* --- RANGKAIAN ACARA --- */
+        .events-section { padding: 90px 0; position: relative; z-index: 10; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .card { 
-            background: rgba(255, 255, 255, 0.85); 
+            background: rgba(255, 255, 255, 0.9); 
             border: 1px solid rgba(157, 77, 221, 0.1); 
             border-radius: 24px; padding: 35px; 
             transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; 
-            backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.01);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
         }
-        .card:hover { transform: translateY(-5px); border-color: var(--pink); box-shadow: 0 20px 40px rgba(157, 77, 221, 0.1); }
+        .card:hover { transform: translateY(-8px); border-color: var(--pink); box-shadow: 0 20px 40px rgba(157, 77, 221, 0.1); }
         .card-icon { font-size: 2.5rem; color: var(--purple); margin-bottom: 20px; }
         .card h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--dark); }
         .card-brief { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px; }
         
+        /* Akordeon */
         .card-detail { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; font-size: 0.9rem; }
         .detail-list { list-style: none; padding-top: 15px; border-top: 1px dashed rgba(157,77,221,0.15); margin-top: 15px; }
         .detail-list li { position: relative; padding-left: 22px; margin-bottom: 10px; }
         .detail-list li::before { content: "✓"; color: var(--pink); position: absolute; left: 0; font-weight: bold; }
         .btn-readmore { background: none; border: none; color: var(--pink); font-weight: 700; font-size: 0.95rem; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; margin-top: 15px; }
         .card.expanded .card-detail { max-height: 350px; }
+        .card.expanded .btn-readmore i { transform: rotate(180deg); }
 
-        /* --- DOCK ALUR PORTAL DUMMY --- */
-        .reg-preview-section { padding: 80px 20px; position: relative; z-index: 10; }
+        /* --- PREVIEW FORM REGISTRASI --- */
+        .reg-preview-section { padding: 90px 0; position: relative; z-index: 10; }
         .form-mockup {
             max-width: 650px; margin: 0 auto; background: white;
-            border: 1px solid rgba(157, 77, 221, 0.12); box-shadow: 0 20px 45px rgba(157, 77, 221, 0.06);
+            border: 1px solid rgba(157, 77, 221, 0.15); box-shadow: 0 20px 50px rgba(157, 77, 221, 0.08);
             border-radius: 24px; padding: 40px;
         }
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; }
         .form-group input, .form-group select {
-            width: 100%; padding: 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; outline: none;
+            width: 100%; padding: 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; outline: none; transition: 0.3s;
         }
+        .form-group input:focus, .form-group select:focus { border-color: var(--pink); background: white; }
 
-        /* --- GALLERY DOCUMENTATION --- */
-        .gallery { padding: 80px 20px; position: relative; z-index: 10; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
-        .gallery-item { border-radius: 16px; overflow: hidden; height: 220px; box-shadow: 0 8px 25px rgba(0,0,0,0.02); border: 4px solid white; transition: 0.3s; }
-        .gallery-item:hover { transform: scale(1.03); box-shadow: 0 15px 30px rgba(157,77,221,0.12); }
+        /* --- GALLERY DOKUMENTASI --- */
+        .gallery { padding: 90px 0; position: relative; z-index: 10; background: rgba(255,255,255,0.4); }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .gallery-item { border-radius: 16px; overflow: hidden; height: 220px; box-shadow: 0 8px 25px rgba(0,0,0,0.05); border: 4px solid white; transition: 0.3s; }
+        .gallery-item:hover { transform: scale(1.03); box-shadow: 0 15px 30px rgba(157,77,221,0.15); }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- PRICING SECTION --- */
-        .pricing-section { padding: 80px 20px; position: relative; z-index: 10; }
-        .pricing-table { width: 100%; border-collapse: collapse; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.02); border: 1px solid #f1f5f9; }
-        .pricing-table th { background: #1e293b; color: white; padding: 14px; text-align: left; }
-        .pricing-table td { padding: 14px; border-bottom: 1px solid #f1f5f9; }
-        .price-val { font-weight: 700; color: var(--pink); }
+        /* --- TABEL BIAYA --- */
+        .pricing-section { padding: 90px 0; position: relative; z-index: 10; }
+        .pricing-table { width: 100%; border-collapse: collapse; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid #f1f5f9; }
+        .pricing-table th { background: var(--dark); color: white; padding: 16px; text-align: left; font-weight: 600; }
+        .pricing-table td { padding: 16px; border-bottom: 1px solid #f1f5f9; }
+        .price-val { font-weight: 800; color: var(--pink); }
 
-        /* ========================================================
-           --- TIMELINE BARU (STRUKTUR MULTI-FASE SUB-CABANG) ---
-           ======================================================== */
-        #timeline-section { padding: 90px 20px; position: relative; z-index: 10; }
-        .phase-container { max-width: 900px; margin: 0 auto 50px auto; background: rgba(255,255,255,0.7); border: 1px solid rgba(157,77,221,0.1); padding: 30px; border-radius: 24px; backdrop-filter: blur(10px); }
+        /* --- TIMELINE MULTI-FASE --- */
+        #timeline-section { padding: 90px 0; position: relative; z-index: 10; }
+        .phase-container { max-width: 900px; margin: 0 auto 50px auto; background: rgba(255,255,255,0.8); border: 1px solid rgba(157,77,221,0.1); padding: 30px; border-radius: 24px; }
         .phase-title { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; padding-bottom: 12px; border-bottom: 2px solid rgba(157,77,221,0.1); }
         .phase-title .badge-fase { background: linear-gradient(45deg, var(--pink), var(--purple)); color: white; padding: 6px 14px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; }
         .phase-title h3 { font-size: 1.35rem; color: var(--dark); font-weight: 700; }
         
-        /* Sub-Timeline Grid Layout */
         .sub-timeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-        .sub-timeline-card { background: white; padding: 22px; border-radius: 16px; border: 1px solid #f1f5f9; box-shadow: 0 4px 15px rgba(0,0,0,0.01); border-left: 4px solid var(--purple); transition: 0.3s; }
-        .sub-timeline-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(157,77,221,0.06); }
+        .sub-timeline-card { background: white; padding: 22px; border-radius: 16px; border: 1px solid #f1f5f9; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border-left: 4px solid var(--purple); transition: 0.3s; }
+        .sub-timeline-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(157,77,221,0.08); }
         .sub-timeline-card.pso-flow { border-left-color: #00c6ff; }
         .sub-timeline-card.psic-flow { border-left-color: var(--pink); }
         .sub-timeline-card.event-flow { border-left-color: #22c55e; }
@@ -198,22 +226,26 @@
         .sub-timeline-card.pso-flow .sub-date { color: #00c6ff; }
         .sub-timeline-card h4 { font-size: 1.05rem; font-weight: 700; color: var(--dark); line-height: 1.4; }
 
-        /* --- PARTNERSHIP CHANNELS --- */
-        .partnership { padding: 80px 20px; text-align: center; position: relative; z-index: 10; }
+        /* --- PARTNERSHIP --- */
+        .partnership { padding: 90px 0; text-align: center; position: relative; z-index: 10; }
         .partner-cards { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
-        .p-card { background: white; border: 1px solid #f1f5f9; padding: 40px 30px; border-radius: 24px; width: 440px; text-align: left; transition: 0.3s; }
-        .p-card:hover { transform: translateY(-5px); border-color: var(--purple); box-shadow: 0 12px 35px rgba(157,77,221,0.08); }
-        .btn-wa { background: linear-gradient(45deg, #00c6ff, var(--purple)); color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; display: inline-block; font-weight: 600; border: none; cursor: pointer; }
+        .p-card { background: white; border: 1px solid #f1f5f9; padding: 40px 30px; border-radius: 24px; width: 440px; text-align: left; transition: 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .p-card:hover { transform: translateY(-5px); border-color: var(--purple); box-shadow: 0 12px 35px rgba(157,77,221,0.1); }
+        .p-card h3 { font-size: 1.4rem; margin-bottom: 12px; }
+        .p-card p { color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; }
+        .btn-wa { background: linear-gradient(45deg, #00c6ff, var(--purple)); color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; display: inline-block; font-weight: 600; border: none; cursor: pointer; transition: 0.3s; }
+        .btn-wa:hover { transform: scale(1.05); }
 
-        /* MODAL POPUP WINDOW */
-        .popup-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,23,42,0.3); backdrop-filter: blur(8px); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; pointer-events: none; transition: 0.3s; }
+        /* --- MODAL POPUP --- */
+        .popup-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,23,42,0.4); backdrop-filter: blur(5px); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; pointer-events: none; transition: 0.3s; }
         .popup-modal.active { opacity: 1; pointer-events: auto; }
-        .popup-box { background: white; padding: 40px; border-radius: 24px; max-width: 460px; width: 90%; position: relative; }
+        .popup-box { background: white; padding: 40px; border-radius: 24px; max-width: 460px; width: 90%; position: relative; transform: scale(0.8); transition: 0.3s; }
+        .popup-modal.active .popup-box { transform: scale(1); }
         .popup-close { position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.3rem; cursor: pointer; }
 
-        /* --- FOOTER LAYER --- */
-        footer { background: var(--dark); color: white; padding: 80px 20px 40px; position: relative; z-index: 10; }
-        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 40px; }
+        /* --- FOOTER --- */
+        footer { background: var(--dark); color: white; padding: 80px 0 40px; position: relative; z-index: 10; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 40px; }
         .footer-col h3 { color: var(--blue); margin-bottom: 20px; font-size: 1.15rem; }
         .footer-col ul { list-style: none; }
         .footer-col ul li { margin-bottom: 10px; font-size: 0.9rem; color: #94a3b8; }
@@ -221,26 +253,26 @@
         .footer-bottom { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; color: #64748b; }
 
         @media (max-width: 900px) {
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-            .hero h1 { font-size: 2.8rem; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 3rem; }
             .hero h2 { font-size: 1.3rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .deco-giant { display: none; } /* Matikan hiasan di HP agar rapi */
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-glow-1"></div>
-    <div class="bg-glow-2"></div>
+    <img src="Vector (4).png" class="deco-giant float-hero-1" alt="Hiasan">
+    <img src="bintang anjay (1).png" class="deco-giant float-hero-2" alt="Hiasan">
+    
+    <img src="Vector (2).png" class="deco-giant float-mid-1" alt="Hiasan">
+    <img src="Vector (3).png" class="deco-giant float-mid-2" alt="Hiasan">
+    
+    <img src="Vector (5).png" class="deco-giant float-bot-1" alt="Hiasan">
 
-    <!-- ELEMEN HIASAN RAKSASA ATAS (FIX SEKARANG MUNCUL DI ATAS SPREAD) -->
-    <img src="Vector (4).png" class="deco-giant float-hero-1" alt="Hiasan Kupu-Kupu Merah">
-    <img src="bintang anjay (1).png" class="deco-giant float-hero-2" alt="Hiasan Bintang Kanan">
-    <img src="Vector (2).png" class="deco-giant float-mid-1" alt="Hiasan Gelombang">
-    <img src="Vector (3).png" class="deco-giant float-mid-2" alt="Hiasan Abstrak">
-
-    <!-- NAVIGATION BAR -->
     <nav>
-        <div class="nav-container">
+        <div class="container nav-container">
             <div class="logo-nav">
                 <img src="Logo.png" alt="Physics Summit Logo">
                 <span>PHYSICS <span style="color:var(--pink)">SUMMIT</span></span>
@@ -256,7 +288,6 @@
         </div>
     </nav>
 
-    <!-- HERO HEADER SECTION (SIMETRIS & LUWES) -->
     <header class="hero" id="home1">
         <img src="Logo.png" alt="Physics Summit 11th Logo" class="main-logo" data-aos="zoom-in">
         <h1 data-aos="fade-up">11<sup>th</sup> Physics Summit</h1>
@@ -267,7 +298,6 @@
         </div>
     </header>
 
-    <!-- RANGKAIAN EVENT -->
     <section id="home3" class="events-section">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -275,15 +305,14 @@
                 <div class="bar"></div>
             </div>
             <div class="grid-3">
-                <!-- PSO -->
                 <div class="card" id="card-pso" data-aos="fade-up">
                     <div>
                         <div class="card-icon"><i class="fa-solid fa-user-graduate"></i></div>
                         <h3>Physics Summit Olympiad (PSO)</h3>
-                        <p class="card-brief">Olimpiade fisika tingkat nasional bergengsi bagi siswa SMA/SMK/sederajat berkelompok...</p>
+                        <p class="card-brief">Olimpiade fisika tingkat nasional bergengsi bagi siswa SMA/SMK/sederajat berkelompok.</p>
                         <div class="card-detail">
                             <ul class="detail-list">
-                                <li><strong>Format Beregu:</strong> Beranggotakan 2 orang peserta aktif dari sekolah yang sama.</li>
+                                <li><strong>Format Beregu:</strong> Beranggotakan 2 orang peserta dari sekolah yang sama.</li>
                                 <li><strong>Kompetensi:</strong> Menguji penalaran logika teoritis & penyelesaian masalah kompleks fisika.</li>
                             </ul>
                         </div>
@@ -291,32 +320,30 @@
                     <button class="btn-readmore" onclick="toggleCard('card-pso')">Lihat Selengkapnya <i class="fa-solid fa-chevron-down"></i></button>
                 </div>
                 
-                <!-- PSIC -->
                 <div class="card" id="card-psic" data-aos="fade-up" data-aos-delay="100">
                     <div>
                         <div class="card-icon"><i class="fa-solid fa-lightbulb" style="color: var(--purple);"></i></div>
                         <h3>Physics Summit Innovation Competition (PSIC)</h3>
-                        <p class="card-brief">Kompetisi inovasi ilmiah nasional siswa SMA/SMK untuk melatih berpikir kritis solutif...</p>
+                        <p class="card-brief">Kompetisi inovasi ilmiah nasional siswa SMA/SMK untuk melatih berpikir kritis solutif.</p>
                         <div class="card-detail">
                             <ul class="detail-list">
                                 <li><strong>Inovasi Sains:</strong> Pembuatan karya tulis/solusi berbasis implementasi sains terapan.</li>
-                                <li><strong>Sesi Final:</strong> Presentasi ide gagasan di hadapan dewan juri ahli secara langsung.</li>
+                                <li><strong>Sesi Final:</strong> Presentasi ide gagasan dan prototipe di hadapan dewan juri ahli.</li>
                             </ul>
                         </div>
                     </div>
                     <button class="btn-readmore" onclick="toggleCard('card-psic')">Lihat Selengkapnya <i class="fa-solid fa-chevron-down"></i></button>
                 </div>
                 
-                <!-- Open House -->
                 <div class="card" id="card-oh" data-aos="fade-up" data-aos-delay="200">
                     <div>
                         <div class="card-icon"><i class="fa-solid fa-school" style="color: var(--pink);"></i></div>
                         <h3>Open House Departemen Fisika</h3>
-                        <p class="card-brief">Ekskursi interaktif memperkenalkan klaster lab dan lingkungan belajar Fisika ITS...</p>
+                        <p class="card-brief">Ekskursi interaktif memperkenalkan klaster lab dan lingkungan belajar Fisika ITS.</p>
                         <div class="card-detail">
                             <ul class="detail-list">
                                 <li><strong>Laboratorium Tour:</strong> Menjelajahi laboratorium riset mutakhir Departemen Fisika.</li>
-                                <li><strong>Sharing Alumni:</strong> Sesi interaktif prospek karir lulusan serta info perkuliahan.</li>
+                                <li><strong>Sharing Alumni:</strong> Pengenalan bidang keilmuan dan prospek kerja alumni.</li>
                             </ul>
                         </div>
                     </div>
@@ -326,7 +353,6 @@
         </div>
     </section>
 
-    <!-- PORTAL FORMULIR PREVIEW -->
     <section class="reg-preview-section">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -345,14 +371,13 @@
                     <label>Nama Kelompok / Tim Pendaftar</label>
                     <input type="text" placeholder="Masukkan nama tim kelompok Anda">
                 </div>
-                <div style="text-align: center; margin-top: 20px;">
-                    <a href="https://physics-summit.vercel.app/#registration-section" class="btn btn-primary" style="width:100%; display:block; text-align:center;">Lanjutkan Pendaftaran Resmi</a>
+                <div style="text-align: center; margin-top: 25px;">
+                    <a href="https://physics-summit.vercel.app/#registration-section" class="btn btn-primary" style="width:100%; display:block;">Lanjutkan Pendaftaran Resmi</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- DOKUMENTASI -->
     <section class="gallery">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -360,88 +385,94 @@
                 <div class="bar"></div>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="Final PSO.JPG" alt="Dokumentasi"></div>
-                <div class="gallery-item"><img src="Final PSO 1.JPG" alt="Dokumentasi"></div>
-                <div class="gallery-item"><img src="Final PSEC Juri.jpg" alt="Dokumentasi"></div>
-                <div class="gallery-item"><img src="Final PSEC 1.jpg" alt="Dokumentasi"></div>
-                <div class="gallery-item"><img src="EWARDING.jpg" alt="Dokumentasi"></div>
-                <div class="gallery-item"><img src="EWARDING 2.jpg" alt="Dokumentasi"></div>
+                <div class="gallery-item" data-aos="fade-up"><img src="Final PSO.JPG" alt="Dokumentasi"></div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100"><img src="Final PSO 1.JPG" alt="Dokumentasi"></div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200"><img src="Final PSEC Juri.jpg" alt="Dokumentasi"></div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300"><img src="Final PSEC 1.jpg" alt="Dokumentasi"></div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="400"><img src="EWARDING.jpg" alt="Dokumentasi"></div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="500"><img src="EWARDING 2.jpg" alt="Dokumentasi"></div>
             </div>
         </div>
     </section>
 
-    <!-- HARGA BIAYA -->
     <section id="pricing" class="pricing-section">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2>Struktur Biaya Investasi Pendaftaran</h2>
+                <h2>Struktur Biaya Pendaftaran</h2>
                 <div class="bar"></div>
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;">
-                <!-- PSO Table -->
-                <div>
-                    <h3 style="margin-bottom:12px; color:var(--dark);"><i class="fa-solid fa-atom"></i> PSO (Olimpiade)</h3>
+                <div data-aos="fade-right">
+                    <h3 style="margin-bottom:15px; color:var(--dark);"><i class="fa-solid fa-atom"></i> PSO (Olimpiade)</h3>
                     <table class="pricing-table">
                         <thead><tr><th>Kategori</th><th>Periode</th><th>Paket</th><th>Harga</th></tr></thead>
                         <tbody>
                             <tr><td>Early Bird</td><td>3 Hari</td><td>1 Tim</td><td class="price-val">Rp100.000</td></tr>
-                            <tr><td rowspan="2">Gelombang 1</td><td rowspan="2">11 Hari</td><td>1 Tim</td><td class="price-val">Rp110.000</td></tr>
+                            <tr><td rowspan="3">Gelombang 1</td><td rowspan="3">11 Hari</td><td>1 Tim</td><td class="price-val">Rp110.000</td></tr>
                             <tr><td>2+1 Tim</td><td class="price-val">Rp315.000</td></tr>
+                            <tr><td>4+1 Tim</td><td class="price-val">Rp500.000</td></tr>
+                            <tr><td rowspan="3">Gelombang 2</td><td rowspan="3">11 Hari</td><td>1 Tim</td><td class="price-val">Rp125.000</td></tr>
+                            <tr><td>2+1 Tim</td><td class="price-val">Rp360.000</td></tr>
+                            <tr><td>4+1 Tim</td><td class="price-val">Rp575.000</td></tr>
                         </tbody>
                     </table>
                 </div>
-                <!-- PSIC Table -->
-                <div>
-                    <h3 style="margin-bottom:12px; color:var(--dark);"><i class="fa-solid fa-flask"></i> PSIC (Inovasi)</h3>
+                <div data-aos="fade-left">
+                    <h3 style="margin-bottom:15px; color:var(--dark);"><i class="fa-solid fa-flask"></i> PSIC (Inovasi)</h3>
                     <table class="pricing-table">
                         <thead><tr><th>Kategori</th><th>Periode</th><th>Paket</th><th>Harga</th></tr></thead>
                         <tbody>
                             <tr><td>Early Bird</td><td>3 Hari</td><td>1 Tim</td><td class="price-val">Rp30.000</td></tr>
-                            <tr><td rowspan="2">Gelombang 1</td><td rowspan="2">11 Hari</td><td>1 Tim</td><td class="price-val">Rp40.000</td></tr>
+                            <tr><td rowspan="3">Gelombang 1</td><td rowspan="3">11 Hari</td><td>1 Tim</td><td class="price-val">Rp40.000</td></tr>
                             <tr><td>2+1 Tim</td><td class="price-val">Rp111.000</td></tr>
+                            <tr><td>4+1 Tim</td><td class="price-val">Rp170.000</td></tr>
+                            <tr><td rowspan="3">Gelombang 2</td><td rowspan="3">11 Hari</td><td>1 Tim</td><td class="price-val">Rp50.000</td></tr>
+                            <tr><td>2+1 Tim</td><td class="price-val">Rp141.000</td></tr>
+                            <tr><td>4+1 Tim</td><td class="price-val">Rp220.000</td></tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;" data-aos="zoom-in">
+                <div style="background: white; display: inline-block; padding: 20px 40px; border-radius: 50px; border: 2px dashed var(--purple); box-shadow: 0 10px 25px rgba(0,0,0,0.02);">
+                    <span style="background: #22c55e; color: white; padding: 6px 16px; border-radius: 20px; font-weight: 800; margin-right: 10px;">FREE / GRATIS</span>
+                    <strong style="font-size: 1.05rem; color:var(--dark);">RSVP OPEN HOUSE DEPARTEMEN FISIKA ITS</strong>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========================================================
-       --- RE-DESIGNED MULTI-FASE TIMELINE COMPONENT (SUB-FLOW) ---
-       ======================================================== -->
     <section id="timeline-section">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2>Lini Masa Perjalanan Kegiatan</h2>
+                <h2>Lini Masa Kegiatan</h2>
                 <div class="bar"></div>
             </div>
 
-            <!-- FASE 1: PENDAFTARAN BERSAMA (PSO & PSIC BARENG) -->
             <div class="phase-container" data-aos="fade-up">
                 <div class="phase-title">
                     <span class="badge-fase">FASE 1</span>
-                    <h3>Pendaftaran Gelombang (PSO & PSIC)</h3>
+                    <h3>Pendaftaran (PSO & PSIC)</h3>
                 </div>
                 <div class="sub-timeline-grid">
                     <div class="sub-timeline-card">
                         <span class="sub-date">01 – 03 Agustus 2026</span>
                         <h4>Gelombang Early Bird</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Terbuka serentak untuk pendaftaran kompetisi PSO dan PSIC.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Terbuka serentak pendaftaran kompetisi PSO dan PSIC.</p>
                     </div>
                     <div class="sub-timeline-card">
                         <span class="sub-date">04 – 18 Agustus 2026</span>
                         <h4>Pendaftaran Gelombang 1</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Pendaftaran reguler klaster pertama dengan harga paket promosi.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Pendaftaran reguler dengan harga paket promosi awal.</p>
                     </div>
                     <div class="sub-timeline-card">
-                        <span class="sub-date">19 Agustus – 02 September 2026</span>
+                        <span class="sub-date">19 Agustus – 02 Sept 2026</span>
                         <h4>Pendaftaran Gelombang 2</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Gelombang pendaftaran penutup seluruh rangkaian kompetisi.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Gelombang pendaftaran penutup rangkaian kompetisi.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- FASE 2: SUB-ALUR PERJALANAN KOMPETISI PSO -->
             <div class="phase-container" data-aos="fade-up">
                 <div class="phase-title">
                     <span class="badge-fase" style="background: #00c6ff;">FASE 2 - PSO</span>
@@ -449,54 +480,47 @@
                 </div>
                 <div class="sub-timeline-grid">
                     <div class="sub-timeline-card pso-flow">
-                        <span class="sub-date">September 2026</span>
+                        <span class="sub-date">26 September 2026</span>
                         <h4>Babak Penyisihan PSO</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Uji pengerjaan soal logika fisika analitis serentak se-Indonesia.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Penyisihan serentak melalui seleksi terpusat.</p>
                     </div>
                     <div class="sub-timeline-card pso-flow">
-                        <span class="sub-date">Oktober 2026</span>
+                        <span class="sub-date">10 Oktober 2026</span>
                         <h4>Babak Semifinal PSO</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Penyaringan tim-tim unggulan terbaik menuju perebutan tiket puncak.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Penyaringan tim unggulan terbaik secara luring.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- FASE 3: SUB-ALUR PERJALANAN KOMPETISI PSIC -->
             <div class="phase-container" data-aos="fade-up">
                 <div class="phase-title">
                     <span class="badge-fase" style="background: var(--pink);">FASE 3 - PSIC</span>
-                    <h3>Alur Pelaksanaan Inovasi Kategori (PSIC)</h3>
+                    <h3>Alur Pelaksanaan Inovasi (PSIC)</h3>
                 </div>
                 <div class="sub-timeline-grid">
                     <div class="sub-timeline-card psic-flow">
-                        <span class="sub-date">September 2026</span>
-                        <h4>Pengumpulan & Seleksi Abstrak Karya</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Penyerahan ide purwarupa inovasi ilmiah serta kurasi dewan juri.</p>
+                        <span class="sub-date">19 September 2026</span>
+                        <h4>Pengumpulan Full Paper PSIC</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Batas akhir penyerahan berkas proposal karya cipta inovasi.</p>
                     </div>
                     <div class="sub-timeline-card psic-flow">
-                        <span class="sub-date">Awal Oktober 2026</span>
-                        <h4>Pengumuman Lolos Full Paper</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Tim terpilih wajib mengumpulkan berkas proposal utuh karya cipta.</p>
+                        <span class="sub-date">03 Oktober 2026</span>
+                        <h4>Pengumuman Kelolosan PSIC</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Pengumuman tim inovator yang berhak melaju ke final.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- FASE 4: ACARA PUNCAK & OPEN HOUSE (DEADLINE BEDA) -->
             <div class="phase-container" data-aos="fade-up">
                 <div class="phase-title">
                     <span class="badge-fase" style="background: #22c55e;">FASE 4 - MAIN EVENT</span>
-                    <h3>Open House & Puncak Grand Final</h3>
+                    <h3>Puncak Acara & Awarding</h3>
                 </div>
                 <div class="sub-timeline-grid">
-                    <div class="sub-timeline-card event-flow">
-                        <span class="sub-date">Pertengahan Oktober 2026</span>
-                        <h4>Batas RSVP Pendaftaran Open House</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">*Batas registrasi penutupan kuota pengunjung Open House Lab (Beda Jadwal).</p>
-                    </div>
                     <div class="sub-timeline-card event-flow" style="background: #f0fdf4; border-color: #22c55e;">
                         <span class="sub-date" style="color: #22c55e;">24 Oktober 2026</span>
-                        <h4>Grand Final & Puncak Awarding Day</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Pelaksanaan pameran, tur laboratorium, final presentasi, dan seremoni juara di Kampus ITS.</p>
+                        <h4>Grand Final, Open House & Awarding Day</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Pelaksanaan pameran, tur laboratorium, final presentasi PSIC & PSO, serta seremoni penobatan juara.</p>
                     </div>
                 </div>
             </div>
@@ -504,7 +528,6 @@
         </div>
     </section>
 
-    <!-- PARTNERSHIP CHANNELS -->
     <section id="partnership" class="partnership">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -526,37 +549,35 @@
         </div>
     </section>
 
-    <!-- MODAL POPUP WA -->
     <div class="popup-modal" id="wa-interactive-modal">
         <div class="popup-box">
             <button class="popup-close" onclick="closeContactModal()"><i class="fa-solid fa-xmark"></i></button>
             <h3 id="modal-heading-title">Hubungi Panitia</h3>
-            <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:15px;">Sistem akan memformat pesan WhatsApp otomatis menuju narahubung kami.</p>
+            <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:20px;">Pesan akan otomatis diformat dan diarahkan ke WhatsApp narahubung panitia kami.</p>
             <div class="form-group">
                 <label>Nama / Instansi Anda</label>
-                <input type="text" id="visitor-name" placeholder="Contoh: Budi / SMAN 1">
+                <input type="text" id="visitor-name" placeholder="Contoh: Budi / SMAN 1 / Media XYZ">
             </div>
-            <button class="btn btn-primary" style="width: 100%; text-align: center;" id="modal-redirect-trigger">Kirim ke WhatsApp</button>
+            <button class="btn btn-primary" style="width: 100%; text-align: center;" id="modal-redirect-trigger">Kirim Pesan ke WhatsApp</button>
         </div>
     </div>
 
-    <!-- FOOTER -->
     <footer>
-        <div class="footer-grid">
+        <div class="container footer-grid">
             <div class="footer-col">
                 <h3 style="color:#fff;">11<sup>th</sup> PHYSICS SUMMIT</h3>
-                <p style="font-size:0.9rem; line-height:1.6; color:#94a3b8;">Agenda nasional tahunan akbar Departemen Fisika ITS sebagai episentrum wadah akselerasi inovasi sains terapan.</p>
+                <p style="font-size:0.9rem; line-height:1.6; color:#94a3b8;">Agenda nasional tahunan akbar Departemen Fisika ITS sebagai episentrum wadah akselerasi inovasi sains terapan dan olimpiade bergengsi.</p>
             </div>
             <div class="footer-col">
                 <h3>Navigasi</h3>
                 <ul>
                     <li><a href="#home1">Home</a></li>
-                    <li><a href="#home3">Rangkaian</a></li>
-                    <li><a href="#timeline-section">Timeline</a></li>
+                    <li><a href="#home3">Rangkaian Acara</a></li>
+                    <li><a href="#timeline-section">Timeline Kegiatan</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h3>Kategori</h3>
+                <h3>Kategori Acara</h3>
                 <ul>
                     <li>Olimpiade (PSO)</li>
                     <li>Inovasi (PSIC)</li>
@@ -566,22 +587,25 @@
             <div class="footer-col">
                 <h3>Hubungi Kami</h3>
                 <ul>
-                    <li>CP: +62 813-6219-2288</li>
+                    <li>CP Eksternal: +62 813-6219-2288</li>
+                    <li>Sponsorship: +62 813-6219-2289</li>
                     <li>Email: physicssummit.its@gmail.com</li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2026 11<sup>th</sup> Physics Summit - Departemen Fisika ITS.
+            <div class="container">
+                &copy; 2026 11<sup>th</sup> Physics Summit - Departemen Fisika ITS.
+            </div>
         </div>
     </footer>
 
-    <!-- INTERACTIVE SCRIPTS STACK -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Init Animasi AOS
         AOS.init({ duration: 1000, once: true });
 
-        // Toggle detail kartu rangkaian
+        // Toggle Detail Kartu Rangkaian Acara
         function toggleCard(cardId) {
             const card = document.getElementById(cardId);
             const btn = card.querySelector('.btn-readmore');
@@ -593,14 +617,14 @@
             }
         }
 
-        // WhatsApp Modal Redirection Logic
+        // Logika WhatsApp Modal Popup
         let targetedPhone = "";
         let targetedRole = "";
         
         function openContactModal(name, phone, role) {
             targetedPhone = phone;
             targetedRole = role;
-            document.getElementById('modal-heading-title').innerText = `Hubungi Panitia: ${name}`;
+            document.getElementById('modal-heading-title').innerText = `Hubungi ${name}`;
             document.getElementById('wa-interactive-modal').classList.add('active');
         }
         
@@ -611,7 +635,7 @@
         
         document.getElementById('modal-redirect-trigger').addEventListener('click', () => {
             const clientIdentifier = document.getElementById('visitor-name').value || "Saya";
-            const messageString = encodeURIComponent(`Halo, perkenalkan saya ${clientIdentifier}. Ingin menanyakan informasi panduan kelanjutan terkait ${targetedRole} pada gelaran acara 11th Physics Summit ITS.`);
+            const messageString = encodeURIComponent(`Halo, perkenalkan saya ${clientIdentifier}. Saya ingin menanyakan informasi dan panduan kelanjutan terkait kerja sama ${targetedRole} pada 11th Physics Summit ITS.`);
             window.open(`https://wa.me/${targetedPhone}?text=${messageString}`, '_blank');
             closeContactModal();
         });
