@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>11th Physics Summit - Atomic Horizon</title>
+    <!-- Google Font Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon Modern -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -217,10 +219,19 @@
 
         /* Hero / Home Section */
         .hero-section {
-            padding: 100px 0 80px 0;
+            padding: 60px 0 80px 0;
             text-align: center;
             position: relative;
             z-index: 10;
+        }
+        .hero-logo-container {
+            margin-bottom: 20px;
+        }
+        .hero-logo {
+            max-width: 160px;
+            height: auto;
+            filter: drop-shadow(0 10px 20px rgba(157, 78, 221, 0.25));
+            animation: floatFly 5s ease-in-out infinite;
         }
         .hero-title {
             font-size: 3.8rem;
@@ -382,7 +393,6 @@
             gap: 4px;
         }
 
-        /* Constellation Animation Decor on Open House Card */
         .constellation-decor {
             margin-top: 15px;
             padding: 10px;
@@ -652,6 +662,67 @@
             font-size: 0.85rem;
         }
 
+        /* Documentation Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-3d);
+            border: 1px solid var(--glass-border);
+            aspect-ratio: 4/3;
+            background: #000;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.08) rotate(1deg);
+        }
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.2) 60%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        .gallery-tag {
+            align-self: flex-start;
+            background: var(--pink-bright);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .gallery-title-text {
+            color: #ffffff;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
         /* FAQ Section */
         .faq-wrapper {
             max-width: 800px;
@@ -828,11 +899,13 @@
 </head>
 <body>
 
+    <!-- Fast Loading Screen -->
     <div id="fast-loader">
         <div class="spinner"></div>
         <h3 style="margin-top: 16px; font-weight:600; color:var(--purple-bright);">Physics Summit 11th</h3>
     </div>
 
+    <!-- Background Ornaments Fluida & Kupu Glow -->
     <div class="decorations-container">
         <div class="shape-3d shape-1"></div>
         <div class="shape-3d shape-2"></div>
@@ -840,6 +913,7 @@
         <div class="butterfly-glow bf-2">🦋</div>
     </div>
 
+    <!-- Navigation Header -->
     <header>
         <div class="container navbar">
             <a href="#home" class="nav-logo">Physics Summit</a>
@@ -852,13 +926,20 @@
                 <li><a href="#benefit" class="nav-link">Benefit</a></li>
                 <li><a href="#timeline" class="nav-link">Timeline</a></li>
                 <li><a href="#biaya" class="nav-link">Biaya Pendaftaran</a></li>
+                <li><a href="#dokumentasi" class="nav-link">Dokumentasi</a></li>
                 <li><a href="#faq" class="nav-link">FAQ</a></li>
             </ul>
         </div>
     </header>
 
+    <!-- Home / Hero Section -->
     <section id="home" class="hero-section">
         <div class="container">
+            <!-- Modifikasi: Penambahan Logo Resmi Di Atas Judul -->
+            <div class="hero-logo-container">
+                <img src="Logo.png" alt="Logo 11th Physics Summit" class="hero-logo">
+            </div>
+            
             <h1 class="hero-title">11<sup>th</sup> Physics Summit</h1>
             <p class="hero-subtitle">Agenda tahunan Departemen Fisika ITS yang menghadirkan kompetisi nasional, inovasi, dan pengalaman edukatif bagi siswa SMA/SMK di seluruh Indonesia.</p>
             
@@ -867,6 +948,7 @@
                 <a href="#kompetisi" class="btn-3d btn-outline">Rangkaian Acara <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
+            <!-- Logo, Tema & Filosofi Box -->
             <div class="glass-card theme-box">
                 <div class="theme-header">
                     <h3>Tema Acara: Atomic Horizon</h3>
@@ -895,12 +977,14 @@
         </div>
     </section>
 
+    <!-- Rangkaian Kegiatan / Kompetisi Section -->
     <section id="kompetisi">
         <div class="container">
             <h2 class="section-title">Rangkaian Kegiatan</h2>
             <p class="section-subtitle">Ikuti berbagai program kompetitif berskala nasional dan pameran interaktif masa depan.</p>
             
             <div class="events-grid">
+                <!-- Card 1: PSO -->
                 <div class="glass-card event-card">
                     <div>
                         <h3>Physics Summit Olympiad (PSO)</h3>
@@ -917,6 +1001,7 @@
                     </div>
                 </div>
 
+                <!-- Card 2: PSIC -->
                 <div class="glass-card event-card">
                     <div>
                         <h3>Physics Summit Innovation Competition (PSIC)</h3>
@@ -933,6 +1018,7 @@
                     </div>
                 </div>
 
+                <!-- Card 3: Open House -->
                 <div class="glass-card event-card">
                     <div>
                         <h3>Open House Departemen Fisika ITS</h3>
@@ -943,7 +1029,7 @@
                         <p>Sebuah pameran sains terbuka bagi semua kalangan. Temukan pengalaman belajar, riset, dan inovasi masa depan di Departemen Fisika ITS. Berinteraksi langsung dengan fasilitas lab, karya mahasiswa, serta karya ilmiah inovatif dari para finalis PSIC.</p>
                         
                         <div class="constellation-decor">
-                            <i class="fa-solid fa-star-and-crescent" class="fa-spin"></i> ✨ Bertabur hiasan rasi bintang cantik & interaktif di venue!
+                            <i class="fa-solid fa-star-and-crescent"></i> ✨ Bertabur hiasan rasi bintang cantik & interaktif di venue!
                         </div>
                     </div>
                     <div class="contact-person">
@@ -953,6 +1039,7 @@
                 </div>
             </div>
 
+            <!-- Tautan Formulir Registrasi -->
             <div style="margin-top: 50px;">
                 <div class="registration-box">
                     <h3 style="font-weight: 700; font-size:1.4rem;"><i class="fa-solid fa-file-pen" style="color:var(--pink-bright);"></i> Formulir Registrasi Resmi</h3>
@@ -975,6 +1062,7 @@
         </div>
     </section>
 
+    <!-- Benefit Peserta Section -->
     <section id="benefit" style="background: rgba(255,255,255,0.3);">
         <div class="container">
             <h2 class="section-title">Benefit Peserta</h2>
@@ -982,6 +1070,7 @@
             
             <div class="glass-card benefit-tabs-container">
                 <div class="benefit-grid">
+                    <!-- Benefit PSO -->
                     <div class="benefit-block">
                         <h3>🏆 Olympiad (PSO)</h3>
                         <ul class="benefit-list">
@@ -997,6 +1086,7 @@
                         </ul>
                     </div>
 
+                    <!-- Benefit PSIC -->
                     <div class="benefit-block">
                         <h3>💡 Innovation (PSIC)</h3>
                         <ul class="benefit-list">
@@ -1013,6 +1103,7 @@
                         </ul>
                     </div>
 
+                    <!-- Benefit Open House -->
                     <div class="benefit-block">
                         <h3>🏛️ Open House Fisika</h3>
                         <ul class="benefit-list">
@@ -1028,12 +1119,14 @@
         </div>
     </section>
 
+    <!-- Timeline Section -->
     <section id="timeline">
         <div class="container">
             <h2 class="section-title">Timeline Kegiatan</h2>
             <p class="section-subtitle">Catat tanggal-tanggal penting rangkaian 11th Physics Summit agar tidak terlewat.</p>
             
             <div class="timeline-container">
+                <!-- Phase 1 -->
                 <div class="glass-card timeline-item active">
                     <div class="timeline-badge"><i class="fa-solid fa-calendar-days"></i></div>
                     <div class="timeline-box" onclick="toggleTimeline(this)">
@@ -1053,6 +1146,7 @@
                     </div>
                 </div>
 
+                <!-- Phase 2 -->
                 <div class="glass-card timeline-item">
                     <div class="timeline-badge"><i class="fa-solid fa-graduation-cap"></i></div>
                     <div class="timeline-box" onclick="toggleTimeline(this)">
@@ -1070,6 +1164,7 @@
                     </div>
                 </div>
 
+                <!-- Phase 3 -->
                 <div class="glass-card timeline-item">
                     <div class="timeline-badge"><i class="fa-solid fa-atom"></i></div>
                     <div class="timeline-box" onclick="toggleTimeline(this)">
@@ -1094,6 +1189,7 @@
                     </div>
                 </div>
 
+                <!-- Phase 4 -->
                 <div class="glass-card timeline-item">
                     <div class="timeline-badge"><i class="fa-solid fa-book-open"></i></div>
                     <div class="timeline-box" onclick="toggleTimeline(this)">
@@ -1116,13 +1212,14 @@
                     </div>
                 </div>
 
+                <!-- Phase 5 -->
                 <div class="glass-card timeline-item">
                     <div class="timeline-badge"><i class="fa-solid fa-building"></i></div>
                     <div class="timeline-box" onclick="toggleTimeline(this)">
                         <div class="timeline-summary">
                             <div>
                                 <h3>Phase 5: Open House Departemen Fisika</h3>
-                                <span class="timeline-date">24 Oktober</span>
+                                <span class="timeline-date">14 Oktober</span>
                             </div>
                             <span class="timeline-trigger">▼ Lihat Selengkapnya <i class="fa-solid fa-chevron-down"></i></span>
                         </div>
@@ -1132,6 +1229,7 @@
                     </div>
                 </div>
 
+                <!-- Phase 6 -->
                 <div class="glass-card timeline-item">
                     <div class="timeline-badge"><i class="fa-solid fa-trophy"></i></div>
                     <div class="timeline-box" onclick="toggleTimeline(this)">
@@ -1154,12 +1252,14 @@
         </div>
     </section>
 
+    <!-- Biaya Pendaftaran Section -->
     <section id="biaya">
         <div class="container">
             <h2 class="section-title">Biaya Pendaftaran</h2>
             <p class="section-subtitle">Klik tombol "Lihat Harga" pada kategori kartu di bawah untuk membuka skema biaya terperinci.</p>
             
             <div class="pricing-container">
+                <!-- Card 1: PSO Pricing -->
                 <div class="glass-card pricing-card">
                     <div class="pricing-header" onclick="togglePricing(this)">
                         <h3><i class="fa-solid fa-medal" style="color: var(--pink-bright);"></i> Kategori Lomba PSO</h3>
@@ -1205,6 +1305,7 @@
                     </div>
                 </div>
 
+                <!-- Card 2: PSIC Pricing -->
                 <div class="glass-card pricing-card">
                     <div class="pricing-header" onclick="togglePricing(this)">
                         <h3><i class="fa-solid fa-lightbulb" style="color: var(--purple-bright);"></i> Kategori Lomba PSIC</h3>
@@ -1250,6 +1351,7 @@
                     </div>
                 </div>
 
+                <!-- Card 3: Paket Gabungan Pricing -->
                 <div class="glass-card pricing-card">
                     <div class="pricing-header" onclick="togglePricing(this)">
                         <h3><i class="fa-solid fa-layer-group" style="color: var(--blue-accent);"></i> Paket Bundling / Gabungan</h3>
@@ -1273,6 +1375,7 @@
                                         <td>1 PSO + 1 PSIC</td>
                                         <td><strong>Rp125.000</strong></td>
                                     </tr>
+                                    <!-- Gelombang 1 Stack -->
                                     <tr>
                                         <td rowspan="4" style="vertical-align: middle; border-bottom: 2px solid #e2e8f0;"><strong>Gelombang 1</strong></td>
                                         <td rowspan="4" style="vertical-align: middle; border-bottom: 2px solid #e2e8f0;">4 - 18 Agustus</td>
@@ -1291,6 +1394,7 @@
                                         <td>3 PSO + 2 PSIC</td>
                                         <td>Rp375.000</td>
                                     </tr>
+                                    <!-- Gelombang 2 Stack -->
                                     <tr>
                                         <td rowspan="4" style="vertical-align: middle;"><strong>Gelombang 2</strong></td>
                                         <td rowspan="4" style="vertical-align: middle;">19 Agustus - 2 September</td>
@@ -1318,6 +1422,66 @@
         </div>
     </section>
 
+    <!-- Modifikasi: Penambahan Section Dokumentasi Galeri Kegiatan -->
+    <section id="dokumentasi">
+        <div class="container">
+            <h2 class="section-title">Dokumentasi Tahun Lalu</h2>
+            <p class="section-subtitle">Intip sekilas keseruan persaingan sengit, kreativitas, dan momen selebrasi berharga di ajang Physics Summit terdahulu.</p>
+            
+            <div class="gallery-grid">
+                <!-- Item 1 -->
+                <div class="gallery-item">
+                    <img src="EWARDING.jpg" alt="Dokumentasi Awarding Physics Summit">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Ceremony</span>
+                        <h4 class="gallery-title-text">Sesi Pembagian Penghargaan Utama</h4>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="gallery-item">
+                    <img src="EWARDING 2.jpg" alt="Dokumentasi Panggung Juara">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Ceremony</span>
+                        <h4 class="gallery-title-text">Selebrasi Kemenangan Para Finalis</h4>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="gallery-item">
+                    <img src="Final PSEC 1.jpg" alt="Dokumentasi Presentasi Finalis PSEC">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Competition</span>
+                        <h4 class="gallery-title-text">Pemaparan Inovasi Karya Tulis Ilmiah</h4>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="gallery-item">
+                    <img src="Final PSEC Juri.jpg" alt="Dokumentasi Penilaian Juri PSEC">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Evaluation</span>
+                        <h4 class="gallery-title-text">Sesi Tanya Jawab Interaktif Bersama Juri Ahli</h4>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="gallery-item">
+                    <img src="Final PSO.JPG" alt="Dokumentasi Ujian Tertulis Final PSO">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Olympiad</span>
+                        <h4 class="gallery-title-text">Ujian Tertulis Babak Final Kategori Olimpiade</h4>
+                    </div>
+                </div>
+                <!-- Item 6 -->
+                <div class="gallery-item">
+                    <img src="Final PSO 1.JPG" alt="Dokumentasi Suasana Lomba PSO">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Olympiad</span>
+                        <h4 class="gallery-title-text">Fokus Tingkat Tinggi Peserta Mengatasi Tantangan Soal</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
     <section id="faq">
         <div class="container">
             <h2 class="section-title">Frequently Asked Questions</h2>
@@ -1357,6 +1521,7 @@
         </div>
     </section>
 
+    <!-- Footer Area -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -1373,6 +1538,7 @@
                         <li><a href="#benefit">Benefit</a></li>
                         <li><a href="#timeline">Timeline</a></li>
                         <li><a href="#biaya">Biaya Pendaftaran</a></li>
+                        <li><a href="#dokumentasi">Dokumentasi</a></li>
                     </ul>
                 </div>
 
@@ -1404,8 +1570,9 @@
         </div>
     </footer>
 
+    <!-- JavaScript Interaktif -->
     <script>
-        // 1. Penanganan Loader Layar Cepat (Fast Loader)
+        // 1. Penanganan Loader Layar Cepat
         window.addEventListener('load', function() {
             const loader = document.getElementById('fast-loader');
             loader.style.opacity = '0';
@@ -1428,7 +1595,6 @@
             }
         });
 
-        // Tutup menu otomatis saat link navigasi di klik (khusus tampilan mobile)
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 navList.classList.remove('active');
@@ -1439,14 +1605,11 @@
         // 3. Fungsi Toggle Akordeon Tabel Biaya Pendaftaran
         function togglePricing(element) {
             const card = element.parentElement;
-            
-            // Tutup card pricing lain yang sedang terbuka (opsional, untuk kerapian)
             document.querySelectorAll('.pricing-card').forEach(item => {
                 if(item !== card) {
                     item.classList.remove('active');
                 }
             });
-
             card.classList.toggle('active');
         }
 
@@ -1469,7 +1632,6 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
                 if (pageYOffset >= (sectionTop - 120)) {
                     current = section.getAttribute('id');
                 }
