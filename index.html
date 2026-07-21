@@ -378,33 +378,6 @@
             line-height: 1.6;
             margin-bottom: 20px;
         }
-        .contact-person {
-            margin-top: auto;
-            padding-top: 15px;
-            border-top: 1px dashed rgba(0,0,0,0.1);
-            font-size: 0.9rem;
-        }
-        .contact-person a {
-            color: #25d366;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .constellation-decor {
-            margin-top: 15px;
-            padding: 10px;
-            background: radial-gradient(circle, rgba(157,78,221,0.15) 0%, transparent 80%);
-            border-radius: 12px;
-            font-size: 0.85rem;
-            font-style: italic;
-            color: var(--purple-bright);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
 
         /* Registrasi & Formulir Section */
         .registration-box {
@@ -433,83 +406,6 @@
         .reg-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 25px rgba(157, 78, 221, 0.15);
-        }
-
-        /* Biaya Pendaftaran dengan Accordion/Toggle */
-        .pricing-container {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .pricing-card {
-            overflow: hidden;
-        }
-        .pricing-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-        }
-        .pricing-header h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .toggle-icon {
-            font-size: 1.1rem;
-            transition: transform 0.3s ease;
-            color: var(--pink-bright);
-        }
-        .pricing-card.active .toggle-icon {
-            transform: rotate(180deg);
-        }
-        .pricing-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
-        }
-        .pricing-card.active .pricing-content {
-            max-height: 1000px;
-            transition: max-height 0.4s cubic-bezier(1, 0, 1, 0);
-            margin-top: 24px;
-        }
-        
-        /* Table Styles */
-        .table-wrapper {
-            overflow-x: auto;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        th, td {
-            padding: 14px 18px;
-            font-size: 0.95rem;
-        }
-        th {
-            background: linear-gradient(45deg, #f8fafc, #f1f5f9);
-            color: var(--text-dark);
-            font-weight: 600;
-            border-bottom: 2px solid #e2e8f0;
-        }
-        td {
-            border-bottom: 1px solid #f1f5f9;
-            color: var(--text-muted);
-        }
-        tr:last-child td {
-            border-bottom: none;
-        }
-        tr:hover td {
-            background-color: #fafafa;
-            color: var(--text-dark);
         }
 
         /* Timeline Section */
@@ -662,68 +558,7 @@
             font-size: 0.85rem;
         }
 
-        /* Documentation Gallery Section */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-top: 20px;
-        }
-        .gallery-item {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-3d);
-            border: 1px solid var(--glass-border);
-            aspect-ratio: 4/3;
-            background: #000;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-        .gallery-item:hover img {
-            transform: scale(1.08) rotate(1deg);
-        }
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.2) 60%, transparent 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 24px;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-        .gallery-tag {
-            align-self: flex-start;
-            background: var(--pink-bright);
-            color: #ffffff;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 4px 12px;
-            border-radius: 12px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .gallery-title-text {
-            color: #ffffff;
-            font-size: 1.05rem;
-            font-weight: 600;
-        }
-
-        /* FAQ Section */
+        /* Table & FAQ Styling */
         .faq-wrapper {
             max-width: 800px;
             margin: 0 auto;
@@ -769,8 +604,24 @@
         .faq-item.active .faq-icon {
             transform: rotate(45deg);
         }
+        
+        .pricing-container { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+        .pricing-card { overflow: hidden; }
+        .pricing-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+        .pricing-header h3 { font-size: 1.3rem; font-weight: 600; display: flex; align-items: center; gap: 12px; }
+        .toggle-icon { font-size: 1.1rem; transition: transform 0.3s ease; color: var(--pink-bright); }
+        .pricing-card.active .toggle-icon { transform: rotate(180deg); }
+        .pricing-content { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0, 1, 0, 1); }
+        .pricing-card.active .pricing-content { max-height: 1000px; transition: max-height 0.4s cubic-bezier(1, 0, 1, 0); margin-top: 24px; }
+        
+        .table-wrapper { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; text-align: left; background: #ffffff; border-radius: 12px; overflow: hidden; }
+        th, td { padding: 14px 18px; font-size: 0.95rem; }
+        th { background: linear-gradient(45deg, #f8fafc, #f1f5f9); color: var(--text-dark); font-weight: 600; border-bottom: 2px solid #e2e8f0; }
+        td { border-bottom: 1px solid #f1f5f9; color: var(--text-muted); }
+        tr:hover td { background-color: #fafafa; color: var(--text-dark); }
 
-        /* Footer & Navigation Bottom */
+        /* Footer */
         footer {
             background: #0f172a;
             color: #f8fafc;
@@ -785,115 +636,21 @@
             gap: 40px;
             margin-bottom: 50px;
         }
-        .footer-about h2 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, var(--pink-bright), var(--blue-accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .footer-about p {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-        .footer-links h4 {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        .footer-links h4::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -6px;
-            width: 35px;
-            height: 2px;
-            background: var(--pink-bright);
-        }
-        .footer-links ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .footer-links ul a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-        .footer-links ul a:hover {
-            color: #ffffff;
-            padding-left: 4px;
-        }
-        .footer-contact p {
-            font-size: 0.9rem;
-            color: #94a3b8;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .footer-contact strong {
-            color: #ffffff;
-        }
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255,255,255,0.05);
-            padding: 8px 16px;
-            border-radius: 20px;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: 0.3s;
-            margin-top: 10px;
-        }
-        .social-link:hover {
-            background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
-            transform: scale(1.05);
-        }
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #1e293b;
-            color: #64748b;
-            font-size: 0.85rem;
-        }
-
-        /* Responsive Design Rules */
-        @media (max-width: 992px) {
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
+        .footer-about h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 15px; background: linear-gradient(45deg, var(--pink-bright), var(--blue-accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .footer-about p { color: #94a3b8; font-size: 0.9rem; line-height: 1.6; }
+        .footer-links h4 { font-size: 1.1rem; margin-bottom: 20px; position: relative; }
+        .footer-links h4::after { content: ''; position: absolute; left: 0; bottom: -6px; width: 35px; height: 2px; background: var(--pink-bright); }
+        .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .footer-links ul a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .footer-links ul a:hover { color: #ffffff; padding-left: 4px; }
+        
+        @media (max-width: 992px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 80px;
-                flex-direction: column;
-                background: rgba(255,255,255,0.98);
-                width: 100%;
-                text-align: center;
-                padding: 40px 0;
-                gap: 24px;
-                box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-                transition: 0.4s ease;
-            }
+            .nav-menu { position: fixed; left: -100%; top: 80px; flex-direction: column; background: rgba(255,255,255,0.98); width: 100%; text-align: center; padding: 40px 0; gap: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.4s ease; }
             .nav-menu.active { left: 0; }
             .menu-toggle { display: block; }
             .hero-buttons { flex-direction: column; align-items: center; }
-            .btn-3d { width: 100%; justify-content: center; }
             .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-            .timeline-container::before { left: 22px; }
-            .timeline-item { padding-left: 55px; }
-            .timeline-badge { left: 4px; width: 36px; height: 36px; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -905,7 +662,7 @@
         <h3 style="margin-top: 16px; font-weight:600; color:var(--purple-bright);">Physics Summit 11th</h3>
     </div>
 
-    <!-- Background Ornaments Fluida & Kupu Glow -->
+    <!-- Background Ornaments -->
     <div class="decorations-container">
         <div class="shape-3d shape-1"></div>
         <div class="shape-3d shape-2"></div>
@@ -925,8 +682,7 @@
                 <li><a href="#kompetisi" class="nav-link">Kompetisi</a></li>
                 <li><a href="#benefit" class="nav-link">Benefit</a></li>
                 <li><a href="#timeline" class="nav-link">Timeline</a></li>
-                <li><a href="#biaya" class="nav-link">Biaya Pendaftaran</a></li>
-                <li><a href="#dokumentasi" class="nav-link">Dokumentasi</a></li>
+                <li><a href="#biaya" class="nav-link">Biaya</a></li>
                 <li><a href="#faq" class="nav-link">FAQ</a></li>
             </ul>
         </div>
@@ -935,13 +691,12 @@
     <!-- Home / Hero Section -->
     <section id="home" class="hero-section">
         <div class="container">
-            <!-- Modifikasi: Penambahan Logo Resmi Di Atas Judul -->
             <div class="hero-logo-container">
                 <img src="Logo.png" alt="Logo 11th Physics Summit" class="hero-logo">
             </div>
             
             <h1 class="hero-title">11<sup>th</sup> Physics Summit</h1>
-            <p class="hero-subtitle">Agenda tahunan Departemen Fisika ITS yang menghadirkan kompetisi nasional, inovasi, dan pengalaman edukatif bagi siswa SMA/SMK di seluruh Indonesia.</p>
+            <p class="hero-subtitle">Badan Semi Otonom Himpunan Mahasiswa Fisika ITS yang hadir untuk mengembangkan wawasan, kreativitas, serta inovasi di bidang fisika bagi siswa SMA/SMK/sederajat di seluruh Indonesia[span_1](start_span)[span_1](end_span).</p>
             
             <div class="hero-buttons">
                 <a href="#" class="btn-3d btn-gradient"><i class="fa-solid fa-cloud-arrow-down"></i> Unduh Guidebook</a>
@@ -952,25 +707,17 @@
             <div class="glass-card theme-box">
                 <div class="theme-header">
                     <h3>Tema Acara: Atomic Horizon</h3>
-                    <p style="color:var(--text-muted); font-size:0.95rem; margin-top:4px;">Filosofi Logo dan Konsep Dasar Sains Keilmuan</p>
+                    <p style="color:var(--text-muted); font-size:0.95rem; margin-top:4px;">Menyongsong Cakrawala Baru Inovasi Menuju Indonesia Emas 2045[span_2](start_span)[span_2](end_span)</p>
                 </div>
                 
                 <div class="theme-grid">
-                    <div class="concept-card">
-                        <h4><i class="fa-solid fa-atom" style="color:var(--pink-bright);"></i> Orbit Elektron</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">Melambangkan dinamika, pergerakan, serta semangat eksplorasi dalam pengembangan ilmu pengetahuan.</p>
-                    </div>
-                    <div class="concept-card">
-                        <h4><i class="fa-solid fa-circle-dot" style="color:var(--pink-bright);"></i> Inti Atom</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">Melambangkan fisika sebagai pusat ilmu pengetahuan dan dasar dalam memahami berbagai fenomena alam.</p>
-                    </div>
                     <div class="concept-card horizon">
                         <h4><i class="fa-solid fa-shuttle-space" style="color:var(--purple-bright);"></i> Atomic</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">Merepresentasikan dasar keilmuan fisika sebagai titik awal dalam memahami dan mengembangkan ilmu pengetahuan.</p>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Merepresentasikan semangat eksplorasi ilmu fisika sebagai dasar keilmuan yang menjadi titik awal pengetahuan[span_3](start_span)[span_3](end_span).</p>
                     </div>
                     <div class="concept-card horizon">
                         <h4><i class="fa-solid fa-compass" style="color:var(--purple-bright);"></i> Horizon</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">Merepresentasikan cakrawala, peluang, serta perluasan wawasan dalam mengeksplorasi sains, teknologi, dan inovasi.</p>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Menjangkau cakrawala pengetahuan yang lebih luas, mengembangkan pemikiran kritis, inovatif, serta berorientasi pada solusi ilmiah[span_4](start_span)[span_4](end_span).</p>
                     </div>
                 </div>
             </div>
@@ -993,28 +740,20 @@
                             <span class="badge purple">2 Orang / Team</span>
                             <span class="badge blue">SMA/SMK Sederajat</span>
                         </div>
-                        <p>Olimpiade fisika tingkat nasional bagi siswa SMA/SMK sederajat yang diselenggarakan melalui kombinasi rangkaian babak daring dan luring untuk menguji kemampuan analisis serta pemecahan masalah fisika secara kompetitif.</p>
-                    </div>
-                    <div class="contact-person">
-                        <span>Contact Person: <strong>Salwa</strong> via </span>
-                        <a href="https://wa.me/6281362192288" target="_blank"><i class="fa-brands fa-whatsapp"></i> Chat WhatsApp</a>
+                        <p>Olimpiade fisika tingkat nasional bagi siswa SMA/SMK/sederajat yang dilaksanakan secara berkelompok dengan dua peserta dalam satu tim[span_5](start_span)[span_5](end_span). Terdiri atas tahap penyisihan, semifinal, dan final[span_6](start_span)[span_6](end_span).</p>
                     </div>
                 </div>
 
                 <!-- Card 2: PSIC -->
                 <div class="glass-card event-card">
                     <div>
-                        <h3>Physics Summit Innovation Competition (PSIC)</h3>
+                        <h3>Physics Summit Innovation (PSIC)</h3>
                         <div class="event-badge-container">
-                            <span class="badge">KTI (Karya Tulis Ilmiah)</span>
-                            <span class="badge purple">2 Orang / Team</span>
+                            <span class="badge">Karya Tulis Ilmiah</span>
+                            <span class="badge purple">Individu / 2 Orang</span>
                             <span class="badge blue">SMA/SMK Sederajat</span>
                         </div>
-                        <p>Kompetisi inovasi ilmiah tingkat nasional bagi siswa SMA/SMK sederajat yang berfokus pada pengembangan ide kreatif dan solutif melalui penyusunan karya tulis ilmiah yang inovatif.</p>
-                    </div>
-                    <div class="contact-person">
-                        <span>Contact Person: <strong>Zain</strong> via </span>
-                        <a href="https://wa.me/6281362192288" target="_blank"><i class="fa-brands fa-whatsapp"></i> Chat WhatsApp</a>
+                        <p>Kompetisi karya tulis ilmiah bagi siswa SMA/SMK/sederajat untuk mengembangkan kemampuan berpikir kritis, kreatif, dan solutif[span_7](start_span)[span_7](end_span). Peserta dapat berupa individu atau kelompok beranggotakan 2 orang[span_8](start_span)[span_8](end_span). Prototipe karya akan dipamerkan pada Open House[span_9](start_span)[span_9](end_span).</p>
                     </div>
                 </div>
 
@@ -1026,20 +765,11 @@
                             <span class="badge purple">Terbuka Untuk Umum</span>
                             <span class="badge blue">Pameran Sains</span>
                         </div>
-                        <p>Sebuah pameran sains terbuka bagi semua kalangan. Temukan pengalaman belajar, riset, dan inovasi masa depan di Departemen Fisika ITS. Berinteraksi langsung dengan fasilitas lab, karya mahasiswa, serta karya ilmiah inovatif dari para finalis PSIC.</p>
-                        
-                        <div class="constellation-decor">
-                            <i class="fa-solid fa-star-and-crescent"></i> ✨ Bertabur hiasan rasi bintang cantik & interaktif di venue!
-                        </div>
-                    </div>
-                    <div class="contact-person">
-                        <span>Contact Person: <strong>Salwa</strong> via </span>
-                        <a href="https://wa.me/6281362192288" target="_blank"><i class="fa-brands fa-whatsapp"></i> Chat WhatsApp</a>
+                        <p>Kegiatan pengenalan lingkungan akademik Departemen Fisika ITS[span_10](start_span)[span_10](end_span). Tersedia pameran laboratorium, pameran poster karya mahasiswa, serta tenant karya finalis PSIC di mana pengunjung dapat memberikan voting Juara Favorit[span_11](start_span)[span_11](end_span).</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Tautan Formulir Registrasi -->
             <div style="margin-top: 50px;">
                 <div class="registration-box">
                     <h3 style="font-weight: 700; font-size:1.4rem;"><i class="fa-solid fa-file-pen" style="color:var(--pink-bright);"></i> Formulir Registrasi Resmi</h3>
@@ -1048,13 +778,13 @@
                     <div class="reg-grid">
                         <div class="reg-card">
                             <h4 style="margin-bottom:12px; font-weight:600;"><i class="fa-solid fa-trophy" style="color: gold;"></i> Kompetisi Lomba</h4>
-                            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px;">Daftarkan tim kamu untuk PSO & PSIC nasional.</p>
-                            <a href="https://its.ac/m/pendaftaranPS" target="_blank" class="btn-3d btn-gradient" style="padding: 10px 20px; font-size:0.85rem;">its.ac/m/pendaftaranPS</a>
+                            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px;">Daftarkan diri/tim kamu untuk PSO & PSIC nasional.</p>
+                            <a href="https://its.id/m/Regist11thPS" target="_blank" class="btn-3d btn-gradient" style="padding: 10px 20px; font-size:0.85rem;">its.id/m/Regist11thPS[span_12](start_span)[span_12](end_span)</a>
                         </div>
                         <div class="reg-card">
                             <h4 style="margin-bottom:12px; font-weight:600;"><i class="fa-solid fa-building-user" style="color: var(--blue-accent);"></i> RSVP Open House</h4>
-                            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px;">🚨 <strong>Kuota Terbatas!</strong> Ditutup segera jika kuota terpenuhi.</p>
-                            <a href="https://its.ac/m/RSVPOpenhouse" target="_blank" class="btn-3d btn-outline" style="padding: 10px 20px; font-size:0.85rem; border-width:1px;">its.ac/m/RSVPOpenhouse</a>
+                            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px;">🚨 <strong>Gratis!</strong> Ditutup segera jika kuota terpenuhi[span_13](start_span)[span_13](end_span).</p>
+                            <a href="https://its.id/m/RSVPOpenHouse_11thPhysicsSummit" target="_blank" class="btn-3d btn-outline" style="padding: 10px 20px; font-size:0.85rem; border-width:1px;">Form RSVP Open House[span_14](start_span)[span_14](end_span)</a>
                         </div>
                     </div>
                 </div>
@@ -1074,15 +804,11 @@
                     <div class="benefit-block">
                         <h3>🏆 Olympiad (PSO)</h3>
                         <ul class="benefit-list">
-                            <li>E-Sertifikat Peserta tingkat nasional.</li>
-                            <li>E-Sertifikat Guru Pendamping lomba.</li>
-                            <li>Workshop persiapan Olimpiade Fisika eksklusif.</li>
-                            <li>Simulasi Try Out sebelum babak penyisihan dimulai.</li>
-                            <li>Kesempatan emas berkompetisi di kancah nasional.</li>
-                            <li><strong>Total hadiah senilai Rp6.000.000</strong></li>
-                            <li>Juara I: Rp2.500.000 + Trophy + Sertifikat Pemenang.</li>
-                            <li>Juara II: Rp2.000.000 + Trophy + Sertifikat Pemenang.</li>
-                            <li>Juara III: Rp1.500.000 + Trophy + Sertifikat Pemenang.</li>
+                            <li>E-Sertifikat Peserta dan Guru Pendamping[span_15](start_span)[span_15](end_span).</li>
+                            <li><strong>Juara I:</strong> Rp2.500.000 + Trophy + Sertifikat Pemenang + Freepass S&K Berlaku[span_16](start_span)[span_16](end_span).</li>
+                            <li><strong>Juara II:</strong> Rp2.000.000 + Trophy + Sertifikat Pemenang[span_17](start_span)[span_17](end_span).</li>
+                            <li><strong>Juara III:</strong> Rp1.500.000 + Trophy + Sertifikat Pemenang[span_18](start_span)[span_18](end_span).</li>
+                            <li><strong>Juara Harapan I & II:</strong> Trophy + Sertifikat Pemenang[span_19](start_span)[span_19](end_span).</li>
                         </ul>
                     </div>
 
@@ -1090,28 +816,11 @@
                     <div class="benefit-block">
                         <h3>💡 Innovation (PSIC)</h3>
                         <ul class="benefit-list">
-                            <li>E-Sertifikat Peserta resmi.</li>
-                            <li>E-Sertifikat Guru Pendamping khusus.</li>
-                            <li>Workshop penulisan karya tulis ilmiah (KTI).</li>
-                            <li>Kesempatan mempresentasikan karya di hadapan dewan juri ahli.</li>
-                            <li>Hak memamerkan prototipe karya langsung pada Open House Departemen Fisika ITS.</li>
-                            <li><strong>Total hadiah senilai Rp3.750.000</strong></li>
-                            <li>Juara I: Rp1.500.000 + Trophy + Sertifikat Pemenang.</li>
-                            <li>Juara II: Rp1.000.000 + Trophy + Sertifikat Pemenang.</li>
-                            <li>Juara III: Rp750.000 + Trophy + Sertifikat Pemenang.</li>
-                            <li>Juara Favorit: Rp500.000 + Trophy + Sertifikat Pemenang.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Benefit Open House -->
-                    <div class="benefit-block">
-                        <h3>🏛️ Open House Fisika</h3>
-                        <ul class="benefit-list">
-                            <li>Melihat langsung pameran prototipe karya keren para finalis PSIC.</li>
-                            <li>Menyaksikan demonstrasi pameran karya inovasi orisinal mahasiswa Departemen Fisika ITS.</li>
-                            <li>Mengunjungi booth laboratorium riset mutakhir Departemen Fisika ITS.</li>
-                            <li>Mengunjungi ragam booth sponsor bonafide dan tenant UMKM kuliner/jasa.</li>
-                            <li>Mengenal kultur lingkungan Departemen Fisika ITS lewat pameran interaktif.</li>
+                            <li>E-Sertifikat Peserta dan Guru Pendamping[span_20](start_span)[span_20](end_span).</li>
+                            <li><strong>Juara I:</strong> Rp1.500.000 + Trophy + Sertifikat Pemenang + Freepass S&K Berlaku[span_21](start_span)[span_21](end_span).</li>
+                            <li><strong>Juara II:</strong> Rp1.000.000 + Trophy + Sertifikat Pemenang[span_22](start_span)[span_22](end_span).</li>
+                            <li><strong>Juara III:</strong> Rp750.000 + Trophy + Sertifikat Pemenang[span_23](start_span)[span_23](end_span).</li>
+                            <li><strong>Juara Favorit:</strong> Rp500.000 + Trophy + Sertifikat Pemenang[span_24](start_span)[span_24](end_span).</li>
                         </ul>
                     </div>
                 </div>
@@ -1123,128 +832,103 @@
     <section id="timeline">
         <div class="container">
             <h2 class="section-title">Timeline Kegiatan</h2>
-            <p class="section-subtitle">Catat tanggal-tanggal penting rangkaian 11th Physics Summit agar tidak terlewat.</p>
+            <p class="section-subtitle">Catat tanggal-tanggal penting rangkaian 11th Physics Summit agar tidak terlewat[span_25](start_span)[span_25](end_span).</p>
             
             <div class="timeline-container">
-                <!-- Phase 1 -->
                 <div class="glass-card timeline-item active">
                     <div class="timeline-badge"><i class="fa-solid fa-calendar-days"></i></div>
                     <div class="timeline-box" onclick="toggleTimeline(this)">
                         <div class="timeline-summary">
                             <div>
-                                <h3>Phase 1: Pendaftaran</h3>
-                                <span class="timeline-date">1 Agustus – 6 September</span>
+                                <h3>Pendaftaran (Early, Batch 1, Batch 2)</h3>
+                                <span class="timeline-date">1 Agustus – 2 September 2026</span>
                             </div>
-                            <span class="timeline-trigger">▼ Lihat Selengkapnya <i class="fa-solid fa-chevron-down"></i></span>
+                            <span class="timeline-trigger">▼ Lihat Detail <i class="fa-solid fa-chevron-down"></i></span>
                         </div>
                         <ul class="timeline-details">
-                            <li>Early Bird (1–3 Agustus)</li>
-                            <li>Gelombang 1 (4–18 Agustus)</li>
-                            <li>Gelombang 2 (19 Agustus–2 September)</li>
-                            <li>Extend / Perpanjangan Opsional (3–6 September)</li>
+                            <li>Early Registration (1–3 Agustus 2026)[span_26](start_span)[span_26](end_span)</li>
+                            <li>Batch 1 Registration (4–18 Agustus 2026)[span_27](start_span)[span_27](end_span)</li>
+                            <li>Batch 2 Registration (19 Agustus–2 September 2026)[span_28](start_span)[span_28](end_span)</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Phase 2 -->
                 <div class="glass-card timeline-item">
                     <div class="timeline-badge"><i class="fa-solid fa-graduation-cap"></i></div>
                     <div class="timeline-box" onclick="toggleTimeline(this)">
                         <div class="timeline-summary">
                             <div>
-                                <h3>Phase 2: Workshop</h3>
-                                <span class="timeline-date">12 September</span>
+                                <h3>Coaching Session</h3>
+                                <span class="timeline-date">12 September 2026</span>
                             </div>
-                            <span class="timeline-trigger">▼ Lihat Selengkapnya <i class="fa-solid fa-chevron-down"></i></span>
+                            <span class="timeline-trigger">▼ Lihat Detail <i class="fa-solid fa-chevron-down"></i></span>
                         </div>
                         <ul class="timeline-details">
-                            <li>Workshop Khusus PSO (Olimpiade)</li>
-                            <li>Workshop Eksklusif PSEC / Penulisan Inovasi</li>
+                            <li>Sesi pembekalan untuk peserta PSO dan PSIC[span_29](start_span)[span_29](end_span)</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Phase 3 -->
                 <div class="glass-card timeline-item">
                     <div class="timeline-badge"><i class="fa-solid fa-atom"></i></div>
                     <div class="timeline-box" onclick="toggleTimeline(this)">
                         <div class="timeline-summary">
                             <div>
-                                <h3>Phase 3: Physics Summit Olympiad (PSO)</h3>
-                                <span class="timeline-date">17 September – 24 Oktober</span>
+                                <h3>Physics Summit Olympiad (PSO)</h3>
+                                <span class="timeline-date">17 September – 31 Oktober 2026</span>
                             </div>
-                            <span class="timeline-trigger">▼ Lihat Selengkapnya <i class="fa-solid fa-chevron-down"></i></span>
+                            <span class="timeline-trigger">▼ Lihat Detail <i class="fa-solid fa-chevron-down"></i></span>
                         </div>
                         <ul class="timeline-details">
-                            <li>Technical Meeting Babak Penyisihan</li>
-                            <li>Pelaksanaan Try Out</li>
-                            <li>Babak Penyisihan Utama</li>
-                            <li>Pengumuman Lolos Semifinal</li>
-                            <li>Technical Meeting Babak Semifinal</li>
-                            <li>Babak Semifinal</li>
-                            <li>Pengumuman Finalis Nasional</li>
-                            <li>Technical Meeting Babak Final</li>
-                            <li>Babak Final & Awarding Ceremony</li>
+                            <li>Technical Meeting Penyisihan: 17 September 2026[span_30](start_span)[span_30](end_span)</li>
+                            <li>Try Out: 18 – 20 September 2026[span_31](start_span)[span_31](end_span)</li>
+                            <li>Babak Penyisihan (Daring): 26 September 2026[span_32](start_span)[span_32](end_span)</li>
+                            <li>Pengumuman Lolos Semifinal: 30 September 2026[span_33](start_span)[span_33](end_span)</li>
+                            <li>Technical Meeting Semifinal: 3 Oktober 2026[span_34](start_span)[span_34](end_span)</li>
+                            <li>Babak Semifinal (Daring): 10 Oktober 2026[span_35](start_span)[span_35](end_span)</li>
+                            <li>Pengumuman Finalis: 16 Oktober 2026[span_36](start_span)[span_36](end_span)</li>
+                            <li>Technical Meeting Final: 24 Oktober 2026[span_37](start_span)[span_37](end_span)</li>
+                            <li>Babak Final PSO (Luring di ITS): 31 Oktober 2026[span_38](start_span)[span_38](end_span)</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Phase 4 -->
                 <div class="glass-card timeline-item">
                     <div class="timeline-badge"><i class="fa-solid fa-book-open"></i></div>
                     <div class="timeline-box" onclick="toggleTimeline(this)">
                         <div class="timeline-summary">
                             <div>
-                                <h3>Phase 4: Physics Summit Essay Competition (PSEC)</h3>
-                                <span class="timeline-date">19 September – 24 Oktober</span>
+                                <h3>Physics Summit Innovation Competition (PSIC)</h3>
+                                <span class="timeline-date">19 September – 31 Oktober 2026</span>
                             </div>
-                            <span class="timeline-trigger">▼ Lihat Selengkapnya <i class="fa-solid fa-chevron-down"></i></span>
+                            <span class="timeline-trigger">▼ Lihat Detail <i class="fa-solid fa-chevron-down"></i></span>
                         </div>
                         <ul class="timeline-details">
-                            <li>Pengumpulan Dokumen Full Paper KTI</li>
-                            <li>Proses Seleksi Berkas Full Paper</li>
-                            <li>Pengumuman Finalis Utama</li>
-                            <li>Pembuatan File Presentasi PPT & Prototype</li>
-                            <li>Technical Meeting untuk Babak Final</li>
-                            <li>Batas Pengumpulan Slide PPT Peserta</li>
-                            <li>Presentasi Final di Depan Juri & Awarding</li>
+                            <li>Full Paper Submission: 19 September 2026[span_39](start_span)[span_39](end_span)</li>
+                            <li>Full Paper Selection: 20 September – 2 Oktober 2026[span_40](start_span)[span_40](end_span)</li>
+                            <li>Pengumuman Lolos Final: 3 Oktober 2026[span_41](start_span)[span_41](end_span)</li>
+                            <li>Pembuatan PPT dan Prototipe: 4 – 22 Oktober 2026[span_42](start_span)[span_42](end_span)</li>
+                            <li>Technical Meeting Final: 24 Oktober 2026[span_43](start_span)[span_43](end_span)</li>
+                            <li>Pengumpulan PPT: 30 Oktober 2026[span_44](start_span)[span_44](end_span)</li>
+                            <li>Babak Final (Luring di ITS): 31 Oktober 2026[span_45](start_span)[span_45](end_span)</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Phase 5 -->
                 <div class="glass-card timeline-item">
                     <div class="timeline-badge"><i class="fa-solid fa-building"></i></div>
                     <div class="timeline-box" onclick="toggleTimeline(this)">
                         <div class="timeline-summary">
                             <div>
-                                <h3>Phase 5: Open House Departemen Fisika</h3>
-                                <span class="timeline-date">14 Oktober</span>
+                                <h3>Open House Departemen Fisika</h3>
+                                <span class="timeline-date">10 Agustus – 31 Oktober 2026</span>
                             </div>
-                            <span class="timeline-trigger">▼ Lihat Selengkapnya <i class="fa-solid fa-chevron-down"></i></span>
+                            <span class="timeline-trigger">▼ Lihat Detail <i class="fa-solid fa-chevron-down"></i></span>
                         </div>
                         <ul class="timeline-details">
-                            <li>Pengisian Tautan RSVP Kedatangan: 1 Agustus – 14 Oktober</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Phase 6 -->
-                <div class="glass-card timeline-item">
-                    <div class="timeline-badge"><i class="fa-solid fa-trophy"></i></div>
-                    <div class="timeline-box" onclick="toggleTimeline(this)">
-                        <div class="timeline-summary">
-                            <div>
-                                <h3>Phase 6: Physics Summit 11th (Peak Day)</h3>
-                                <span class="timeline-date">24 Oktober 2026</span>
-                            </div>
-                            <span class="timeline-trigger">▼ Lihat Selengkapnya <i class="fa-solid fa-chevron-down"></i></span>
-                        </div>
-                        <ul class="timeline-details">
-                            <li>Grand Final Perlombaan PSO</li>
-                            <li>Presentasi Final Kompetisi PSEC / PSIC</li>
-                            <li>Awarding & Penyerahan Trophy Juara Resmi</li>
-                            <li>Open House Interaktif Departemen Fisika</li>
+                            <li>Pengisian RSVP: 10 Agustus – 10 Oktober 2026[span_46](start_span)[span_46](end_span)</li>
+                            <li>Technical Meeting: 24 Oktober 2026[span_47](start_span)[span_47](end_span)</li>
+                            <li>Hari-H Pelaksanaan (Luring di ITS): 31 Oktober 2026[span_48](start_span)[span_48](end_span)</li>
                         </ul>
                     </div>
                 </div>
@@ -1256,225 +940,40 @@
     <section id="biaya">
         <div class="container">
             <h2 class="section-title">Biaya Pendaftaran</h2>
-            <p class="section-subtitle">Klik tombol "Lihat Harga" pada kategori kartu di bawah untuk membuka skema biaya terperinci.</p>
+            <p class="section-subtitle">Pembayaran dilakukan via transfer melalui e-Wallet atau m-Banking resmi panitia[span_49](start_span)[span_49](end_span).</p>
             
             <div class="pricing-container">
-                <!-- Card 1: PSO Pricing -->
                 <div class="glass-card pricing-card">
                     <div class="pricing-header" onclick="togglePricing(this)">
-                        <h3><i class="fa-solid fa-medal" style="color: var(--pink-bright);"></i> Kategori Lomba PSO</h3>
-                        <button class="btn-3d btn-gradient" style="padding:8px 18px; font-size:0.85rem; box-shadow:none;">Lihat Harga <i class="fa-solid fa-chevron-down toggle-icon" style="color:#ffffff; margin-left:4px;"></i></button>
+                        <h3><i class="fa-solid fa-medal" style="color: var(--pink-bright);"></i> Kategori Pendaftaran</h3>
+                        <button class="btn-3d btn-gradient" style="padding:8px 18px; font-size:0.85rem; box-shadow:none;">Lihat Info <i class="fa-solid fa-chevron-down toggle-icon" style="color:#ffffff; margin-left:4px;"></i></button>
                     </div>
                     <div class="pricing-content">
+                        <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:15px;">Pendaftaran dilakukan sesuai dengan gelombang yang telah ditentukan di kalender pendaftaran[span_50](start_span)[span_50](end_span). Harap mengirimkan bukti transfer melalui form yang disediakan panitia[span_51](start_span)[span_51](end_span).</p>
                         <div class="table-wrapper">
                             <table>
                                 <thead>
                                     <tr>
                                         <th>Kategori Gelombang</th>
                                         <th>Periode Pendaftaran</th>
-                                        <th>Biaya (1 Tim)</th>
-                                        <th>Paket (2+1 Tim)</th>
-                                        <th>Paket (4+1 Tim)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td><strong>Early Bird</strong></td>
-                                        <td>1 - 3 Agustus</td>
-                                        <td>Rp100.000</td>
-                                        <td>-</td>
-                                        <td>-</td>
+                                        <td>1 - 3 Agustus 2026[span_52](start_span)[span_52](end_span)</td>
                                     </tr>
                                     <tr>
-                                        <td><strong>Gelombang 1</strong></td>
-                                        <td>4 - 18 Agustus</td>
-                                        <td>Rp110.000</td>
-                                        <td>Rp315.000</td>
-                                        <td>Rp500.000</td>
+                                        <td><strong>Batch I</strong></td>
+                                        <td>4 - 18 Agustus 2026[span_53](start_span)[span_53](end_span)</td>
                                     </tr>
                                     <tr>
-                                        <td><strong>Gelombang 2</strong></td>
-                                        <td>19 Agustus - 2 September</td>
-                                        <td>Rp125.000</td>
-                                        <td>Rp360.000</td>
-                                        <td>Rp575.000</td>
+                                        <td><strong>Batch II</strong></td>
+                                        <td>19 Agustus - 2 September 2026[span_54](start_span)[span_54](end_span)</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Card 2: PSIC Pricing -->
-                <div class="glass-card pricing-card">
-                    <div class="pricing-header" onclick="togglePricing(this)">
-                        <h3><i class="fa-solid fa-lightbulb" style="color: var(--purple-bright);"></i> Kategori Lomba PSIC</h3>
-                        <button class="btn-3d btn-gradient" style="padding:8px 18px; font-size:0.85rem; box-shadow:none;">Lihat Harga <i class="fa-solid fa-chevron-down toggle-icon" style="color:#ffffff; margin-left:4px;"></i></button>
-                    </div>
-                    <div class="pricing-content">
-                        <div class="table-wrapper">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Kategori Gelombang</th>
-                                        <th>Periode Pendaftaran</th>
-                                        <th>Biaya (1 Tim)</th>
-                                        <th>Paket (2+1 Tim)</th>
-                                        <th>Paket (4+1 Tim)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Early Bird</strong></td>
-                                        <td>1 - 3 Agustus</td>
-                                        <td>Rp30.000</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Gelombang 1</strong></td>
-                                        <td>4 - 18 Agustus</td>
-                                        <td>Rp35.000</td>
-                                        <td>Rp97.500</td>
-                                        <td>Rp137.500</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Gelombang 2</strong></td>
-                                        <td>19 Agustus - 2 September</td>
-                                        <td>Rp42.500</td>
-                                        <td>Rp105.000</td>
-                                        <td>Rp162.500</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3: Paket Gabungan Pricing -->
-                <div class="glass-card pricing-card">
-                    <div class="pricing-header" onclick="togglePricing(this)">
-                        <h3><i class="fa-solid fa-layer-group" style="color: var(--blue-accent);"></i> Paket Bundling / Gabungan</h3>
-                        <button class="btn-3d btn-gradient" style="padding:8px 18px; font-size:0.85rem; box-shadow:none;">Lihat Harga <i class="fa-solid fa-chevron-down toggle-icon" style="color:#ffffff; margin-left:4px;"></i></button>
-                    </div>
-                    <div class="pricing-content">
-                        <div class="table-wrapper">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Kategori Gelombang</th>
-                                        <th>Periode Kontrak</th>
-                                        <th>Komposisi Paket Gabungan</th>
-                                        <th>Harga Khusus</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Early Bird</strong></td>
-                                        <td>1 - 3 Agustus</td>
-                                        <td>1 PSO + 1 PSIC</td>
-                                        <td><strong>Rp125.000</strong></td>
-                                    </tr>
-                                    <!-- Gelombang 1 Stack -->
-                                    <tr>
-                                        <td rowspan="4" style="vertical-align: middle; border-bottom: 2px solid #e2e8f0;"><strong>Gelombang 1</strong></td>
-                                        <td rowspan="4" style="vertical-align: middle; border-bottom: 2px solid #e2e8f0;">4 - 18 Agustus</td>
-                                        <td>1 PSO + 1 PSIC</td>
-                                        <td>Rp140.000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2 PSO + 1 PSIC</td>
-                                        <td>Rp245.000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2 PSO + 2 PSIC</td>
-                                        <td>Rp275.000</td>
-                                    </tr>
-                                    <tr style="border-bottom: 2px solid #e2e8f0;">
-                                        <td>3 PSO + 2 PSIC</td>
-                                        <td>Rp375.000</td>
-                                    </tr>
-                                    <!-- Gelombang 2 Stack -->
-                                    <tr>
-                                        <td rowspan="4" style="vertical-align: middle;"><strong>Gelombang 2</strong></td>
-                                        <td rowspan="4" style="vertical-align: middle;">19 Agustus - 2 September</td>
-                                        <td>1 PSO + 1 PSIC</td>
-                                        <td>Rp160.000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2 PSO + 1 PSIC</td>
-                                        <td>Rp282.500</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2 PSO + 2 PSIC</td>
-                                        <td>Rp317.500</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3 PSO + 2 PSIC</td>
-                                        <td>Rp430.000</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modifikasi: Penambahan Section Dokumentasi Galeri Kegiatan -->
-    <section id="dokumentasi">
-        <div class="container">
-            <h2 class="section-title">Dokumentasi Tahun Lalu</h2>
-            <p class="section-subtitle">Intip sekilas keseruan persaingan sengit, kreativitas, dan momen selebrasi berharga di ajang Physics Summit terdahulu.</p>
-            
-            <div class="gallery-grid">
-                <!-- Item 1 -->
-                <div class="gallery-item">
-                    <img src="EWARDING.jpg" alt="Dokumentasi Awarding Physics Summit">
-                    <div class="gallery-overlay">
-                        <span class="gallery-tag">Ceremony</span>
-                        <h4 class="gallery-title-text">Sesi Pembagian Penghargaan Utama</h4>
-                    </div>
-                </div>
-                <!-- Item 2 -->
-                <div class="gallery-item">
-                    <img src="EWARDING 2.jpg" alt="Dokumentasi Panggung Juara">
-                    <div class="gallery-overlay">
-                        <span class="gallery-tag">Ceremony</span>
-                        <h4 class="gallery-title-text">Selebrasi Kemenangan Para Finalis</h4>
-                    </div>
-                </div>
-                <!-- Item 3 -->
-                <div class="gallery-item">
-                    <img src="Final PSEC 1.jpg" alt="Dokumentasi Presentasi Finalis PSEC">
-                    <div class="gallery-overlay">
-                        <span class="gallery-tag">Competition</span>
-                        <h4 class="gallery-title-text">Pemaparan Inovasi Karya Tulis Ilmiah</h4>
-                    </div>
-                </div>
-                <!-- Item 4 -->
-                <div class="gallery-item">
-                    <img src="Final PSEC Juri.jpg" alt="Dokumentasi Penilaian Juri PSEC">
-                    <div class="gallery-overlay">
-                        <span class="gallery-tag">Evaluation</span>
-                        <h4 class="gallery-title-text">Sesi Tanya Jawab Interaktif Bersama Juri Ahli</h4>
-                    </div>
-                </div>
-                <!-- Item 5 -->
-                <div class="gallery-item">
-                    <img src="Final PSO.JPG" alt="Dokumentasi Ujian Tertulis Final PSO">
-                    <div class="gallery-overlay">
-                        <span class="gallery-tag">Olympiad</span>
-                        <h4 class="gallery-title-text">Ujian Tertulis Babak Final Kategori Olimpiade</h4>
-                    </div>
-                </div>
-                <!-- Item 6 -->
-                <div class="gallery-item">
-                    <img src="Final PSO 1.JPG" alt="Dokumentasi Suasana Lomba PSO">
-                    <div class="gallery-overlay">
-                        <span class="gallery-tag">Olympiad</span>
-                        <h4 class="gallery-title-text">Fokus Tingkat Tinggi Peserta Mengatasi Tantangan Soal</h4>
                     </div>
                 </div>
             </div>
@@ -1485,26 +984,26 @@
     <section id="faq">
         <div class="container">
             <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-subtitle">Pertanyaan yang paling sering diajukan mengenai program acara Physics Summit.</p>
+            <p class="section-subtitle">Pertanyaan yang paling sering diajukan mengenai program acara 11th Physics Summit.</p>
             
             <div class="faq-wrapper">
                 <div class="faq-item" onclick="toggleFaq(this)">
                     <div class="faq-question">
-                        <span>Apakah satu tim boleh berasal dari sekolah yang berbeda?</span>
+                        <span>Berapa jumlah anggota dalam satu tim PSO?</span>
                         <i class="fa-solid fa-plus faq-icon"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Anggota tim pendaftaran kompetisi (PSO & PSIC) diwajibkan berasal dari instansi sekolah jenjang SMA/SMK sederajat yang sama demi validasi data rapor pendamping.</p>
+                        <p>Peserta kompetisi Olimpiade (PSO) wajib terdiri dari 2 siswa/siswi dari sekolah jenjang SMA/SMK/sederajat yang sama, dapat dari satu kelas yang sama maupun berbeda[span_55](start_span)[span_55](end_span).</p>
                     </div>
                 </div>
 
                 <div class="faq-item" onclick="toggleFaq(this)">
                     <div class="faq-question">
-                        <span>Bagaimana mekanisme pelaksanaan Try Out untuk kategori Olimpiade?</span>
+                        <span>Bagaimana aturan anggota tim untuk PSIC?</span>
                         <i class="fa-solid fa-plus faq-icon"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Simulasi atau Try Out akan dilaksanakan secara daring lewat sistem portal tes resmi Physics Summit guna menguji kesiapan jaringan dan pemahaman sistem navigasi pengerjaan soal oleh peserta.</p>
+                        <p>Peserta untuk PSIC (Karya Tulis Ilmiah) dapat mendaftar sebagai individu atau kelompok maksimal 2 orang. Jika berkelompok, diperbolehkan berasal dari tahun angkatan yang berbeda asal dari satu sekolah yang sama[span_56](start_span)[span_56](end_span).</p>
                     </div>
                 </div>
 
@@ -1514,7 +1013,17 @@
                         <i class="fa-solid fa-plus faq-icon"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Tidak, acara Open House ini gratis dan terbuka untuk umum. Kamu hanya perlu melakukan reservasi kehadiran terlebih dahulu melalui link formulir RSVP karena kuota tempat terbatas.</p>
+                        <p>Tidak, acara Open House ini gratis dan terbuka untuk umum[span_57](start_span)[span_57](end_span). Kamu hanya perlu melakukan reservasi kehadiran terlebih dahulu melalui link formulir RSVP karena kuota tempat terbatas[span_58](start_span)[span_58](end_span).</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>Bagaimana mekanisme pengerjaan babak penyisihan PSO?</span>
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Babak penyisihan dilaksanakan secara daring menggunakan dua device per tim (satu untuk pengerjaan soal dan satu untuk kamera pengawas via Zoom). Peserta wajib mengenakan seragam sekolah saat pengerjaan berlangsung[span_59](start_span)[span_59](end_span).</p>
                     </div>
                 </div>
             </div>
@@ -1527,7 +1036,7 @@
             <div class="footer-grid">
                 <div class="footer-about">
                     <h2>11th Physics Summit</h2>
-                    <p>Physics Summit merupakan agenda akbar tahunan Departemen Fisika Institut Teknologi Sepuluh Nopember (ITS) Surabaya yang menghadirkan persaingan sains nasional kompetitif, kolaborasi ide kreativitas inovasi, serta wawasan edukasi teknologi masa depan.</p>
+                    <p>Hadir untuk mengembangkan wawasan, kreativitas, serta inovasi di bidang fisika, sekaligus menjadi media pengenalan Departemen Fisika ITS kepada siswa SMA/SMK/sederajat di seluruh Indonesia[span_60](start_span)[span_60](end_span).</p>
                 </div>
                 
                 <div class="footer-links">
@@ -1538,7 +1047,6 @@
                         <li><a href="#benefit">Benefit</a></li>
                         <li><a href="#timeline">Timeline</a></li>
                         <li><a href="#biaya">Biaya Pendaftaran</a></li>
-                        <li><a href="#dokumentasi">Dokumentasi</a></li>
                     </ul>
                 </div>
 
@@ -1552,11 +1060,6 @@
                 </div>
 
                 <div class="footer-links">
-                    <h4>Partnership</h4>
-                    <div class="footer-contact">
-                        <p><strong>Media Partner:</strong><br>Alya: +62 857-1331-9241</p>
-                        <p><strong>Sponsorship:</strong><br>Rista: +62 877-2117-8073</p>
-                    </div>
                     <h4>Hubungi Kami</h4>
                     <a href="https://instagram.com/physics_summit" target="_blank" class="social-link">
                         <i class="fa-brands fa-instagram" style="font-size:1.1rem;"></i> @physics_summit
@@ -1572,7 +1075,7 @@
 
     <!-- JavaScript Interaktif -->
     <script>
-        // 1. Penanganan Loader Layar Cepat
+        // Penanganan Loader Layar Cepat
         window.addEventListener('load', function() {
             const loader = document.getElementById('fast-loader');
             loader.style.opacity = '0';
@@ -1581,7 +1084,7 @@
             }, 400);
         });
 
-        // 2. Navigasi Bar Menu Responsif di HP
+        // Navigasi Bar Menu Responsif di HP
         const mobileToggle = document.getElementById('mobile-toggle');
         const navList = document.getElementById('nav-list');
 
@@ -1602,7 +1105,7 @@
             });
         });
 
-        // 3. Fungsi Toggle Akordeon Tabel Biaya Pendaftaran
+        // Fungsi Toggle Akordeon Tabel Biaya Pendaftaran
         function togglePricing(element) {
             const card = element.parentElement;
             document.querySelectorAll('.pricing-card').forEach(item => {
@@ -1613,18 +1116,18 @@
             card.classList.toggle('active');
         }
 
-        // 4. Fungsi Toggle Akordeon Detail Menu Timeline
+        // Fungsi Toggle Akordeon Detail Menu Timeline
         function toggleTimeline(element) {
             const item = element.parentElement;
             item.classList.toggle('expanded');
         }
 
-        // 5. Fungsi Toggle FAQ Accordion
+        // Fungsi Toggle FAQ Accordion
         function toggleFaq(element) {
             element.classList.toggle('active');
         }
 
-        // 6. Highlight Navigasi Aktif Otomatis Saat Scroll Berjalan
+        // Highlight Navigasi Aktif Otomatis Saat Scroll Berjalan
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
 
