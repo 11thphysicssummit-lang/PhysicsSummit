@@ -76,7 +76,7 @@
         .shape-1 { width: 380px; height: 380px; top: 8%; right: -50px; }
         .shape-2 { width: 480px; height: 480px; top: 50%; left: -100px; background: linear-gradient(45deg, var(--blue-accent), var(--purple-bright)); }
         
-        /* MASKOT (Posisi diubah ke z-index 0 biar di belakang konten) */
+        /* MASKOT (z-index 0 di belakang konten) */
         .mascot-deco { position: absolute; z-index: 0; opacity: 0.85; pointer-events: none; }
         .mascot-hero-1 { bottom: 0; left: 2%; width: 140px; }
         .mascot-hero-2 { top: 10%; right: 2%; width: 120px; }
@@ -110,12 +110,7 @@
         
         .hero-logo { width: 170px; margin-bottom: 20px; animation: gentleFloat 4s ease-in-out infinite; transition: all 0.4s ease; }
         /* FIX LOGO DI DARK MODE */
-        body.dark-mode .hero-logo {
-            background: rgba(255, 255, 255, 0.85); /* Lingkaran putih transparan di belakang logo */
-            border-radius: 50%;
-            padding: 15px;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
-        }
+        body.dark-mode .hero-logo { background: rgba(255, 255, 255, 0.85); border-radius: 50%; padding: 15px; box-shadow: 0 0 25px rgba(255, 255, 255, 0.2); }
 
         @keyframes gentleFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
@@ -126,7 +121,6 @@
         /* General Section */
         section { padding: 70px 0; position: relative; }
         .section-title { font-size: 2.1rem; font-weight: 700; text-align: center; margin-bottom: 30px; position: relative; color: var(--text-dark); }
-        /* Khusus timeline & benefit ada subtitlenya, yang lain dihapus */
         .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 40px; font-size: 1rem; margin-top: -20px; } 
 
         .glass-card { background: var(--glass-bg); backdrop-filter: blur(14px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 35px; box-shadow: var(--shadow-3d); transition: all 0.4s; position: relative; z-index: 10; }
@@ -303,14 +297,12 @@
                 <a href="#guidebook" class="btn-3d btn-gradient"><i class="fa-solid fa-book-open"></i> Baca Guidebook</a>
                 <a href="#kompetisi" class="btn-3d btn-outline">Rangkaian Acara <i class="fa-solid fa-arrow-right"></i></a>
             </div>
-            <!-- Kotak Tema Acara sudah dihapus sesuai permintaan -->
         </div>
     </section>
     
     <!-- Guidebook -->
     <section id="guidebook" style="background: rgba(157, 78, 221, 0.05);">
         <div class="container guidebook-container">
-            <!-- Subtitle dihapus -->
             <h2 class="section-title" style="margin-bottom: 20px;">Guidebook Resmi 11<sup>th</sup> Physics Summit</h2>
 
             <div class="glass-card" style="padding: 25px;">
@@ -334,7 +326,6 @@
     <!-- Rangkaian Kegiatan -->
     <section id="kompetisi">
         <div class="container">
-            <!-- Subtitle dihapus -->
             <h2 class="section-title">Rangkaian Kegiatan</h2>
             
             <div class="events-grid">
@@ -503,7 +494,6 @@
                     <div class="faq-item" onclick="toggleFaq(this)">
                         <div class="faq-question"><span><i class="fa-solid fa-qrcode"></i> Scan Barcode QRIS</span><i class="fa-solid fa-plus faq-icon"></i></div>
                         <div class="faq-answer" style="text-align: center; padding-top:15px;">
-                            <!-- Teks instruksi dihapus -->
                             <a href="QRIS.pdf" target="_blank" class="btn-3d btn-gradient" style="padding:10px 20px; font-size:0.9rem;">
                                 <i class="fa-solid fa-file-pdf"></i> Buka / Unduh QRIS
                             </a>
@@ -643,11 +633,9 @@
     <!-- Dokumentasi Kegiatan -->
     <section id="dokumentasi">
         <div class="container">
-            <!-- Judul Diganti, Subtitle dihapus -->
             <h2 class="section-title" style="margin-bottom: 20px;">Dokumentasi 10<sup>th</sup> Physics Summit</h2>
             
             <div class="doc-slider-container">
-                <!-- Murni cuma pakai foto yang diinstruksikan -->
                 <div class="doc-item"><img src="awarding 2.jpg" alt="Awarding 2" onerror="this.src='https://via.placeholder.com/300x200?text=Awarding+2'"></div>
                 <div class="doc-item"><img src="EWARDING.jpg" alt="Awarding" onerror="this.src='https://via.placeholder.com/300x200?text=Awarding'"></div>
                 <div class="doc-item"><img src="Final PSEC 1.jpg" alt="Final PSIC 1" onerror="this.src='https://via.placeholder.com/300x200?text=Final+PSIC+1'"></div>
@@ -719,12 +707,20 @@
     </footer>
 
     <script>
-        // Animasi Loading
-        window.addEventListener('load', function() {
+        // --- Animasi Loading (DIPERBAIKI) ---
+        function hilangkanLoader() {
             const loader = document.getElementById('fast-loader');
-            loader.style.opacity = '0';
-            setTimeout(() => { loader.style.visibility = 'hidden'; }, 1500);
-        });
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => { loader.style.display = 'none'; }, 600);
+            }
+        }
+
+        // Jalankan saat semua aset (gambar, iframe) selesai dimuat
+        window.addEventListener('load', hilangkanLoader);
+
+        // FALLBACK: Paksa loader hilang setelah maksimal 2.5 detik (menghindari stuck loading)
+        setTimeout(hilangkanLoader, 2500);
 
         // Dark Mode
         const themeToggleBtn = document.getElementById('theme-toggle');
