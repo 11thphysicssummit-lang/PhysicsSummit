@@ -158,12 +158,6 @@
         .reg-card { background: var(--card-bg); padding: 22px; border-radius: 16px; box-shadow: 0 8px 18px rgba(0,0,0,0.05); transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid transparent;}
         .reg-card:hover { transform: translateY(-4px); box-shadow: 0 12px 25px rgba(157, 78, 221, 0.15); border-color: var(--glass-border);}
 
-        @media (min-width: 650px) {
-            .reg-card.span-full { grid-column: 1 / -1; flex-direction: row; align-items: center; text-align: left; }
-            .reg-card.span-full > div { flex: 1; }
-            .reg-card.span-full .btn-3d { margin-left: 20px; flex-shrink: 0; }
-        }
-
         /* Guidebook PDF */
         .guidebook-container { max-width: 950px; margin: 0 auto; text-align: center; position: relative; z-index: 10;}
         .guidebook-viewer { width: 100%; height: 620px; border-radius: 16px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); border: 2px solid var(--glass-border); margin-top: 20px; background: var(--card-bg); }
@@ -350,7 +344,7 @@
                 <!-- PSIC -->
                 <div class="glass-card event-card">
                     <div>
-                        <h3 style="font-size: 1.35rem; margin-bottom:10px;">Physics Summit Innovation (PSIC)</h3>
+                        <h3 style="font-size: 1.35rem; margin-bottom:10px;">Physics Summit Innovation Competition (PSIC)</h3>
                         <div class="event-badge-container">
                             <span class="badge"><i class="fa-solid fa-pen-nib"></i> Karya Tulis Ilmiah</span>
                             <span class="badge purple"><i class="fa-solid fa-user"></i> Individu / 2 Orang</span>
@@ -380,7 +374,7 @@
                     <img src="maskot 3.png" alt="Maskot" class="mascot-deco mascot-reg-2" onerror="this.style.display='none'">
                     
                     <h3 style="font-weight: 700; font-size:1.35rem; display:flex; align-items:center; justify-content:center; gap:10px; font-family: 'Playfair Display', serif; font-style: italic;">
-                        <i class="fa-solid fa-paper-plane" style="color:var(--pink-bright); font-style: normal;"></i> Formulir Pendaftaran Resmi
+                        <i class="fa-solid fa-paper-plane" style="color:var(--pink-bright); font-style: normal;"></i> Kebutuhan Pendaftaran
                     </h3>
                     
                     <div class="reg-grid">
@@ -402,6 +396,16 @@
                                 <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:15px; font-style: italic;"><span style="color:var(--pink-bright); font-weight:600;">Gratis!</span> Tempat terbatas, isi form RSVP sekarang.</p>
                             </div>
                             <a href="https://its.id/m/RSVPOpenHouse_11thPhysicsSummit" target="_blank" class="btn-3d btn-outline" style="padding: 10px 18px; font-size:0.85rem; justify-content:center; border-width:1px;">Form RSVP Open House</a>
+                        </div>
+                        
+                        <div class="reg-card">
+                            <div>
+                                <h4 style="margin-bottom:8px; font-weight:600; display:flex; align-items:center; gap:8px;">
+                                    <i class="fa-solid fa-image" style="color: var(--purple-bright);"></i> Twibbon Lomba
+                                </h4>
+                                <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:15px; font-style: italic;">Gunakan twibbon resmi untuk meramaikan acara.</p>
+                            </div>
+                            <a href="#" target="_blank" class="btn-3d btn-outline" style="padding: 10px 18px; font-size:0.85rem; justify-content:center; border-width:1px;"><i class="fa-solid fa-download"></i> Unduh Twibbon</a>
                         </div>
                     </div>
                 </div>
@@ -443,13 +447,13 @@
                         <table>
                             <thead><tr><th>Gelombang</th><th>Paket Pendaftaran</th><th>Biaya</th></tr></thead>
                             <tbody>
-                                <tr><td><strong>Early Bird</strong></td><td>1 Tim</td><td>Rp95.000</td></tr>
-                                <tr><td rowspan="3"><strong>Batch I</strong></td><td>1 Tim</td><td>Rp100.000</td></tr>
-                                <tr><td>2+1 Tim</td><td>Rp285.000</td></tr>
-                                <tr><td>4+1 Tim</td><td>Rp450.000</td></tr>
-                                <tr><td rowspan="3"><strong>Batch II</strong></td><td>1 Tim</td><td>Rp125.000</td></tr>
-                                <tr><td>2+1 Tim</td><td>Rp360.000</td></tr>
-                                <tr><td>4+1 Tim</td><td>Rp575.000</td></tr>
+                                <tr><td><strong>Early Bird</strong></td><td>1 Team</td><td>Rp95.000</td></tr>
+                                <tr><td rowspan="3"><strong>Batch I</strong></td><td>1 Team</td><td>Rp100.000</td></tr>
+                                <tr><td>3 Team</td><td>Rp285.000</td></tr>
+                                <tr><td>5 Team</td><td>Rp450.000</td></tr>
+                                <tr><td rowspan="3"><strong>Batch II</strong></td><td>1 Team</td><td>Rp125.000</td></tr>
+                                <tr><td>3 Team</td><td>Rp360.000</td></tr>
+                                <tr><td>5 Team</td><td>Rp575.000</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -463,11 +467,11 @@
                             <tbody>
                                 <tr><td><strong>Early Bird</strong></td><td>1 Judul</td><td>Rp30.000</td></tr>
                                 <tr><td rowspan="3"><strong>Batch I</strong></td><td>1 Judul</td><td>Rp35.000</td></tr>
-                                <tr><td>2+1 Judul</td><td>Rp100.000</td></tr>
-                                <tr><td>4+1 Judul</td><td>Rp155.000</td></tr>
+                                <tr><td>3 Judul</td><td>Rp100.000</td></tr>
+                                <tr><td>5 Judul</td><td>Rp155.000</td></tr>
                                 <tr><td rowspan="3"><strong>Batch II</strong></td><td>1 Judul</td><td>Rp40.000</td></tr>
-                                <tr><td>2+1 Judul</td><td>Rp115.000</td></tr>
-                                <tr><td>4+1 Judul</td><td>Rp180.000</td></tr>
+                                <tr><td>3 Judul</td><td>Rp115.000</td></tr>
+                                <tr><td>5 Judul</td><td>Rp180.000</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -484,9 +488,9 @@
                     <table>
                         <thead><tr><th>Nama Paket</th><th>Kombinasi Lomba</th><th>Harga Batch I</th><th>Harga Batch II</th></tr></thead>
                         <tbody>
-                            <tr><td><strong>Paket Alpha</strong></td><td>1 Tim PSO + 1 Tim PSIC</td><td><s style="color:#a1a1aa;">Rp135.000</s> <strong style="color:var(--pink-bright);">Rp125.000</strong></td><td><s style="color:#a1a1aa;">Rp165.000</s> <strong style="color:var(--pink-bright);">Rp155.000</strong></td></tr>
-                            <tr><td><strong>Paket Beta</strong></td><td>2 Tim PSO + 1 Tim PSIC</td><td><s style="color:#a1a1aa;">Rp235.000</s> <strong style="color:var(--pink-bright);">Rp220.000</strong></td><td><s style="color:#a1a1aa;">Rp290.000</s> <strong style="color:var(--pink-bright);">Rp275.000</strong></td></tr>
-                            <tr><td><strong>Paket Gamma</strong></td><td>1 Tim PSO + 2 Tim PSIC</td><td><s style="color:#a1a1aa;">Rp170.000</s> <strong style="color:var(--pink-bright);">Rp155.000</strong></td><td><s style="color:#a1a1aa;">Rp205.000</s> <strong style="color:var(--pink-bright);">Rp190.000</strong></td></tr>
+                            <tr><td><strong>Paket Alpha</strong></td><td>1 Tim PSO + 1 Tim PSIC</td><td><s style="color:#a1a1aa;">Rp135.000</s> <strong style="color:var(--pink-bright);">Rp130.000</strong></td><td><s style="color:#a1a1aa;">Rp165.000</s> <strong style="color:var(--pink-bright);">Rp160.000</strong></td></tr>
+                            <tr><td><strong>Paket Beta</strong></td><td>2 Tim PSO + 1 Tim PSIC</td><td><s style="color:#a1a1aa;">Rp235.000</s> <strong style="color:var(--pink-bright);">Rp225.000</strong></td><td><s style="color:#a1a1aa;">Rp290.000</s> <strong style="color:var(--pink-bright);">Rp280.000</strong></td></tr>
+                            <tr><td><strong>Paket Gamma</strong></td><td>1 Tim PSO + 2 Tim PSIC</td><td><s style="color:#a1a1aa;">Rp170.000</s> <strong style="color:var(--pink-bright);">Rp160.000</strong></td><td><s style="color:#a1a1aa;">Rp205.000</s> <strong style="color:var(--pink-bright);">Rp195.000</strong></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -499,6 +503,14 @@
                 <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:20px; font-style: italic;">Pembayaran pendaftaran resmi 11<sup>th</sup> Physics Summit dilakukan ke rekening / <em>e-wallet</em> atas nama <strong>SARAS AYU ISMOYO PUTRI</strong>.</p>
                 
                 <div class="faq-wrapper" style="max-width:100%;">
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question"><span><i class="fa-solid fa-qrcode"></i> Scan QRIS</span><i class="fa-solid fa-plus faq-icon"></i></div>
+                        <div class="faq-answer">
+                            <ul style="list-style-type:none; padding-top:10px;">
+                                <li><strong>Link QRIS:</strong> <a href="QRIS.pdf" target="_blank" style="color: var(--pink-bright); text-decoration: underline; font-weight: 600;">Download / Buka QRIS.pdf</a></li>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="faq-item" onclick="toggleFaq(this)">
                         <div class="faq-question"><span><i class="fa-solid fa-building-columns"></i> Transfer Bank</span><i class="fa-solid fa-plus faq-icon"></i></div>
                         <div class="faq-answer"><ul style="list-style-type:none; padding-top:10px;"><li style="margin-bottom:8px;"><strong>Bank BTN:</strong> 33801610064796</li><li style="margin-bottom:8px;"><strong>Bank BRI:</strong> 055501047274506</li><li><strong>Bank Jago:</strong> 106685323434</li></ul></div>
@@ -582,7 +594,7 @@
                 <div class="glass-card timeline-item">
                     <div class="timeline-badge"><i class="fa-solid fa-pen-ruler"></i></div>
                     <div class="timeline-box" onclick="toggleTimeline(this)">
-                        <div class="timeline-summary"><div><h3 style="font-size: 1.1rem; font-family: 'Playfair Display', serif; font-style: italic;">Physics Summit Innovation (PSIC)</h3></div><span class="timeline-trigger">Detail <i class="fa-solid fa-chevron-down"></i></span></div>
+                        <div class="timeline-summary"><div><h3 style="font-size: 1.1rem; font-family: 'Playfair Display', serif; font-style: italic;">Physics Summit Innovation Competition (PSIC)</h3></div><span class="timeline-trigger">Detail <i class="fa-solid fa-chevron-down"></i></span></div>
                         <ul class="timeline-details">
                             <li><span class="detail-label">Coaching Session</span> <span class="detail-date">12 September 2026</span></li>
                             <li><span class="detail-label">Full Paper Submission</span> <span class="detail-date">19 September 2026</span></li>
@@ -748,7 +760,7 @@
                     <h4>Kategori Acara</h4>
                     <ul>
                         <li><a href="#kompetisi">Physics Summit Olympiad</a></li>
-                        <li><a href="#kompetisi">Physics Summit Innovation</a></li>
+                        <li><a href="#kompetisi">Physics Summit Innovation Competition</a></li>
                         <li><a href="#kompetisi">Open House Department of Physics ITS Surabaya</a></li>
                     </ul>
                 </div>
