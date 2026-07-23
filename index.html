@@ -29,21 +29,21 @@
             --shadow-btn: 0 10px 20px rgba(184, 41, 234, 0.3);
         }
 
-        /* TEMA TERANG (Opsional jika tombol toggle ditekan) */
+        /* TEMA TERANG: Warna dipergelap agar super kontras dan tajam */
         body.light-mode {
-            --pink-bright: #ff2a85;
-            --purple-bright: #9d4edd;
-            --blue-accent: #00f0ff;
-            --bg-gradient: linear-gradient(135deg, #fff5f8 0%, #f3e8ff 50%, #ffffff 100%);
-            --text-dark: #1e293b;
+            --pink-bright: #e11d48; /* Pink/Merah gelap */
+            --purple-bright: #6d28d9; /* Ungu pekat */
+            --blue-accent: #0284c7; /* Biru laut gelap */
+            --bg-gradient: linear-gradient(135deg, #fff0f5 0%, #f3e8ff 50%, #f8fafc 100%);
+            --text-dark: #0f172a;
             --text-muted: #475569;
-            --glass-bg: rgba(255, 255, 255, 0.65);
-            --glass-border: rgba(255, 255, 255, 0.8);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.9);
             --card-bg: #ffffff;
-            --table-border: #94a3b8;
+            --table-border: #cbd5e1;
             --table-head-bg: #f1f5f9;
-            --shadow-3d: 0 20px 40px rgba(157, 78, 221, 0.12), 0 5px 15px rgba(0, 0, 0, 0.04);
-            --shadow-btn: 0 10px 20px rgba(255, 42, 133, 0.25);
+            --shadow-3d: 0 20px 40px rgba(109, 40, 217, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
+            --shadow-btn: 0 10px 20px rgba(225, 29, 72, 0.25);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -113,7 +113,7 @@
         .shape-2 { width: 480px; height: 480px; top: 50%; left: -100px; }
         
         .particle { position: absolute; background: #ffffff; border-radius: 50%; opacity: 0.5; animation: floatParticle 12s infinite linear; box-shadow: 0 0 12px rgba(255,255,255,0.8); }
-        body.light-mode .particle { background: var(--purple-bright); box-shadow: 0 0 10px var(--pink-bright); opacity: 0.3; }
+        body.light-mode .particle { background: var(--purple-bright); box-shadow: 0 0 10px var(--pink-bright); opacity: 0.2; }
         .p1 { width: 6px; height: 6px; top: 20%; left: 10%; animation-duration: 10s; }
         .p2 { width: 4px; height: 4px; top: 60%; right: 15%; animation-duration: 14s; }
         .p3 { width: 8px; height: 8px; top: 80%; left: 20%; animation-duration: 12s; }
@@ -123,12 +123,12 @@
         @keyframes floatFly { 0% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } 100% { transform: translateY(0) rotate(0deg); } }
         @keyframes gentleFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
         
-        /* MASKOT FIX */
-        .mascot-deco { position: absolute; z-index: 0; opacity: 0.85; pointer-events: none; max-width: 160px; height: auto; }
-        .mascot-hero-1 { bottom: 0; left: 2%; width: clamp(80px, 15vw, 140px); }
-        .mascot-hero-2 { top: 10%; right: 2%; width: clamp(70px, 12vw, 120px); }
-        .mascot-reg-1 { bottom: -10px; left: -20px; width: clamp(80px, 15vw, 130px); }
-        .mascot-reg-2 { top: -20px; right: -20px; width: clamp(70px, 12vw, 110px); }
+        /* MASKOT FIX (Dibatasi ukurannya) */
+        .mascot-deco { position: absolute; z-index: 0; opacity: 0.85; pointer-events: none; max-width: 140px; height: auto; }
+        .mascot-hero-1 { bottom: 0; left: 2%; width: clamp(70px, 12vw, 130px); }
+        .mascot-hero-2 { top: 10%; right: 2%; width: clamp(60px, 10vw, 110px); }
+        .mascot-reg-1 { bottom: -10px; left: -20px; width: clamp(70px, 12vw, 120px); }
+        .mascot-reg-2 { top: -20px; right: -20px; width: clamp(60px, 10vw, 100px); }
 
         /* NAVBAR & DROPDOWN */
         header { position: sticky; top: 16px; z-index: 1000; padding: 0 24px; }
@@ -198,8 +198,8 @@
         .hero-wrapper { display: flex; flex-direction: column; align-items: center; position: relative; }
         
         .hero-logo-wrapper {
-            width: clamp(140px, 20vw, 180px);
-            height: clamp(140px, 20vw, 180px);
+            width: clamp(120px, 20vw, 170px);
+            height: clamp(120px, 20vw, 170px);
             margin-bottom: 20px;
             animation: gentleFloat 4s ease-in-out infinite;
             transition: all 0.4s ease;
@@ -258,17 +258,11 @@
             .events-grid .span-full { grid-column: 1 / -1; }
         }
 
-        /* Pendaftaran Grid */
-        .registration-box { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 24px; padding: 35px; text-align: center; box-shadow: var(--shadow-3d); max-width: 950px; margin: 0 auto; position: relative; z-index: 10;}
-        .reg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 25px; position: relative; z-index: 10;}
-        .reg-card { background: var(--card-bg); padding: 22px; border-radius: 16px; box-shadow: 0 8px 18px rgba(0,0,0,0.1); transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid transparent;}
+        /* Pendaftaran Grid (Diperbaiki agar 3 kolom sejajar presisi) */
+        .registration-box { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 24px; padding: 35px; text-align: center; box-shadow: var(--shadow-3d); max-width: 1050px; margin: 0 auto; position: relative; z-index: 10;}
+        .reg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 25px; position: relative; z-index: 10;}
+        .reg-card { background: var(--card-bg); padding: 22px; border-radius: 16px; box-shadow: 0 8px 18px rgba(0,0,0,0.1); transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid transparent; text-align: left;}
         .reg-card:hover { transform: translateY(-4px); box-shadow: 0 12px 25px rgba(157, 78, 221, 0.2); border-color: var(--glass-border);}
-
-        @media (min-width: 650px) {
-            .reg-card.span-full { grid-column: 1 / -1; flex-direction: row; align-items: center; text-align: left; }
-            .reg-card.span-full > div { flex: 1; }
-            .reg-card.span-full .btn-3d { margin-left: 20px; flex-shrink: 0; }
-        }
 
         /* Guidebook PDF */
         .guidebook-container { max-width: 950px; margin: 0 auto; text-align: center; position: relative; z-index: 10;}
@@ -533,7 +527,7 @@
                 </div>
             </div>
 
-            <!-- Form Registrasi -->
+            <!-- Form Registrasi (DIBUAT 3 KOLOM SEJAJAR) -->
             <div id="pendaftaran-lengkap" style="margin-top: 65px;">
                 <div class="registration-box">
                     <img src="Maskot 2.png" alt="Maskot" class="mascot-deco mascot-reg-1" onerror="this.style.display='none'">
@@ -564,14 +558,14 @@
                             <a href="https://its.id/m/RSVPOpenHouse_11thPhysicsSummit" target="_blank" class="btn-3d btn-outline" style="padding: 10px 18px; font-size:0.85rem; justify-content:center; border-width:1px;">Form RSVP Open House</a>
                         </div>
                         
-                        <div class="reg-card span-full" style="grid-column: 1 / -1; flex-direction: row; align-items: center; text-align: left;">
-                            <div style="flex: 1;">
+                        <div class="reg-card">
+                            <div>
                                 <h4 style="margin-bottom:8px; font-weight:700; display:flex; align-items:center; gap:8px; font-family: 'Playfair Display', serif;">
                                     <i class="fa-solid fa-image" style="color: var(--purple-bright);"></i> Twibbon Lomba
                                 </h4>
-                                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0;">Gunakan twibbon resmi untuk meramaikan acara.</p>
+                                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px;">Gunakan twibbon resmi untuk meramaikan acara.</p>
                             </div>
-                            <a href="https://its.id/m/Twibbon_11thPhysicsSummit" target="_blank" class="btn-3d btn-outline" style="margin-left: 20px; flex-shrink: 0; padding: 10px 18px; font-size:0.85rem; justify-content:center; border-width:1px;"><i class="fa-solid fa-download"></i> Unduh Twibbon</a>
+                            <a href="https://its.id/m/Twibbon_11thPhysicsSummit" target="_blank" class="btn-3d btn-outline" style="padding: 10px 18px; font-size:0.85rem; justify-content:center; border-width:1px;"><i class="fa-solid fa-download"></i> Unduh Twibbon</a>
                         </div>
                     </div>
                 </div>
@@ -693,6 +687,7 @@
     <!-- Benefit Peserta -->
     <section id="benefit" style="background: rgba(157, 78, 221, 0.05);">
         <div class="container relative">
+            <img src="Maskot 2.png" alt="Maskot" class="mascot-deco mascot-benefit" onerror="this.style.display='none'" style="max-width: 140px; top:-40px; left: 10px;">
             <h2 class="section-title" style="margin-bottom: 30px;">Benefit Peserta & Hadiah Pemenang</h2>
             <div class="glass-card benefit-tabs-container">
                 <div class="benefit-grid">
@@ -703,6 +698,7 @@
                             <li><i class="fa-solid fa-circle-check"></i> <strong>Juara I:</strong> Rp2.500.000 + Trophy + Sertifikat Pemenang <br><span class="tag-freepass"><i class="fa-solid fa-ticket"></i> Freepass Departemen Fisika ITS (S&K Berlaku)</span></li>
                             <li><i class="fa-solid fa-circle-check"></i> <strong>Juara II:</strong> Rp2.000.000 + Trophy + Sertifikat Pemenang.</li>
                             <li><i class="fa-solid fa-circle-check"></i> <strong>Juara III:</strong> Rp1.500.000 + Trophy + Sertifikat Pemenang.</li>
+                            <li><i class="fa-solid fa-circle-check"></i> <strong>Juara Harapan I & II:</strong> Trophy + Sertifikat Pemenang.</li>
                         </ul>
                     </div>
                     <div class="benefit-block">
@@ -819,7 +815,7 @@
         </div>
     </section>
 
-    <!-- Sub-bab Kontak & Modal Fitur Baru (FULL WIDTH INFO ACARA) -->
+    <!-- Sub-bab Kontak (DIBUAT 3 KOLOM SEJAJAR) -->
     <section id="contact" style="background: rgba(255, 42, 133, 0.03);">
         <div class="container">
             <h2 class="section-title">Pusat Informasi & Kontak</h2>
@@ -827,15 +823,15 @@
                 <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 25px;">Pilih narahubung yang ingin Anda hubungi dan isi formulir singkat untuk langsung terhubung via WhatsApp.</p>
                 
                 <div class="reg-grid">
-                    <!-- Info Acara Dibuat Full Width -->
-                    <div class="reg-card span-full" style="grid-column: 1 / -1; flex-direction: row; align-items: center; text-align: left; flex-wrap: wrap; gap: 20px;">
-                        <div style="flex: 1; min-width: 250px;">
+                    <!-- Info Acara (Kembali ke standar 1 kolom vertikal) -->
+                    <div class="reg-card">
+                        <div>
                             <h4 style="margin-bottom:8px; font-weight:700; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-user-group" style="color:var(--purple-bright);"></i> Info Acara</h4>
-                            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0;">Pertanyaan seputar seluruh rangkaian acara.</p>
+                            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px;">Pertanyaan seputar seluruh rangkaian acara.</p>
                         </div>
-                        <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-start;">
-                            <button onclick="openCpModal('Nabil', '6281334826487', 'NB')" class="btn-3d btn-outline" style="padding: 10px 15px; font-size:0.8rem;"><i class="fa-brands fa-whatsapp"></i> Chat Nabil</button>
-                            <button onclick="openCpModal('Rama', '6285211910805', 'RM')" class="btn-3d btn-outline" style="padding: 10px 15px; font-size:0.8rem;"><i class="fa-brands fa-whatsapp"></i> Chat Rama</button>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <button onclick="openCpModal('Nabil', '6281334826487', 'NB')" class="btn-3d btn-outline" style="padding: 10px; font-size:0.85rem; justify-content:center; width: 100%;"><i class="fa-brands fa-whatsapp"></i> Chat Nabil</button>
+                            <button onclick="openCpModal('Rama', '6285211910805', 'RM')" class="btn-3d btn-outline" style="padding: 10px; font-size:0.85rem; justify-content:center; width: 100%;"><i class="fa-brands fa-whatsapp"></i> Chat Rama</button>
                         </div>
                     </div>
 
