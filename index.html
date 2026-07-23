@@ -70,7 +70,7 @@
         .loader-text p { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; text-align: center; animation: pulse-text 1.5s infinite alternate; font-family: 'Poppins', sans-serif;}
         @keyframes pulse-text { 0% { opacity: 0.5; } 100% { opacity: 1; } }
 
-        /* DEKORASI RUMUS & BINTANG */
+        /* DEKORASI RUMUS & RASI BINTANG SVG */
         .decorations-container { position: fixed; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: 1; overflow: hidden; }
         
         .math-formula { position: absolute; color: var(--text-muted); opacity: 0.15; font-family: 'Playfair Display', serif; font-weight: 800; animation: floatFly 15s infinite alternate; z-index: 1; }
@@ -80,13 +80,32 @@
         .f-4 { top: 85%; right: 12%; font-size: 2rem; animation-delay: 3s; }
         .f-5 { top: 20%; right: 30%; font-size: 1.4rem; animation-delay: 4s; }
 
-        /* Sebaran Bintang Elegan (Garis Rasi Dihapus) */
-        .star-cluster { position: absolute; top: 15%; right: 10%; width: 200px; height: 300px; z-index: 1; opacity: 0.8; animation: gentleFloat 6s ease-in-out infinite; }
-        .star { position: absolute; background: white; border-radius: 50%; box-shadow: 0 0 8px white; }
-        .blue-star { width: 9px; height: 9px; bottom: 10px; left: 40px; background: var(--blue-accent); box-shadow: 0 0 15px var(--blue-accent), 0 0 30px var(--blue-accent); animation: pulse-nucleus 2s infinite alternate;}
-        .s2 { width: 4px; height: 4px; bottom: 90px; left: 60px; }
-        .s3 { width: 5px; height: 5px; top: 110px; left: 90px; }
-        .s4 { width: 3px; height: 3px; top: 40px; left: 130px; }
+        /* Rasi Bintang SVG Presisi */
+        .constellation-svg {
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            width: clamp(120px, 20vw, 250px);
+            height: auto;
+            z-index: 1;
+            opacity: 0.7;
+            animation: gentleFloat 6s ease-in-out infinite;
+        }
+        
+        .achernar-star {
+            filter: drop-shadow(0 0 10px var(--blue-accent));
+            animation: pulse-achernar 2s infinite alternate;
+        }
+        
+        @keyframes pulse-achernar {
+            0% { filter: drop-shadow(0 0 5px var(--blue-accent)); r: 5; }
+            100% { filter: drop-shadow(0 0 20px var(--blue-accent)); r: 7.5; }
+        }
+
+        /* Penyesuaian Vektor di Mode Terang */
+        body.light-mode .constellation-svg polyline { stroke: rgba(157, 78, 221, 0.4); }
+        body.light-mode .constellation-svg circle { fill: var(--purple-bright); }
+        body.light-mode .constellation-svg .achernar-star { fill: var(--pink-bright); filter: drop-shadow(0 0 8px var(--pink-bright)); }
 
         .shape-3d { position: absolute; background: #ffffff; filter: blur(50px); border-radius: 50%; opacity: 0.05; animation: floatShape 8s ease-in-out infinite alternate; }
         body.light-mode .shape-3d { background: linear-gradient(45deg, var(--pink-bright), var(--purple-bright)); filter: blur(90px); opacity: 0.12; }
@@ -157,45 +176,16 @@
         .modal-form input:focus, .modal-form textarea:focus { outline: none; border-color: var(--blue-accent); box-shadow: 0 0 10px rgba(0, 240, 255, 0.2); }
         .modal-form input::placeholder, .modal-form textarea::placeholder { color: #64748b; }
 
-        /* Hero Section (Diperbaiki Logo Wrapper & Ukuran Font) */
+        /* Hero Section */
         .hero-section { padding: 40px 0 70px 0; text-align: center; position: relative; z-index: 10; overflow-x: clip; }
         .hero-wrapper { display: flex; flex-direction: column; align-items: center; position: relative; }
         
-        /* LOGO FIX: Dibungkus wadah putih bulat, margin-nya rapi, gak akan kepotong tepi */
-        .hero-logo-wrapper {
-            width: clamp(140px, 20vw, 180px);
-            height: clamp(140px, 20vw, 180px);
-            margin-bottom: 20px;
-            animation: gentleFloat 4s ease-in-out infinite;
-            transition: all 0.4s ease;
-            z-index: 5;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 50%;
-            padding: 15px;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+        .hero-logo-wrapper { width: clamp(140px, 20vw, 180px); height: clamp(140px, 20vw, 180px); margin-bottom: 20px; animation: gentleFloat 4s ease-in-out infinite; transition: all 0.4s ease; z-index: 5; background: rgba(255, 255, 255, 0.95); border-radius: 50%; padding: 15px; box-shadow: 0 0 30px rgba(255, 255, 255, 0.2); display: flex; justify-content: center; align-items: center; }
         .hero-logo { width: 100%; height: 100%; object-fit: contain; }
-        
         body.light-mode .hero-logo-wrapper { background: transparent; box-shadow: none; padding: 0; filter: drop-shadow(0 15px 25px rgba(255,42,133,0.25)); }
 
-        /* TITLE FIX: Ukuran adaptif, gradient disesuaikan agar kontras selalu optimal */
-        .hero-title { 
-            font-size: clamp(2.2rem, 6vw, 3.8rem); 
-            font-weight: 800; 
-            line-height: 1.2; 
-            margin-bottom: 25px; 
-            background: linear-gradient(135deg, var(--pink-bright) 0%, var(--blue-accent) 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-        }
-        body.light-mode .hero-title {
-            background: linear-gradient(135deg, var(--purple-bright) 0%, var(--pink-bright) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .hero-title { font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 800; line-height: 1.2; margin-bottom: 25px; background: linear-gradient(135deg, var(--pink-bright) 0%, var(--blue-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        body.light-mode .hero-title { background: linear-gradient(135deg, var(--purple-bright) 0%, var(--pink-bright) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
         .prizepool-badge { background: linear-gradient(45deg, #10b981, #059669); color: #ffffff; padding: 8px 20px; border-radius: 30px; font-size: 0.95rem; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 30px; box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3); }
         .hero-buttons { display: flex; justify-content: center; gap: 16px; margin-bottom: 45px; flex-wrap: wrap; }
@@ -320,6 +310,7 @@
             .footer-grid { grid-template-columns: 1fr; gap: 25px; }
             .guidebook-viewer { height: 450px; }
             .mascot-deco { display: none; }
+            .decorations-container .constellation-svg { width: 100px; right: 2%; opacity: 0.5; }
         }
     </style>
 </head>
@@ -339,14 +330,29 @@
         </div>
     </div>
 
-    <!-- Dekorasi Floating Background (Rumus & Sebaran Bintang Elegan) -->
+    <!-- Dekorasi Floating Background (Rumus & Rasi Bintang Presisi Vektor) -->
     <div class="decorations-container">
-        <div class="star-cluster">
-            <div class="star blue-star" title="Achernar"></div>
-            <div class="star s2"></div>
-            <div class="star s3"></div>
-            <div class="star s4"></div>
-        </div>
+        <!-- Rasi Bintang Vektor (SVG) Eridanus/Achernar -->
+        <svg viewBox="0 0 250 350" xmlns="http://www.w3.org/2000/svg" class="constellation-svg">
+            <!-- Garis Konstelasi Halus -->
+            <polyline points="200,20 160,70 180,130 120,180 140,250 50,320" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linejoin="round"/>
+            
+            <!-- Titik Bintang Rasi -->
+            <circle cx="200" cy="20" r="2.5" fill="#fff" />
+            <circle cx="160" cy="70" r="2" fill="#fff" />
+            <circle cx="180" cy="130" r="2.5" fill="#fff" />
+            <circle cx="120" cy="180" r="2" fill="#fff" />
+            <circle cx="140" cy="250" r="3" fill="#fff" />
+            
+            <!-- Achernar (Bintang Ujung Terang Biru) -->
+            <circle cx="50" cy="320" r="6" fill="var(--blue-accent)" class="achernar-star" />
+            
+            <!-- Bintang-bintang kecil pelengkap latar -->
+            <circle cx="220" cy="100" r="1.5" fill="#fff" opacity="0.5"/>
+            <circle cx="90" cy="80" r="1" fill="#fff" opacity="0.3"/>
+            <circle cx="160" cy="200" r="1.5" fill="#fff" opacity="0.6"/>
+            <circle cx="70" cy="230" r="1" fill="#fff" opacity="0.4"/>
+        </svg>
 
         <!-- Rumus-rumus Fisika Floating -->
         <div class="math-formula f-1">E = mc²</div>
@@ -752,7 +758,7 @@
         <div class="container">
             <h2 class="section-title">Pusat Informasi & Kontak</h2>
             <div class="registration-box" style="padding: 30px;">
-                <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 25px;">Pilih orang yang ingin Anda hubungi dan isi formulir singkat untuk langsung terhubung via WhatsApp.</p>
+                <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 25px;">Pilih narahubung yang ingin Anda hubungi dan isi formulir singkat untuk langsung terhubung via WhatsApp.</p>
                 
                 <div class="reg-grid">
                     <div class="reg-card">
