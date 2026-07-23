@@ -70,7 +70,7 @@
         .loader-text p { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; text-align: center; animation: pulse-text 1.5s infinite alternate; font-family: 'Poppins', sans-serif;}
         @keyframes pulse-text { 0% { opacity: 0.5; } 100% { opacity: 1; } }
 
-        /* DEKORASI RUMUS & RASI BINTANG */
+        /* DEKORASI RUMUS & BINTANG */
         .decorations-container { position: fixed; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: 1; overflow: hidden; }
         
         .math-formula { position: absolute; color: var(--text-muted); opacity: 0.15; font-family: 'Playfair Display', serif; font-weight: 800; animation: floatFly 15s infinite alternate; z-index: 1; }
@@ -80,16 +80,13 @@
         .f-4 { top: 85%; right: 12%; font-size: 2rem; animation-delay: 3s; }
         .f-5 { top: 20%; right: 30%; font-size: 1.4rem; animation-delay: 4s; }
 
-        .constellation { position: absolute; top: 15%; right: 10%; width: 200px; height: 300px; z-index: 1; opacity: 0.6; animation: gentleFloat 6s ease-in-out infinite; }
+        /* Sebaran Bintang Elegan (Garis Rasi Dihapus) */
+        .star-cluster { position: absolute; top: 15%; right: 10%; width: 200px; height: 300px; z-index: 1; opacity: 0.8; animation: gentleFloat 6s ease-in-out infinite; }
         .star { position: absolute; background: white; border-radius: 50%; box-shadow: 0 0 8px white; }
         .blue-star { width: 9px; height: 9px; bottom: 10px; left: 40px; background: var(--blue-accent); box-shadow: 0 0 15px var(--blue-accent), 0 0 30px var(--blue-accent); animation: pulse-nucleus 2s infinite alternate;}
         .s2 { width: 4px; height: 4px; bottom: 90px; left: 60px; }
         .s3 { width: 5px; height: 5px; top: 110px; left: 90px; }
         .s4 { width: 3px; height: 3px; top: 40px; left: 130px; }
-        .line { position: absolute; background: rgba(255, 255, 255, 0.2); transform-origin: 0 50%; }
-        .l1 { width: 82px; height: 1px; bottom: 50px; left: 44px; transform: rotate(-75deg); }
-        .l2 { width: 70px; height: 1px; bottom: 92px; left: 62px; transform: rotate(-55deg); }
-        .l3 { width: 80px; height: 1px; top: 112px; left: 92px; transform: rotate(-60deg); }
 
         .shape-3d { position: absolute; background: #ffffff; filter: blur(50px); border-radius: 50%; opacity: 0.05; animation: floatShape 8s ease-in-out infinite alternate; }
         body.light-mode .shape-3d { background: linear-gradient(45deg, var(--pink-bright), var(--purple-bright)); filter: blur(90px); opacity: 0.12; }
@@ -107,7 +104,7 @@
         @keyframes floatFly { 0% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } 100% { transform: translateY(0) rotate(0deg); } }
         @keyframes gentleFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
         
-        /* MASKOT FIX (Dibatasi ukurannya agar tidak raksasa) */
+        /* MASKOT FIX (Dibatasi ukurannya) */
         .mascot-deco { position: absolute; z-index: 0; opacity: 0.85; pointer-events: none; max-width: 160px; height: auto; }
         .mascot-hero-1 { bottom: 0; left: 2%; width: clamp(80px, 15vw, 140px); }
         .mascot-hero-2 { top: 10%; right: 2%; width: clamp(70px, 12vw, 120px); }
@@ -182,7 +179,6 @@
         }
         .hero-logo { width: 100%; height: 100%; object-fit: contain; }
         
-        /* Tema Terang Logo Fix */
         body.light-mode .hero-logo-wrapper { background: transparent; box-shadow: none; padding: 0; filter: drop-shadow(0 15px 25px rgba(255,42,133,0.25)); }
 
         /* TITLE FIX: Ukuran adaptif, gradient disesuaikan agar kontras selalu optimal */
@@ -195,7 +191,6 @@
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent; 
         }
-        /* Mode Terang: Warna gradasinya diubah jadi Ungu -> Pink biar kebaca di background putih */
         body.light-mode .hero-title {
             background: linear-gradient(135deg, var(--purple-bright) 0%, var(--pink-bright) 100%);
             -webkit-background-clip: text;
@@ -344,17 +339,13 @@
         </div>
     </div>
 
-    <!-- Dekorasi Floating Background (Rumus & Rasi Bintang) -->
+    <!-- Dekorasi Floating Background (Rumus & Sebaran Bintang Elegan) -->
     <div class="decorations-container">
-        <!-- Rasi Bintang (Mirip Eridanus / Achernar) -->
-        <div class="constellation">
+        <div class="star-cluster">
             <div class="star blue-star" title="Achernar"></div>
             <div class="star s2"></div>
             <div class="star s3"></div>
             <div class="star s4"></div>
-            <div class="line l1"></div>
-            <div class="line l2"></div>
-            <div class="line l3"></div>
         </div>
 
         <!-- Rumus-rumus Fisika Floating -->
@@ -409,7 +400,6 @@
         <img src="maskot 3.png" alt="Maskot" class="mascot-deco mascot-hero-2" onerror="this.style.display='none'">
 
         <div class="container hero-wrapper">
-            <!-- WADAH LOGO BARU: Anti kepotong -->
             <div class="hero-logo-wrapper">
                 <img src="Logo.png" alt="Logo Physics Summit" class="hero-logo" onerror="this.src='https://via.placeholder.com/150x150?text=Logo+PS'">
             </div>
@@ -631,7 +621,6 @@
     <!-- Benefit Peserta -->
     <section id="benefit" style="background: rgba(157, 78, 221, 0.05);">
         <div class="container relative">
-            <img src="Maskot 2.png" alt="Maskot" class="mascot-deco mascot-benefit" onerror="this.style.display='none'" style="max-width: 140px; top:-40px; left: 10px;">
             <h2 class="section-title" style="margin-bottom: 30px;">Benefit Peserta & Hadiah Pemenang</h2>
             <div class="glass-card benefit-tabs-container">
                 <div class="benefit-grid">
@@ -642,7 +631,6 @@
                             <li><i class="fa-solid fa-circle-check"></i> <strong>Juara I:</strong> Rp2.500.000 + Trophy + Sertifikat Pemenang <br><span class="tag-freepass"><i class="fa-solid fa-ticket"></i> Freepass Departemen Fisika ITS (S&K Berlaku)</span></li>
                             <li><i class="fa-solid fa-circle-check"></i> <strong>Juara II:</strong> Rp2.000.000 + Trophy + Sertifikat Pemenang.</li>
                             <li><i class="fa-solid fa-circle-check"></i> <strong>Juara III:</strong> Rp1.500.000 + Trophy + Sertifikat Pemenang.</li>
-                            <li><i class="fa-solid fa-circle-check"></i> <strong>Juara Harapan I & II:</strong> Trophy + Sertifikat Pemenang.</li>
                         </ul>
                     </div>
                     <div class="benefit-block">
@@ -764,7 +752,7 @@
         <div class="container">
             <h2 class="section-title">Pusat Informasi & Kontak</h2>
             <div class="registration-box" style="padding: 30px;">
-                <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 25px;">Pilih admin yang ingin Anda hubungi dan isi formulir singkat untuk langsung terhubung via WhatsApp.</p>
+                <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 25px;">Pilih orang yang ingin Anda hubungi dan isi formulir singkat untuk langsung terhubung via WhatsApp.</p>
                 
                 <div class="reg-grid">
                     <div class="reg-card">
@@ -773,7 +761,7 @@
                             <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px;">Pertanyaan seputar seluruh rangkaian acara.</p>
                         </div>
                         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                            <button onclick="openCpModal('Nabil', '6281334826486', 'NB')" class="btn-3d btn-outline" style="flex:1; padding: 10px 5px; font-size:0.8rem; justify-content:center;"><i class="fa-brands fa-whatsapp"></i> Chat Nabil</button>
+                            <button onclick="openCpModal('Nabil', '6281334826487', 'NB')" class="btn-3d btn-outline" style="flex:1; padding: 10px 5px; font-size:0.8rem; justify-content:center;"><i class="fa-brands fa-whatsapp"></i> Chat Nabil</button>
                             <button onclick="openCpModal('Rama', '6285211910805', 'RM')" class="btn-3d btn-outline" style="flex:1; padding: 10px 5px; font-size:0.8rem; justify-content:center;"><i class="fa-brands fa-whatsapp"></i> Chat Rama</button>
                         </div>
                     </div>
@@ -933,7 +921,7 @@
         let currentTargetPhone = "";
 
         function openCpModal(adminName, phone, initials) {
-            document.getElementById('modalName').innerText = "Admin " + adminName;
+            document.getElementById('modalName').innerText = adminName;
             document.getElementById('modalAvatar').innerText = initials;
             currentTargetPhone = phone;
             
@@ -960,7 +948,7 @@
                 return;
             }
 
-            let waText = `Halo Kak ${document.getElementById('modalName').innerText.replace('Admin ', '')},%0A%0APerkenalkan,%0ANama: ${name}%0AInstansi: ${inst}%0A%0A${msg}`;
+            let waText = `Halo Kak ${document.getElementById('modalName').innerText},%0A%0APerkenalkan,%0ANama: ${name}%0AInstansi: ${inst}%0A%0A${msg}`;
             
             let waUrl = `https://wa.me/${currentTargetPhone}?text=${waText}`;
             window.open(waUrl, '_blank');
