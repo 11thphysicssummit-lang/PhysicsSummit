@@ -7,8 +7,8 @@
     
     <title>Physics Summit - Atomic Horizon</title>
     
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..800;1,300..800&family=Montserrat:ital,wght@0,600..800;1,600..800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <!-- Fonts Baru: Outfit (Futuristik/Tech) & Nunito (Modern/Friendly) -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -41,9 +41,11 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg-gradient); color: var(--text-dark); overflow-x: hidden; position: relative; transition: background 0.5s ease; }
-        h1, h2, h3, h4, h5, h6, .nav-logo { font-family: 'Montserrat', sans-serif; }
-        .section-title { font-family: 'Playfair Display', serif; font-style: italic; }
+        
+        /* Font Assignment */
+        body { font-family: 'Nunito', sans-serif; background: var(--bg-gradient); color: var(--text-dark); overflow-x: hidden; position: relative; transition: background 0.5s ease; }
+        h1, h2, h3, h4, h5, h6, .nav-logo { font-family: 'Outfit', sans-serif; }
+        .section-title { font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
         html { scroll-behavior: smooth; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 10; }
 
@@ -59,21 +61,40 @@
         @keyframes spinAtom2 { 0% { transform: rotateZ(60deg) rotateX(65deg) rotateZ(0deg); } 100% { transform: rotateZ(60deg) rotateX(65deg) rotateZ(360deg); } }
         @keyframes spinAtom3 { 0% { transform: rotateZ(120deg) rotateX(65deg) rotateZ(0deg); } 100% { transform: rotateZ(120deg) rotateX(65deg) rotateZ(360deg); } }
 
-        /* Floating Dekorasi & Particles 3D */
+        /* DEKORASI RUMUS & RASI BINTANG */
         .decorations-container { position: fixed; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: 1; overflow: hidden; }
-        .shape-3d { position: absolute; background: linear-gradient(45deg, var(--pink-bright), var(--purple-bright)); border-radius: 50%; filter: blur(90px); opacity: 0.15; animation: floatShape 8s ease-in-out infinite alternate; }
+        
+        .math-formula { position: absolute; color: var(--purple-bright); opacity: 0.12; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.5rem; animation: floatFly 15s infinite alternate; z-index: 1; }
+        body.dark-mode .math-formula { color: #ffffff; opacity: 0.05; }
+        .f-1 { top: 12%; left: 8%; font-size: 2.2rem; animation-delay: 0s; }
+        .f-2 { top: 70%; left: 6%; font-size: 1.8rem; animation-delay: 2s; }
+        .f-3 { top: 35%; right: 5%; font-size: 1.6rem; animation-delay: 1s; opacity: 0.08;}
+        .f-4 { top: 85%; right: 12%; font-size: 2rem; animation-delay: 3s; }
+        .f-5 { top: 20%; right: 30%; font-size: 1.4rem; animation-delay: 4s; }
+
+        .constellation { position: absolute; top: 15%; right: 10%; width: 200px; height: 300px; z-index: 1; opacity: 0.4; animation: gentleFloat 6s ease-in-out infinite; }
+        body.dark-mode .constellation { opacity: 0.8; }
+        .star { position: absolute; background: white; border-radius: 50%; box-shadow: 0 0 8px white; }
+        /* Bintang Biru (Achernar) di konstelasi Eridanus */
+        .blue-star { width: 9px; height: 9px; bottom: 10px; left: 40px; background: var(--blue-accent); box-shadow: 0 0 15px var(--blue-accent), 0 0 30px var(--blue-accent); animation: pulse-nucleus 2s infinite alternate;}
+        .s2 { width: 4px; height: 4px; bottom: 90px; left: 60px; }
+        .s3 { width: 5px; height: 5px; top: 110px; left: 90px; }
+        .s4 { width: 3px; height: 3px; top: 40px; left: 130px; }
+        .line { position: absolute; background: rgba(157, 78, 221, 0.4); transform-origin: 0 50%; }
+        body.dark-mode .line { background: rgba(255, 255, 255, 0.3); }
+        .l1 { width: 82px; height: 1px; bottom: 50px; left: 44px; transform: rotate(-75deg); }
+        .l2 { width: 70px; height: 1px; bottom: 92px; left: 62px; transform: rotate(-55deg); }
+        .l3 { width: 80px; height: 1px; top: 112px; left: 92px; transform: rotate(-60deg); }
+
+        /* Gradient Bulatan */
+        .shape-3d { position: absolute; background: linear-gradient(45deg, var(--pink-bright), var(--purple-bright)); border-radius: 50%; filter: blur(90px); opacity: 0.12; animation: floatShape 8s ease-in-out infinite alternate; }
         .shape-1 { width: 380px; height: 380px; top: 5%; right: -50px; }
         .shape-2 { width: 480px; height: 480px; top: 50%; left: -100px; background: linear-gradient(45deg, var(--blue-accent), var(--purple-bright)); }
-        body.dark-mode .shape-3d { background: #ffffff; filter: blur(50px); opacity: 0.05; }
-        .particle { position: absolute; background: #ffffff; border-radius: 50%; opacity: 0.5; animation: floatParticle 12s infinite linear; box-shadow: 0 0 12px rgba(255,255,255,0.8); }
-        .p1 { width: 6px; height: 6px; top: 20%; left: 10%; animation-duration: 10s; }
-        .p2 { width: 4px; height: 4px; top: 60%; right: 15%; animation-duration: 14s; }
-        .p3 { width: 8px; height: 8px; top: 80%; left: 20%; animation-duration: 12s; }
-        .p4 { width: 5px; height: 5px; top: 30%; right: 25%; animation-duration: 16s; }
-        body:not(.dark-mode) .particle { background: var(--purple-bright); box-shadow: 0 0 10px var(--pink-bright); opacity: 0.3; }
-
+        body.dark-mode .shape-3d { background: #ffffff; filter: blur(50px); opacity: 0.04; }
+        
         @keyframes floatShape { 0% { transform: translateY(0) scale(1); } 100% { transform: translateY(-30px) scale(1.05); } }
-        @keyframes floatParticle { 0% { transform: translateY(0) rotate(0deg); opacity: 0; } 50% { opacity: 0.8; } 100% { transform: translateY(-200px) rotate(360deg); opacity: 0; } }
+        @keyframes floatFly { 0% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } 100% { transform: translateY(0) rotate(0deg); } }
+        @keyframes gentleFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
         
         /* MASKOT */
         .mascot-deco { position: absolute; z-index: 0; opacity: 0.85; pointer-events: none; }
@@ -87,7 +108,7 @@
         .navbar { max-width: 950px; margin: 0 auto; background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 50px; padding: 10px 28px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); }
         .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.2rem; background: linear-gradient(45deg, var(--pink-bright), var(--purple-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
         .nav-menu { display: flex; list-style: none; gap: 15px; align-items: center; }
-        .nav-link { text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.9rem; padding: 8px 16px; border-radius: 20px; transition: all 0.3s ease; display: flex; align-items: center; gap: 6px; cursor: pointer; }
+        .nav-link { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.9rem; padding: 8px 16px; border-radius: 20px; transition: all 0.3s ease; display: flex; align-items: center; gap: 6px; cursor: pointer; }
         .nav-link i { font-size: 0.85rem; color: var(--purple-bright); transition: 0.3s; }
         .nav-link:hover, .nav-link.active { color: #ffffff; background: linear-gradient(45deg, var(--pink-bright), var(--purple-bright)); box-shadow: 0 5px 15px rgba(255, 42, 133, 0.25); }
         .nav-link:hover i, .nav-link.active i { color: #ffffff; }
@@ -96,33 +117,31 @@
         .dropdown-menu { position: absolute; top: 110%; right: 0; background: var(--card-bg); box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid var(--glass-border); border-radius: 16px; list-style: none; padding: 10px 0; min-width: 180px; opacity: 0; visibility: hidden; transform: translateY(15px); transition: all 0.3s ease; z-index: 1000; }
         .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
         .dropdown-menu li { padding: 0; margin: 0; }
-        .dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 20px; color: var(--text-dark); text-decoration: none; font-size: 0.88rem; transition: 0.2s; }
+        .dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 20px; color: var(--text-dark); text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: 0.2s; }
         .dropdown-menu a:hover { background: rgba(157, 78, 221, 0.08); color: var(--pink-bright); padding-left: 25px; }
 
         #theme-toggle { background: transparent; border: none; font-size: 1.2rem; cursor: pointer; color: var(--text-dark); padding: 5px; margin-left: 5px; transition: 0.3s; }
         .menu-toggle { display: none; font-size: 1.4rem; cursor: pointer; color: var(--purple-bright); margin-left: 10px; }
 
         /* Buttons */
-        .btn-3d { padding: 12px 26px; border-radius: 30px; border: none; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: var(--shadow-btn); font-family: 'Inter', sans-serif; }
+        .btn-3d { padding: 12px 26px; border-radius: 30px; border: none; cursor: pointer; font-weight: 700; font-size: 0.9rem; transition: all 0.3s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: var(--shadow-btn); font-family: 'Outfit', sans-serif; letter-spacing: 0.5px;}
         .btn-gradient { background: linear-gradient(45deg, var(--pink-bright), var(--purple-bright)); color: #ffffff; }
         .btn-gradient:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 25px rgba(255, 42, 133, 0.35); }
         .btn-outline { background: var(--card-bg); color: var(--purple-bright); border: 2px solid var(--purple-bright); box-shadow: 0 8px 18px rgba(0,0,0,0.1); }
         .btn-outline:hover { transform: translateY(-3px); background: var(--purple-bright); color: #ffffff; }
-        .btn-masterlink { background: var(--card-bg); color: var(--text-dark); border: 2px solid transparent; box-shadow: 0 8px 18px rgba(0,0,0,0.05); }
-        .btn-masterlink:hover { border-color: var(--pink-bright); transform: translateY(-3px); box-shadow: 0 15px 25px rgba(157, 78, 221, 0.15); }
 
         /* MODAL CP FORM */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); display: flex; justify-content: center; align-items: center; z-index: 100000; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
         .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-content { background: #0f172a; border: 1px solid #334155; width: 90%; max-width: 420px; border-radius: 20px; padding: 25px; position: relative; color: #f8fafc; box-shadow: 0 20px 50px rgba(0,0,0,0.5); transform: translateY(30px); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .modal-content { background: #0f172a; border: 1px solid #334155; width: 90%; max-width: 420px; border-radius: 20px; padding: 25px; position: relative; color: #f8fafc; box-shadow: 0 20px 50px rgba(0,0,0,0.5); transform: translateY(30px); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); font-family: 'Inter', sans-serif;}
         .modal-overlay.active .modal-content { transform: translateY(0); }
         .close-modal { position: absolute; top: 20px; right: 20px; font-size: 1.4rem; cursor: pointer; color: #cbd5e1; transition: 0.3s; }
         .close-modal:hover { color: var(--pink-bright); transform: rotate(90deg); }
         .cp-profile { background: #1e293b; border-radius: 14px; padding: 15px; display: flex; gap: 15px; align-items: center; margin-bottom: 25px; border: 1px solid #334155; }
-        .cp-avatar { width: 55px; height: 55px; background: linear-gradient(135deg, var(--pink-bright), var(--purple-bright)); border-radius: 12px; display: flex; justify-content: center; align-items: center; font-weight: 800; font-size: 1.3rem; color: white; box-shadow: inset 0 -3px 0 rgba(0,0,0,0.2); }
+        .cp-avatar { width: 55px; height: 55px; background: linear-gradient(135deg, var(--pink-bright), var(--purple-bright)); border-radius: 12px; display: flex; justify-content: center; align-items: center; font-weight: 800; font-size: 1.3rem; color: white; box-shadow: inset 0 -3px 0 rgba(0,0,0,0.2); font-family: 'Outfit', sans-serif;}
         .cp-info { display: flex; flex-direction: column; }
         .cp-role { font-size: 0.75rem; color: #94a3b8; margin-bottom: 4px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;}
-        .cp-name { font-size: 1.15rem; font-weight: 700; margin: 0; color: white; }
+        .cp-name { font-size: 1.15rem; font-weight: 700; margin: 0; color: white; font-family: 'Outfit', sans-serif;}
         
         .modal-form label { font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; display: block; color: #94a3b8; }
         .modal-form input, .modal-form textarea { width: 100%; background: #1e293b; border: 1px solid #334155; color: white; padding: 12px 15px; border-radius: 10px; margin-bottom: 18px; font-family: inherit; font-size: 0.95rem; transition: border 0.3s, box-shadow 0.3s; }
@@ -134,14 +153,13 @@
         .hero-wrapper { display: flex; flex-direction: column; align-items: center; position: relative; }
         .hero-logo { width: 170px; margin-bottom: 20px; animation: gentleFloat 4s ease-in-out infinite; transition: all 0.4s ease; z-index: 5;}
         body.dark-mode .hero-logo { background: rgba(255, 255, 255, 0.9); border-radius: 50%; padding: 15px; box-shadow: 0 0 25px rgba(255, 255, 255, 0.2); }
-        @keyframes gentleFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-        .hero-title { font-size: 3.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 25px; background: linear-gradient(135deg, var(--pink-bright) 10%, var(--purple-bright) 60%, var(--blue-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-title { font-size: 3.8rem; font-weight: 800; line-height: 1.2; margin-bottom: 25px; background: linear-gradient(135deg, var(--pink-bright) 10%, var(--purple-bright) 60%, var(--blue-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .prizepool-badge { background: linear-gradient(45deg, #10b981, #059669); color: #ffffff; padding: 8px 20px; border-radius: 30px; font-size: 0.95rem; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 30px; box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25); font-style: italic; }
         .hero-buttons { display: flex; justify-content: center; gap: 16px; margin-bottom: 45px; flex-wrap: wrap; }
 
         /* General Section */
         section { padding: 70px 0; position: relative; }
-        .section-title { font-size: 2.2rem; font-weight: 700; text-align: center; margin-bottom: 40px; position: relative; color: var(--text-dark); }
+        .section-title { font-size: 2.2rem; text-align: center; margin-bottom: 40px; position: relative; color: var(--text-dark); }
         .glass-card { background: var(--glass-bg); backdrop-filter: blur(14px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 35px; box-shadow: var(--shadow-3d); transition: all 0.4s; position: relative; z-index: 10; }
 
         /* Rangkaian Kegiatan */
@@ -149,7 +167,7 @@
         .event-card { display: flex; flex-direction: column; justify-content: space-between; }
         .event-card:hover { transform: translateY(-6px); box-shadow: 0 25px 45px rgba(157, 78, 221, 0.2); border-color: var(--pink-bright); }
         .event-badge-container { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; }
-        .badge { padding: 5px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 600; background: rgba(255, 42, 133, 0.1); color: var(--pink-bright); display: inline-flex; align-items: center; gap: 5px; }
+        .badge { padding: 5px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; background: rgba(255, 42, 133, 0.1); color: var(--pink-bright); display: inline-flex; align-items: center; gap: 5px; }
         .badge.purple { background: rgba(157, 78, 221, 0.1); color: var(--purple-bright); }
         .badge.blue { background: rgba(0, 240, 255, 0.12); color: #0088cc; }
         .event-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; font-style: italic; }
@@ -172,22 +190,24 @@
         .guidebook-viewer iframe { width: 100%; height: 100%; border: none; }
         .guidebook-action-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; }
 
-        /* Biaya & Benefit */
+        /* Biaya Tables */
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-bottom: 30px; position: relative; z-index: 10;}
         .pricing-card-box { background: var(--card-bg); border-radius: 18px; padding: 24px; box-shadow: 0 8px 20px rgba(0,0,0,0.03); position: relative; z-index: 10; border: 1px solid var(--glass-border);}
-        .pricing-card-box h4 { font-size: 1.15rem; color: var(--purple-bright); margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        .pricing-card-box h4 { font-size: 1.15rem; color: var(--purple-bright); margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-family: 'Outfit', sans-serif;}
         .table-wrapper { overflow-x: auto; }
         table { width: 100%; border-collapse: collapse; text-align: left; background: var(--card-bg); }
         th, td { padding: 12px 14px; font-size: 0.88rem; border: 1.5px solid var(--table-border); }
-        th { background: var(--table-head-bg); color: var(--text-dark); font-weight: 700; }
+        th { background: var(--table-head-bg); color: var(--text-dark); font-weight: 700; font-family: 'Outfit', sans-serif;}
         td { color: var(--text-muted); }
         
+        /* Benefit */
         .benefit-tabs-container { max-width: 950px; margin: 0 auto; position: relative; z-index: 10;}
         .benefit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .benefit-block h3 { font-size: 1.2rem; margin-bottom: 16px; color: var(--text-dark); display: flex; align-items: center; gap: 10px; padding-bottom: 8px; border-bottom: 2px solid rgba(157, 78, 221, 0.1); }
         .benefit-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
         .benefit-list li { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; position: relative; padding-left: 24px; font-style: italic;}
         .benefit-list li i { position: absolute; left: 0; top: 3px; color: #10b981; font-size: 0.85rem; font-style: normal;}
+        .tag-freepass { background: linear-gradient(45deg, #f59e0b, #ea580c); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3); letter-spacing: 0.5px; border: 1px solid #fcd34d; margin-top: 6px; font-style: normal !important; font-family: 'Outfit', sans-serif;}
 
         /* Timeline */
         .timeline-container { max-width: 600px; margin: 0 auto; position: relative; z-index: 10;}
@@ -198,20 +218,20 @@
         .timeline-item.active .timeline-badge { background: var(--pink-bright); border-color: var(--pink-bright); color: #ffffff; }
         .timeline-box { cursor: pointer; }
         .timeline-summary { display: flex; justify-content: space-between; align-items: center; }
-        .timeline-trigger { font-size: 0.82rem; color: var(--purple-bright); font-weight: 500; display: flex; align-items: center; gap: 4px; }
+        .timeline-trigger { font-size: 0.82rem; color: var(--purple-bright); font-weight: 600; display: flex; align-items: center; gap: 4px; }
         .timeline-details { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; list-style: none; }
         .timeline-item.expanded .timeline-details { max-height: 1200px; margin-top: 15px; padding-top: 15px; border-top: 1px dashed rgba(157, 78, 221, 0.3); }
         .timeline-details li { font-size: 0.9rem; color: var(--text-dark); margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; border-bottom: 1px solid rgba(157, 78, 221, 0.1); padding-bottom: 8px;}
-        .detail-label { font-weight: 500; display: flex; align-items: center; gap: 8px; font-style: italic;}
+        .detail-label { font-weight: 600; display: flex; align-items: center; gap: 8px; font-style: italic;}
         .detail-label::before { content: '•'; color: var(--pink-bright); font-weight: bold; font-size: 1.2rem; font-style: normal;}
-        .detail-date { background: rgba(157, 78, 221, 0.1); color: var(--purple-bright); padding: 4px 12px; border-radius: 8px; font-size: 0.82rem; font-weight: 600; font-style: normal;}
-        .tag-offline { background: linear-gradient(45deg, var(--pink-bright), #ff6b6b); color: white; padding: 2px 8px; border-radius: 6px; font-size: 0.72rem; font-weight: 600; margin-left: 6px; text-transform: uppercase; font-style: normal;}
+        .detail-date { background: rgba(157, 78, 221, 0.1); color: var(--purple-bright); padding: 4px 12px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; font-style: normal; font-family: 'Outfit', sans-serif;}
+        .tag-offline { background: linear-gradient(45deg, var(--pink-bright), #ff6b6b); color: white; padding: 2px 8px; border-radius: 6px; font-size: 0.72rem; font-weight: 700; margin-left: 6px; text-transform: uppercase; font-style: normal;}
 
         /* FAQ */
         .faq-wrapper { max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
         .faq-item { background: var(--card-bg); border-radius: 16px; padding: 18px 22px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); cursor: pointer; border: 1px solid var(--glass-border); transition: 0.3s; }
         .faq-item:hover { border-color: var(--purple-bright); }
-        .faq-question { display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 0.95rem; }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 0.95rem; font-family: 'Outfit', sans-serif;}
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
         .faq-item.active .faq-answer { max-height: 500px; margin-top: 10px; }
         .faq-icon { transition: transform 0.3s; color: var(--purple-bright); }
@@ -233,9 +253,9 @@
         .footer-links h4 { font-size: 1rem; margin-bottom: 18px; position: relative; color:#f8fafc; font-family: 'Playfair Display', serif; font-style: italic;}
         .footer-links h4::after { content: ''; position: absolute; left: 0; bottom: -6px; width: 30px; height: 2px; background: var(--pink-bright); }
         .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-        .footer-links ul a { color: #94a3b8; text-decoration: none; font-size: 0.88rem; transition: 0.3s; }
+        .footer-links ul a { color: #94a3b8; text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: 0.3s; }
         .footer-links ul a:hover { color: #ffffff; padding-left: 4px; }
-        .social-link { color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.88rem; transition: 0.3s; margin-bottom:8px;}
+        .social-link { color: #94a3b8; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.88rem; font-weight: 500; transition: 0.3s; margin-bottom:8px;}
         .social-link:hover { color: var(--pink-bright); }
 
         @media (max-width: 992px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -267,18 +287,32 @@
         </div>
         <div class="loader-text">
             <h3 style="background: linear-gradient(45deg, var(--pink-bright), var(--purple-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 5px; text-align: center;">Physics Summit</h3>
-            <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500; font-style: italic; text-align: center;">Menyiapkan arena...</p>
+            <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 600; font-style: italic; text-align: center;">Menyiapkan arena...</p>
         </div>
     </div>
 
-    <!-- Dekorasi Floating Background (Animasi 3D glow) -->
+    <!-- Dekorasi Floating Background (Rumus & Rasi Bintang) -->
     <div class="decorations-container">
+        <!-- Rasi Bintang Abstraksi (Mirip Eridanus / Achernar) -->
+        <div class="constellation">
+            <div class="star blue-star" title="Achernar"></div>
+            <div class="star s2"></div>
+            <div class="star s3"></div>
+            <div class="star s4"></div>
+            <div class="line l1"></div>
+            <div class="line l2"></div>
+            <div class="line l3"></div>
+        </div>
+
+        <!-- Rumus-rumus Fisika Floating -->
+        <div class="math-formula f-1">E = mc²</div>
+        <div class="math-formula f-2">∮ E·dA = q/ε₀</div>
+        <div class="math-formula f-3">iℏ ∂Ψ/∂t = ĤΨ</div>
+        <div class="math-formula f-4">∇ × B = μ₀J + μ₀ε₀∂E/∂t</div>
+        <div class="math-formula f-5">F = G(m₁m₂)/r²</div>
+        
         <div class="shape-3d shape-1"></div>
         <div class="shape-3d shape-2"></div>
-        <div class="particle p1"></div>
-        <div class="particle p2"></div>
-        <div class="particle p3"></div>
-        <div class="particle p4"></div>
     </div>
 
     <!-- Navbar -->
@@ -293,7 +327,6 @@
                     <li><a href="#kompetisi" class="nav-link"><i class="fa-solid fa-trophy"></i> Acara</a></li>
                     <li><a href="#guidebook" class="nav-link"><i class="fa-solid fa-book-open"></i> Guidebook</a></li>
                     
-                    <!-- Dropdown Lainnya -->
                     <li class="dropdown">
                         <a href="javascript:void(0)" class="nav-link"><i class="fa-solid fa-ellipsis"></i> Lainnya <i class="fa-solid fa-chevron-down" style="font-size:0.7rem; margin-left:4px;"></i></a>
                         <ul class="dropdown-menu">
@@ -340,7 +373,7 @@
                 <!-- PSO -->
                 <div class="glass-card event-card">
                     <div>
-                        <h3 style="font-size: 1.35rem; margin-bottom:10px;">Physics Summit Olympiad (PSO)</h3>
+                        <h3 style="font-size: 1.35rem; margin-bottom:10px; font-family: 'Outfit', sans-serif;">Physics Summit Olympiad (PSO)</h3>
                         <div class="event-badge-container">
                             <span class="badge"><i class="fa-solid fa-layer-group"></i> Olimpiade</span>
                             <span class="badge purple"><i class="fa-solid fa-user-group"></i> 2 Orang / Tim</span>
@@ -353,7 +386,7 @@
                 <!-- PSIC -->
                 <div class="glass-card event-card">
                     <div>
-                        <h3 style="font-size: 1.35rem; margin-bottom:10px;">Physics Summit Innovation Competition (PSIC)</h3>
+                        <h3 style="font-size: 1.35rem; margin-bottom:10px; font-family: 'Outfit', sans-serif;">Physics Summit Innovation Competition (PSIC)</h3>
                         <div class="event-badge-container">
                             <span class="badge"><i class="fa-solid fa-pen-nib"></i> Karya Tulis Ilmiah</span>
                             <span class="badge purple"><i class="fa-solid fa-user"></i> Individu / 2 Orang</span>
@@ -366,7 +399,7 @@
                 <!-- Open House -->
                 <div class="glass-card event-card">
                     <div>
-                        <h3 style="font-size: 1.35rem; margin-bottom:10px;">Open House Department of Physics ITS Surabaya</h3>
+                        <h3 style="font-size: 1.35rem; margin-bottom:10px; font-family: 'Outfit', sans-serif;">Open House Department of Physics ITS Surabaya</h3>
                         <div class="event-badge-container">
                             <span class="badge purple"><i class="fa-solid fa-door-open"></i> Terbuka Untuk Umum</span>
                             <span class="badge blue"><i class="fa-solid fa-flask"></i> Pameran Sains</span>
@@ -382,37 +415,37 @@
                     <img src="Maskot 2.png" alt="Maskot" class="mascot-deco mascot-reg-1" onerror="this.style.display='none'">
                     <img src="maskot 3.png" alt="Maskot" class="mascot-deco mascot-reg-2" onerror="this.style.display='none'">
                     
-                    <h3 style="font-weight: 700; font-size:1.35rem; display:flex; align-items:center; justify-content:center; gap:10px; font-family: 'Playfair Display', serif; font-style: italic;">
+                    <h3 style="font-weight: 700; font-size:1.5rem; display:flex; align-items:center; justify-content:center; gap:10px; font-family: 'Playfair Display', serif; font-style: italic;">
                         <i class="fa-solid fa-paper-plane" style="color:var(--pink-bright); font-style: normal;"></i> Kebutuhan Pendaftaran
                     </h3>
                     
                     <div class="reg-grid">
                         <div class="reg-card">
                             <div>
-                                <h4 style="margin-bottom:8px; font-weight:600; display:flex; align-items:center; gap:8px;">
+                                <h4 style="margin-bottom:8px; font-weight:700; display:flex; align-items:center; gap:8px; font-family: 'Outfit', sans-serif;">
                                     <i class="fa-solid fa-trophy" style="color: #f59e0b;"></i> Lomba PSO & PSIC
                                 </h4>
-                                <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:15px; font-style: italic;">Daftarkan diri & tim kamu untuk PSO & PSIC nasional.</p>
+                                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px; font-style: italic;">Daftarkan diri & tim kamu untuk PSO & PSIC nasional.</p>
                             </div>
                             <a href="https://its.id/m/Regist11thPS" target="_blank" class="btn-3d btn-gradient" style="padding: 10px 18px; font-size:0.85rem; justify-content:center;">Daftar Lomba <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
 
                         <div class="reg-card">
                             <div>
-                                <h4 style="margin-bottom:8px; font-weight:600; display:flex; align-items:center; gap:8px;">
+                                <h4 style="margin-bottom:8px; font-weight:700; display:flex; align-items:center; gap:8px; font-family: 'Outfit', sans-serif;">
                                     <i class="fa-solid fa-building-user" style="color: var(--blue-accent);"></i> RSVP Open House
                                 </h4>
-                                <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:15px; font-style: italic;"><span style="color:var(--pink-bright); font-weight:600;">Gratis!</span> Tempat terbatas, isi form RSVP sekarang.</p>
+                                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px; font-style: italic;"><span style="color:var(--pink-bright); font-weight:700;">Gratis!</span> Tempat terbatas, isi form RSVP sekarang.</p>
                             </div>
                             <a href="https://its.id/m/RSVPOpenHouse_11thPhysicsSummit" target="_blank" class="btn-3d btn-outline" style="padding: 10px 18px; font-size:0.85rem; justify-content:center; border-width:1px;">Form RSVP Open House</a>
                         </div>
                         
                         <div class="reg-card span-full">
                             <div>
-                                <h4 style="margin-bottom:8px; font-weight:600; display:flex; align-items:center; gap:8px;">
+                                <h4 style="margin-bottom:8px; font-weight:700; display:flex; align-items:center; gap:8px; font-family: 'Outfit', sans-serif;">
                                     <i class="fa-solid fa-image" style="color: var(--purple-bright);"></i> Twibbon Lomba
                                 </h4>
-                                <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:15px; font-style: italic;">Gunakan twibbon resmi untuk meramaikan acara.</p>
+                                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px; font-style: italic;">Gunakan twibbon resmi untuk meramaikan acara.</p>
                             </div>
                             <a href="https://twb.nz/physicssummit11" target="_blank" class="btn-3d btn-outline" style="padding: 10px 18px; font-size:0.85rem; justify-content:center; border-width:1px;"><i class="fa-solid fa-download"></i> Unduh Twibbon</a>
                         </div>
@@ -425,12 +458,12 @@
     <!-- Guidebook -->
     <section id="guidebook" style="background: rgba(157, 78, 221, 0.05); padding-bottom: 30px;">
         <div class="container guidebook-container">
-            <h2 class="section-title" style="margin-bottom: 20px;">Guidebook Resmi 11<sup>th</sup> Physics Summit</h2>
+            <h2 class="section-title" style="margin-bottom: 20px;">Guidebook Resmi</h2>
 
             <div class="glass-card" style="padding: 25px;">
                 <div class="guidebook-action-bar">
                     <div style="text-align: left;">
-                        <h4 style="font-weight:700; color:var(--purple-bright); display:flex; align-items:center; gap:8px;">
+                        <h4 style="font-weight:700; color:var(--purple-bright); display:flex; align-items:center; gap:8px; font-family: 'Outfit', sans-serif;">
                             <i class="fa-solid fa-file-pdf"></i> PDF Buku Panduan Resmi
                         </h4>
                     </div>
@@ -489,10 +522,10 @@
 
             <!-- TABEL PAKET BUNDLING -->
             <div class="glass-card" style="padding: 28px; margin-bottom: 30px;">
-                <h4 style="font-size:1.2rem; font-weight:700; color:var(--purple-bright); margin-bottom:8px; display:flex; align-items:center; gap:8px; font-family: 'Playfair Display', serif; font-style: italic;">
+                <h4 style="font-size:1.3rem; font-weight:700; color:var(--purple-bright); margin-bottom:8px; display:flex; align-items:center; gap:8px; font-family: 'Playfair Display', serif; font-style: italic;">
                     <i class="fa-solid fa-layer-group" style="color:var(--pink-bright); font-style: normal;"></i> Paket Bundling Gabungan Lomba
                 </h4>
-                <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:20px; font-style: italic;">Daftarkan delegasi sekolahmu kombinasi tim PSO dan karya PSIC sekaligus untuk potongan harga khusus.</p>
+                <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:20px; font-style: italic;">Daftarkan delegasi sekolahmu kombinasi tim PSO dan karya PSIC sekaligus untuk potongan harga khusus.</p>
                 <div class="table-wrapper">
                     <table>
                         <thead><tr><th>Nama Paket</th><th>Kombinasi Lomba</th><th>Harga Batch I</th><th>Harga Batch II</th></tr></thead>
@@ -506,10 +539,10 @@
             </div>
             
             <div class="glass-card" style="padding: 25px;">
-                <h4 style="font-weight:700; font-size:1.2rem; color:var(--text-dark); margin-bottom:15px; display:flex; align-items:center; gap:8px; font-family: 'Playfair Display', serif; font-style: italic;">
+                <h4 style="font-weight:700; font-size:1.3rem; color:var(--text-dark); margin-bottom:15px; display:flex; align-items:center; gap:8px; font-family: 'Playfair Display', serif; font-style: italic;">
                     <i class="fa-solid fa-wallet" style="color:var(--pink-bright); font-style: normal;"></i> Informasi Pembayaran
                 </h4>
-                <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:20px; font-style: italic;">Pembayaran pendaftaran resmi 11<sup>th</sup> Physics Summit dilakukan ke rekening / <em>e-wallet</em> atas nama <strong>SARAS AYU ISMOYO PUTRI</strong>.</p>
+                <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:20px; font-style: italic;">Pembayaran pendaftaran resmi Physics Summit dilakukan ke rekening / <em>e-wallet</em> atas nama <strong>SARAS AYU ISMOYO PUTRI</strong>.</p>
                 
                 <div class="faq-wrapper" style="max-width:100%;">
                     <div class="faq-item" onclick="toggleFaq(this)">
@@ -543,7 +576,7 @@
                         <h3 style="font-family: 'Playfair Display', serif; font-style: italic;"><i class="fa-solid fa-trophy" style="color:gold; font-style: normal;"></i> Olympiad (PSO)</h3>
                         <ul class="benefit-list">
                             <li><i class="fa-solid fa-circle-check"></i> E-Sertifikat bagi seluruh peserta dan guru pendamping.</li>
-                            <li><i class="fa-solid fa-circle-check"></i> <strong>Juara I:</strong> Rp2.500.000 + Trophy + Sertifikat + Freepass (S&K).</li>
+                            <li><i class="fa-solid fa-circle-check"></i> <strong>Juara I:</strong> Rp2.500.000 + Trophy + Sertifikat Pemenang <br><span class="tag-freepass"><i class="fa-solid fa-ticket"></i> Freepass Departemen Fisika ITS (S&K Berlaku)</span></li>
                             <li><i class="fa-solid fa-circle-check"></i> <strong>Juara II:</strong> Rp2.000.000 + Trophy + Sertifikat Pemenang.</li>
                             <li><i class="fa-solid fa-circle-check"></i> <strong>Juara III:</strong> Rp1.500.000 + Trophy + Sertifikat Pemenang.</li>
                         </ul>
@@ -552,10 +585,10 @@
                         <h3 style="font-family: 'Playfair Display', serif; font-style: italic;"><i class="fa-solid fa-lightbulb" style="color:#f59e0b; font-style: normal;"></i> Innovation Competition (PSIC)</h3>
                         <ul class="benefit-list">
                             <li><i class="fa-solid fa-circle-check"></i> E-Sertifikat bagi seluruh peserta dan guru pendamping.</li>
-                            <li><i class="fa-solid fa-circle-check"></i> <strong>Juara I:</strong> Rp1.500.000 + Trophy + Sertifikat + Freepass (S&K).</li>
+                            <li><i class="fa-solid fa-circle-check"></i> <strong>Juara I:</strong> Rp1.250.000 + Trophy + Sertifikat Pemenang <br><span class="tag-freepass"><i class="fa-solid fa-ticket"></i> Freepass Departemen Fisika ITS (S&K Berlaku)</span></li>
                             <li><i class="fa-solid fa-circle-check"></i> <strong>Juara II:</strong> Rp1.000.000 + Trophy + Sertifikat Pemenang.</li>
                             <li><i class="fa-solid fa-circle-check"></i> <strong>Juara III:</strong> Rp750.000 + Trophy + Sertifikat Pemenang.</li>
-                            <li><i class="fa-solid fa-circle-check"></i> <strong>Juara Favorit:</strong> Rp500.000 + Trophy + Sertifikat Pemenang.</li>
+                            <li><i class="fa-solid fa-circle-check"></i> <strong>Best Exhibition:</strong> Rp500.000 + Trophy + Sertifikat Pemenang.</li>
                         </ul>
                     </div>
                 </div>
@@ -572,7 +605,7 @@
                 <div class="glass-card timeline-item active">
                     <div class="timeline-badge"><i class="fa-solid fa-calendar-days"></i></div>
                     <div class="timeline-box" onclick="toggleTimeline(this)">
-                        <div class="timeline-summary"><div><h3 style="font-size: 1.1rem; font-family: 'Playfair Display', serif; font-style: italic;">Pendaftaran</h3></div><span class="timeline-trigger">Detail <i class="fa-solid fa-chevron-down"></i></span></div>
+                        <div class="timeline-summary"><div><h3 style="font-size: 1.2rem; font-family: 'Outfit', sans-serif;">Pendaftaran</h3></div><span class="timeline-trigger">Detail <i class="fa-solid fa-chevron-down"></i></span></div>
                         <ul class="timeline-details">
                             <li><span class="detail-label">Early Registration</span> <span class="detail-date">1 – 3 Agustus 2026</span></li>
                             <li><span class="detail-label">Batch 1 Registration</span> <span class="detail-date">4 – 18 Agustus 2026</span></li>
@@ -584,7 +617,7 @@
                 <div class="glass-card timeline-item">
                     <div class="timeline-badge"><i class="fa-solid fa-atom"></i></div>
                     <div class="timeline-box" onclick="toggleTimeline(this)">
-                        <div class="timeline-summary"><div><h3 style="font-size: 1.1rem; font-family: 'Playfair Display', serif; font-style: italic;">Physics Summit Olympiad (PSO)</h3></div><span class="timeline-trigger">Detail <i class="fa-solid fa-chevron-down"></i></span></div>
+                        <div class="timeline-summary"><div><h3 style="font-size: 1.2rem; font-family: 'Outfit', sans-serif;">Physics Summit Olympiad (PSO)</h3></div><span class="timeline-trigger">Detail <i class="fa-solid fa-chevron-down"></i></span></div>
                         <ul class="timeline-details">
                             <li><span class="detail-label">Coaching Session</span> <span class="detail-date">12 September 2026</span></li>
                             <li><span class="detail-label">Technical Meeting Penyisihan</span> <span class="detail-date">17 September 2026</span></li>
@@ -603,7 +636,7 @@
                 <div class="glass-card timeline-item">
                     <div class="timeline-badge"><i class="fa-solid fa-pen-ruler"></i></div>
                     <div class="timeline-box" onclick="toggleTimeline(this)">
-                        <div class="timeline-summary"><div><h3 style="font-size: 1.1rem; font-family: 'Playfair Display', serif; font-style: italic;">Physics Summit Innovation Competition (PSIC)</h3></div><span class="timeline-trigger">Detail <i class="fa-solid fa-chevron-down"></i></span></div>
+                        <div class="timeline-summary"><div><h3 style="font-size: 1.2rem; font-family: 'Outfit', sans-serif;">Physics Summit Innovation Competition (PSIC)</h3></div><span class="timeline-trigger">Detail <i class="fa-solid fa-chevron-down"></i></span></div>
                         <ul class="timeline-details">
                             <li><span class="detail-label">Coaching Session</span> <span class="detail-date">12 September 2026</span></li>
                             <li><span class="detail-label">Full Paper Submission</span> <span class="detail-date">19 September 2026</span></li>
@@ -620,9 +653,9 @@
                 <div class="glass-card timeline-item">
                     <div class="timeline-badge"><i class="fa-solid fa-door-open"></i></div>
                     <div class="timeline-box" onclick="toggleTimeline(this)">
-                        <div class="timeline-summary"><div><h3 style="font-size: 1.1rem; font-family: 'Playfair Display', serif; font-style: italic;">Open House Department of Physics ITS Surabaya</h3></div><span class="timeline-trigger">Detail <i class="fa-solid fa-chevron-down"></i></span></div>
+                        <div class="timeline-summary"><div><h3 style="font-size: 1.2rem; font-family: 'Outfit', sans-serif;">Open House Department of Physics</h3></div><span class="timeline-trigger">Detail <i class="fa-solid fa-chevron-down"></i></span></div>
                         <ul class="timeline-details">
-                            <li><span class="detail-label">Pengisian RSVP</span> <span class="detail-date">21 Agt – 10 Okt 2026</span></li>
+                            <li><span class="detail-label">Pengisian RSVP</span> <span class="detail-date">10 Agt – 10 Okt 2026</span></li>
                             <li><span class="detail-label">Technical Meeting</span> <span class="detail-date">24 Oktober 2026</span></li>
                             <li><span class="detail-label">Hari-H Pelaksanaan <span class="tag-offline">Offline di ITS</span></span> <span class="detail-date">31 Oktober 2026</span></li>
                         </ul>
@@ -672,27 +705,27 @@
                 <div class="reg-grid">
                     <div class="reg-card">
                         <div>
-                            <h4 style="margin-bottom:8px; font-weight:600;"><i class="fa-solid fa-user-group" style="color:var(--purple-bright);"></i> Info Acara</h4>
-                            <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:15px; font-style: italic;">Pertanyaan seputar seluruh rangkaian acara.</p>
+                            <h4 style="margin-bottom:8px; font-weight:700; font-family: 'Outfit', sans-serif;"><i class="fa-solid fa-user-group" style="color:var(--purple-bright);"></i> Info Acara</h4>
+                            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px; font-style: italic;">Pertanyaan seputar seluruh rangkaian acara.</p>
                         </div>
                         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                            <button onclick="openCpModal('Nabil', '6281334826486', 'NB')" class="btn-3d btn-outline" style="flex:1; padding: 10px 5px; font-size:0.8rem; justify-content:center;"><i class="fa-brands fa-whatsapp"></i> Chat Nabil</button>
+                            <button onclick="openCpModal('Nabil', '6281334826487', 'NB')" class="btn-3d btn-outline" style="flex:1; padding: 10px 5px; font-size:0.8rem; justify-content:center;"><i class="fa-brands fa-whatsapp"></i> Chat Nabil</button>
                             <button onclick="openCpModal('Rama', '6285211910805', 'RM')" class="btn-3d btn-outline" style="flex:1; padding: 10px 5px; font-size:0.8rem; justify-content:center;"><i class="fa-brands fa-whatsapp"></i> Chat Rama</button>
                         </div>
                     </div>
 
                     <div class="reg-card">
                         <div>
-                            <h4 style="margin-bottom:8px; font-weight:600;"><i class="fa-solid fa-handshake" style="color:var(--pink-bright);"></i> Sponsorship</h4>
-                            <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:15px; font-style: italic;">Penawaran dan kerja sama sponsor.</p>
+                            <h4 style="margin-bottom:8px; font-weight:700; font-family: 'Outfit', sans-serif;"><i class="fa-solid fa-handshake" style="color:var(--pink-bright);"></i> Sponsorship</h4>
+                            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px; font-style: italic;">Penawaran dan kerja sama sponsor.</p>
                         </div>
                         <button onclick="openCpModal('Amel', '6287721178073', 'AM')" class="btn-3d btn-outline" style="padding: 10px; font-size:0.85rem; justify-content:center; width: 100%;"><i class="fa-brands fa-whatsapp"></i> Chat Amel</button>
                     </div>
 
                     <div class="reg-card">
                         <div>
-                            <h4 style="margin-bottom:8px; font-weight:600;"><i class="fa-solid fa-bullhorn" style="color:var(--blue-accent);"></i> Medpart</h4>
-                            <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:15px; font-style: italic;">Kerja sama media dan publikasi.</p>
+                            <h4 style="margin-bottom:8px; font-weight:700; font-family: 'Outfit', sans-serif;"><i class="fa-solid fa-bullhorn" style="color:var(--blue-accent);"></i> Medpart</h4>
+                            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px; font-style: italic;">Kerja sama media dan publikasi.</p>
                         </div>
                         <button onclick="openCpModal('Alya', '6285713319241', 'AL')" class="btn-3d btn-outline" style="padding: 10px; font-size:0.85rem; justify-content:center; width: 100%;"><i class="fa-brands fa-whatsapp"></i> Chat Alya</button>
                     </div>
@@ -705,7 +738,7 @@
     <div id="cpModal" class="modal-overlay">
         <div class="modal-content">
             <span class="close-modal" onclick="closeCpModal()">&times;</span>
-            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 20px;">Kirim Pesan</h3>
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 20px; font-family: 'Outfit', sans-serif;">Kirim Pesan</h3>
             
             <div class="cp-profile">
                 <div class="cp-avatar" id="modalAvatar">NB</div>
