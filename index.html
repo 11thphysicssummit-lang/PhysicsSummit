@@ -263,7 +263,7 @@
         .event-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
         .event-card h3 { font-size: 1.4rem; margin-bottom: 5px; font-family: 'Playfair Display', serif; font-weight: 700;}
 
-        /* Pendaftaran Grid (Diperbaiki agar 3 kolom sejajar presisi) */
+        /* Pendaftaran Grid & Kontak Grid (Dipaksa Rapat Mengisi Ruang) */
         .registration-box { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 24px; padding: 35px; text-align: center; box-shadow: var(--shadow-3d); max-width: 1050px; margin: 0 auto; position: relative; z-index: 10;}
         .reg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 25px; position: relative; z-index: 10;}
         .reg-card { background: var(--card-bg); padding: 22px; border-radius: 16px; box-shadow: 0 8px 18px rgba(0,0,0,0.1); transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid transparent; text-align: left;}
@@ -530,7 +530,7 @@
                 </div>
             </div>
 
-            <!-- Form Registrasi (SEKARANG TAMPIL 3 KOLOM RAPI / TIDAK ADA RUANG KOSONG) -->
+            <!-- Form Registrasi -->
             <div id="pendaftaran-lengkap" style="margin-top: 65px;">
                 <div class="registration-box">
                     <img src="Maskot 2.png" alt="Maskot" class="mascot-deco mascot-reg-1" onerror="this.style.display='none'">
@@ -561,14 +561,17 @@
                             <a href="https://its.id/m/RSVPOpenHouse_11thPhysicsSummit" target="_blank" class="btn-3d btn-outline" style="padding: 10px 18px; font-size:0.85rem; justify-content:center; border-width:1px;">Form RSVP Open House</a>
                         </div>
                         
-                        <div class="reg-card">
-                            <div>
-                                <h4 style="margin-bottom:8px; font-weight:700; display:flex; align-items:center; gap:8px; font-family: 'Playfair Display', serif;">
-                                    <i class="fa-solid fa-image" style="color: var(--purple-bright);"></i> Twibbon Lomba
-                                </h4>
-                                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px;">Gunakan twibbon resmi untuk meramaikan acara.</p>
+                        <!-- KOTAK TWIBBON FULL WIDTH DI BAWAH -->
+                        <div class="reg-card span-full" style="grid-column: 1 / -1;">
+                            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px; width: 100%;">
+                                <div style="flex: 1; min-width: 200px;">
+                                    <h4 style="margin-bottom:8px; font-weight:700; display:flex; align-items:center; gap:8px; font-family: 'Playfair Display', serif;">
+                                        <i class="fa-solid fa-image" style="color: var(--purple-bright);"></i> Twibbon Lomba
+                                    </h4>
+                                    <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0;">Gunakan twibbon resmi untuk meramaikan acara.</p>
+                                </div>
+                                <a href="https://its.id/m/Twibbon_11thPhysicsSummit" target="_blank" class="btn-3d btn-outline" style="padding: 10px 18px; font-size:0.85rem; justify-content:center; border-width:1px; white-space: nowrap;"><i class="fa-solid fa-download"></i> Unduh Twibbon</a>
                             </div>
-                            <a href="https://its.id/m/Twibbon_11thPhysicsSummit" target="_blank" class="btn-3d btn-outline" style="padding: 10px 18px; font-size:0.85rem; justify-content:center; border-width:1px;"><i class="fa-solid fa-download"></i> Unduh Twibbon</a>
                         </div>
                     </div>
                 </div>
@@ -701,6 +704,7 @@
                             <li><i class="fa-solid fa-circle-check"></i> <strong>Juara I:</strong> Rp2.500.000 + Trophy + Sertifikat Pemenang <br><span class="tag-freepass"><i class="fa-solid fa-ticket"></i> Freepass Departemen Fisika ITS (S&K Berlaku)</span></li>
                             <li><i class="fa-solid fa-circle-check"></i> <strong>Juara II:</strong> Rp2.000.000 + Trophy + Sertifikat Pemenang.</li>
                             <li><i class="fa-solid fa-circle-check"></i> <strong>Juara III:</strong> Rp1.500.000 + Trophy + Sertifikat Pemenang.</li>
+                            <li><i class="fa-solid fa-circle-check"></i> <strong>Juara Harapan I & II:</strong> Trophy + Sertifikat Pemenang.</li>
                         </ul>
                     </div>
                     <div class="benefit-block">
@@ -817,7 +821,7 @@
         </div>
     </section>
 
-    <!-- Sub-bab Kontak (SUDAH DIPERBAIKI: 3 KOLOM SEJAJAR) -->
+    <!-- Sub-bab Kontak (INFO ACARA FULL WIDTH DI ATAS) -->
     <section id="contact" style="background: rgba(255, 42, 133, 0.03);">
         <div class="container">
             <h2 class="section-title">Pusat Informasi & Kontak</h2>
@@ -825,18 +829,21 @@
                 <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 25px;">Pilih narahubung yang ingin Anda hubungi dan isi formulir singkat untuk langsung terhubung via WhatsApp.</p>
                 
                 <div class="reg-grid">
-                    
-                    <div class="reg-card">
-                        <div>
-                            <h4 style="margin-bottom:8px; font-weight:700; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-user-group" style="color:var(--purple-bright);"></i> Info Acara</h4>
-                            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px;">Pertanyaan seputar seluruh rangkaian acara.</p>
-                        </div>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <button onclick="openCpModal('Nabil', '6281334826487', 'NB')" class="btn-3d btn-outline" style="padding: 10px; font-size:0.85rem; justify-content:center; width: 100%;"><i class="fa-brands fa-whatsapp"></i> Chat Nabil</button>
-                            <button onclick="openCpModal('Rama', '6285211910805', 'RM')" class="btn-3d btn-outline" style="padding: 10px; font-size:0.85rem; justify-content:center; width: 100%;"><i class="fa-brands fa-whatsapp"></i> Chat Rama</button>
+                    <!-- Info Acara (Full Width di Baris Pertama) -->
+                    <div class="reg-card span-full" style="grid-column: 1 / -1;">
+                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px; width: 100%;">
+                            <div style="flex: 1; min-width: 250px;">
+                                <h4 style="margin-bottom:8px; font-weight:700; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-user-group" style="color:var(--purple-bright);"></i> Info Acara</h4>
+                                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0;">Pertanyaan seputar seluruh rangkaian acara.</p>
+                            </div>
+                            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                <button onclick="openCpModal('Nabil', '6281334826487', 'NB')" class="btn-3d btn-outline" style="padding: 10px 20px; font-size:0.8rem; justify-content:center;"><i class="fa-brands fa-whatsapp"></i> Chat Nabil</button>
+                                <button onclick="openCpModal('Rama', '6285211910805', 'RM')" class="btn-3d btn-outline" style="padding: 10px 20px; font-size:0.8rem; justify-content:center;"><i class="fa-brands fa-whatsapp"></i> Chat Rama</button>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Sponsorship (Baris Kedua) -->
                     <div class="reg-card">
                         <div>
                             <h4 style="margin-bottom:8px; font-weight:700; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-handshake" style="color:var(--pink-bright);"></i> Sponsorship</h4>
@@ -845,6 +852,7 @@
                         <button onclick="openCpModal('Amel', '6287721178073', 'AM')" class="btn-3d btn-outline" style="padding: 10px; font-size:0.85rem; justify-content:center; width: 100%;"><i class="fa-brands fa-whatsapp"></i> Chat Amel</button>
                     </div>
 
+                    <!-- Medpart (Baris Kedua) -->
                     <div class="reg-card">
                         <div>
                             <h4 style="margin-bottom:8px; font-weight:700; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-bullhorn" style="color:var(--blue-accent);"></i> Medpart</h4>
