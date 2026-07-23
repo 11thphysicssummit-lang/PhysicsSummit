@@ -123,7 +123,7 @@
         @keyframes floatFly { 0% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } 100% { transform: translateY(0) rotate(0deg); } }
         @keyframes gentleFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
         
-        /* MASKOT FIX (Dibatasi ukurannya) */
+        /* MASKOT FIX */
         .mascot-deco { position: absolute; z-index: 0; opacity: 0.85; pointer-events: none; max-width: 140px; height: auto; }
         .mascot-hero-1 { bottom: 0; left: 2%; width: clamp(70px, 12vw, 130px); }
         .mascot-hero-2 { top: 10%; right: 2%; width: clamp(60px, 10vw, 110px); }
@@ -165,7 +165,7 @@
         /* MODAL CP FORM */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); display: flex; justify-content: center; align-items: center; z-index: 100000; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
         .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-content { background: #1e1b4b; border: 1px solid #4c1d95; width: 90%; max-width: 420px; border-radius: 20px; padding: 25px; position: relative; color: #f8fafc; box-shadow: 0 20px 50px rgba(0,0,0,0.5); transform: translateY(30px); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); font-family: 'Poppins', sans-serif;}
+        .modal-content { background: #1e1b4b; border: 1px solid #4c1d95; width: 90%; max-width: 420px; border-radius: 20px; padding: 25px; position: relative; color: #f8fafc; box-shadow: 0 20px 50px rgba(0,0,0,0.5); transform: translateY(30px); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         body.light-mode .modal-content { background: #ffffff; color: #0f172a; border-color: #cbd5e1; box-shadow: 0 20px 50px rgba(0,0,0,0.15);}
         .modal-overlay.active .modal-content { transform: translateY(0); }
         
@@ -239,8 +239,18 @@
         .section-title { font-size: 2.2rem; font-weight: 700; text-align: center; margin-bottom: 40px; position: relative; color: var(--text-dark); }
         .glass-card { background: var(--glass-bg); backdrop-filter: blur(14px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 35px; box-shadow: var(--shadow-3d); transition: all 0.4s; position: relative; z-index: 10; }
 
-        /* Rangkaian Kegiatan */
-        .events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 25px; position: relative; z-index: 10; }
+        /* FIX GRID AGAR PENUH / SEJAJAR DI LAYAR BESAR */
+        .events-grid { display: grid; grid-template-columns: 1fr; gap: 25px; position: relative; z-index: 10; }
+        .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin-bottom: 30px; position: relative; z-index: 10;}
+        .benefit-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
+        
+        @media (min-width: 768px) {
+            .events-grid { grid-template-columns: repeat(2, 1fr); }
+            .events-grid .span-full { grid-column: 1 / -1; }
+            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+            .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
         .event-card { display: flex; flex-direction: column; justify-content: space-between; }
         .event-card:hover { transform: translateY(-6px); box-shadow: 0 25px 45px rgba(157, 78, 221, 0.3); border-color: var(--pink-bright); }
         .event-badge-container { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; }
@@ -252,11 +262,6 @@
         
         .event-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
         .event-card h3 { font-size: 1.4rem; margin-bottom: 5px; font-family: 'Playfair Display', serif; font-weight: 700;}
-
-        /* PERSEGI PANJANG OPEN HOUSE */
-        @media (min-width: 800px) {
-            .events-grid .span-full { grid-column: 1 / -1; }
-        }
 
         /* Pendaftaran Grid (Diperbaiki agar 3 kolom sejajar presisi) */
         .registration-box { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 24px; padding: 35px; text-align: center; box-shadow: var(--shadow-3d); max-width: 1050px; margin: 0 auto; position: relative; z-index: 10;}
@@ -271,7 +276,6 @@
         .guidebook-action-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; }
 
         /* Biaya Tables */
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-bottom: 30px; position: relative; z-index: 10;}
         .pricing-card-box { background: var(--card-bg); border-radius: 18px; padding: 24px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); position: relative; z-index: 10; border: 1px solid var(--glass-border);}
         .pricing-card-box h4 { font-size: 1.2rem; color: var(--pink-bright); margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-family: 'Playfair Display', serif; font-weight: 700;}
         .table-wrapper { overflow-x: auto; }
@@ -282,7 +286,6 @@
         
         /* Benefit */
         .benefit-tabs-container { max-width: 950px; margin: 0 auto; position: relative; z-index: 10;}
-        .benefit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .benefit-block h3 { font-size: 1.3rem; margin-bottom: 16px; color: var(--pink-bright); display: flex; align-items: center; gap: 10px; padding-bottom: 8px; border-bottom: 2px solid rgba(157, 78, 221, 0.2); font-family: 'Playfair Display', serif;}
         body.light-mode .benefit-block h3 { border-bottom-color: rgba(109, 40, 217, 0.15); }
         
@@ -527,7 +530,7 @@
                 </div>
             </div>
 
-            <!-- Form Registrasi (DIBUAT 3 KOLOM SEJAJAR) -->
+            <!-- Form Registrasi (SEKARANG TAMPIL 3 KOLOM RAPI / TIDAK ADA RUANG KOSONG) -->
             <div id="pendaftaran-lengkap" style="margin-top: 65px;">
                 <div class="registration-box">
                     <img src="Maskot 2.png" alt="Maskot" class="mascot-deco mascot-reg-1" onerror="this.style.display='none'">
@@ -698,7 +701,6 @@
                             <li><i class="fa-solid fa-circle-check"></i> <strong>Juara I:</strong> Rp2.500.000 + Trophy + Sertifikat Pemenang <br><span class="tag-freepass"><i class="fa-solid fa-ticket"></i> Freepass Departemen Fisika ITS (S&K Berlaku)</span></li>
                             <li><i class="fa-solid fa-circle-check"></i> <strong>Juara II:</strong> Rp2.000.000 + Trophy + Sertifikat Pemenang.</li>
                             <li><i class="fa-solid fa-circle-check"></i> <strong>Juara III:</strong> Rp1.500.000 + Trophy + Sertifikat Pemenang.</li>
-                            <li><i class="fa-solid fa-circle-check"></i> <strong>Juara Harapan I & II:</strong> Trophy + Sertifikat Pemenang.</li>
                         </ul>
                     </div>
                     <div class="benefit-block">
@@ -815,7 +817,7 @@
         </div>
     </section>
 
-    <!-- Sub-bab Kontak (DIBUAT 3 KOLOM SEJAJAR) -->
+    <!-- Sub-bab Kontak (SUDAH DIPERBAIKI: 3 KOLOM SEJAJAR) -->
     <section id="contact" style="background: rgba(255, 42, 133, 0.03);">
         <div class="container">
             <h2 class="section-title">Pusat Informasi & Kontak</h2>
@@ -823,7 +825,7 @@
                 <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 25px;">Pilih narahubung yang ingin Anda hubungi dan isi formulir singkat untuk langsung terhubung via WhatsApp.</p>
                 
                 <div class="reg-grid">
-                    <!-- Info Acara (Kembali ke standar 1 kolom vertikal) -->
+                    
                     <div class="reg-card">
                         <div>
                             <h4 style="margin-bottom:8px; font-weight:700; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-user-group" style="color:var(--purple-bright);"></i> Info Acara</h4>
