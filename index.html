@@ -29,21 +29,21 @@
             --shadow-btn: 0 10px 20px rgba(184, 41, 234, 0.3);
         }
 
-        /* TEMA TERANG: Warna dipergelap agar super kontras dan tajam */
+        /* TEMA TERANG (Opsional jika tombol toggle ditekan) */
         body.light-mode {
-            --pink-bright: #e11d48; /* Pink/Merah gelap */
-            --purple-bright: #6d28d9; /* Ungu pekat */
-            --blue-accent: #0284c7; /* Biru laut gelap */
-            --bg-gradient: linear-gradient(135deg, #fff0f5 0%, #f3e8ff 50%, #f8fafc 100%);
-            --text-dark: #0f172a;
+            --pink-bright: #ff2a85;
+            --purple-bright: #9d4edd;
+            --blue-accent: #00f0ff;
+            --bg-gradient: linear-gradient(135deg, #fff5f8 0%, #f3e8ff 50%, #ffffff 100%);
+            --text-dark: #1e293b;
             --text-muted: #475569;
-            --glass-bg: rgba(255, 255, 255, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.9);
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.8);
             --card-bg: #ffffff;
-            --table-border: #cbd5e1;
+            --table-border: #94a3b8;
             --table-head-bg: #f1f5f9;
-            --shadow-3d: 0 20px 40px rgba(109, 40, 217, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
-            --shadow-btn: 0 10px 20px rgba(225, 29, 72, 0.25);
+            --shadow-3d: 0 20px 40px rgba(157, 78, 221, 0.12), 0 5px 15px rgba(0, 0, 0, 0.04);
+            --shadow-btn: 0 10px 20px rgba(255, 42, 133, 0.25);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -108,12 +108,12 @@
         body.light-mode .constellation-svg .achernar-star { fill: var(--pink-bright); filter: drop-shadow(0 0 8px var(--pink-bright)); }
 
         .shape-3d { position: absolute; background: #ffffff; filter: blur(50px); border-radius: 50%; opacity: 0.05; animation: floatShape 8s ease-in-out infinite alternate; }
-        body.light-mode .shape-3d { background: linear-gradient(45deg, var(--pink-bright), var(--purple-bright)); filter: blur(90px); opacity: 0.1; }
+        body.light-mode .shape-3d { background: linear-gradient(45deg, var(--pink-bright), var(--purple-bright)); filter: blur(90px); opacity: 0.12; }
         .shape-1 { width: 380px; height: 380px; top: 5%; right: -50px; }
         .shape-2 { width: 480px; height: 480px; top: 50%; left: -100px; }
         
         .particle { position: absolute; background: #ffffff; border-radius: 50%; opacity: 0.5; animation: floatParticle 12s infinite linear; box-shadow: 0 0 12px rgba(255,255,255,0.8); }
-        body.light-mode .particle { background: var(--purple-bright); box-shadow: 0 0 10px var(--pink-bright); opacity: 0.2; }
+        body.light-mode .particle { background: var(--purple-bright); box-shadow: 0 0 10px var(--pink-bright); opacity: 0.3; }
         .p1 { width: 6px; height: 6px; top: 20%; left: 10%; animation-duration: 10s; }
         .p2 { width: 4px; height: 4px; top: 60%; right: 15%; animation-duration: 14s; }
         .p3 { width: 8px; height: 8px; top: 80%; left: 20%; animation-duration: 12s; }
@@ -123,12 +123,12 @@
         @keyframes floatFly { 0% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } 100% { transform: translateY(0) rotate(0deg); } }
         @keyframes gentleFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
         
-        /* MASKOT FIX (Dibatasi ukurannya) */
-        .mascot-deco { position: absolute; z-index: 0; opacity: 0.85; pointer-events: none; max-width: 140px; height: auto; }
-        .mascot-hero-1 { bottom: 0; left: 2%; width: clamp(70px, 12vw, 130px); }
-        .mascot-hero-2 { top: 10%; right: 2%; width: clamp(60px, 10vw, 110px); }
-        .mascot-reg-1 { bottom: -10px; left: -20px; width: clamp(70px, 12vw, 120px); }
-        .mascot-reg-2 { top: -20px; right: -20px; width: clamp(60px, 10vw, 100px); }
+        /* MASKOT FIX */
+        .mascot-deco { position: absolute; z-index: 0; opacity: 0.85; pointer-events: none; max-width: 160px; height: auto; }
+        .mascot-hero-1 { bottom: 0; left: 2%; width: clamp(80px, 15vw, 140px); }
+        .mascot-hero-2 { top: 10%; right: 2%; width: clamp(70px, 12vw, 120px); }
+        .mascot-reg-1 { bottom: -10px; left: -20px; width: clamp(80px, 15vw, 130px); }
+        .mascot-reg-2 { top: -20px; right: -20px; width: clamp(70px, 12vw, 110px); }
 
         /* NAVBAR & DROPDOWN */
         header { position: sticky; top: 16px; z-index: 1000; padding: 0 24px; }
@@ -149,7 +149,7 @@
         .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
         .dropdown-menu li { padding: 0; margin: 0; }
         .dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 20px; color: var(--text-dark); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: 0.2s; }
-        .dropdown-menu a:hover { background: rgba(157, 78, 221, 0.08); color: var(--pink-bright); padding-left: 25px; }
+        .dropdown-menu a:hover { background: rgba(157, 78, 221, 0.15); color: var(--pink-bright); padding-left: 25px; }
 
         #theme-toggle { background: transparent; border: none; font-size: 1.2rem; cursor: pointer; color: #fcd34d; padding: 5px; margin-left: 5px; transition: 0.3s; }
         body.light-mode #theme-toggle { color: var(--purple-bright); }
@@ -165,7 +165,7 @@
         /* MODAL CP FORM */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); display: flex; justify-content: center; align-items: center; z-index: 100000; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
         .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-content { background: #1e1b4b; border: 1px solid #4c1d95; width: 90%; max-width: 420px; border-radius: 20px; padding: 25px; position: relative; color: #f8fafc; box-shadow: 0 20px 50px rgba(0,0,0,0.5); transform: translateY(30px); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .modal-content { background: #1e1b4b; border: 1px solid #4c1d95; width: 90%; max-width: 420px; border-radius: 20px; padding: 25px; position: relative; color: #f8fafc; box-shadow: 0 20px 50px rgba(0,0,0,0.5); transform: translateY(30px); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); font-family: 'Poppins', sans-serif;}
         body.light-mode .modal-content { background: #ffffff; color: #0f172a; border-color: #cbd5e1; box-shadow: 0 20px 50px rgba(0,0,0,0.15);}
         .modal-overlay.active .modal-content { transform: translateY(0); }
         
@@ -193,13 +193,13 @@
         .modal-form input::placeholder, .modal-form textarea::placeholder { color: #64748b; }
         body.light-mode .modal-form input::placeholder, body.light-mode .modal-form textarea::placeholder { color: #94a3b8; }
 
-        /* Hero Section (Diperbaiki Logo Wrapper & Ukuran Font) */
+        /* Hero Section */
         .hero-section { padding: 40px 0 70px 0; text-align: center; position: relative; z-index: 10; overflow-x: clip; }
         .hero-wrapper { display: flex; flex-direction: column; align-items: center; position: relative; }
         
         .hero-logo-wrapper {
-            width: clamp(120px, 20vw, 170px);
-            height: clamp(120px, 20vw, 170px);
+            width: clamp(140px, 20vw, 180px);
+            height: clamp(140px, 20vw, 180px);
             margin-bottom: 20px;
             animation: gentleFloat 4s ease-in-out infinite;
             transition: all 0.4s ease;
@@ -214,7 +214,7 @@
         }
         .hero-logo { width: 100%; height: 100%; object-fit: contain; }
         
-        body.light-mode .hero-logo-wrapper { background: transparent; box-shadow: none; padding: 0; filter: drop-shadow(0 15px 25px rgba(255,42,133,0.25)); }
+        body.light-mode .hero-logo-wrapper { background: transparent; box-shadow: none; padding: 0; filter: drop-shadow(0 15px 25px rgba(225,29,72,0.25)); }
 
         .hero-title { 
             font-size: clamp(2.2rem, 6vw, 3.8rem); 
@@ -253,7 +253,7 @@
         .event-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
         .event-card h3 { font-size: 1.4rem; margin-bottom: 5px; font-family: 'Playfair Display', serif; font-weight: 700;}
 
-        /* OPEN HOUSE FULL WIDTH (PERSEGI PANJANG) */
+        /* PERSEGI PANJANG OPEN HOUSE */
         @media (min-width: 800px) {
             .events-grid .span-full { grid-column: 1 / -1; }
         }
@@ -364,8 +364,11 @@
             .nav-menu { position: fixed; left: -100%; top: 80px; flex-direction: column; background: var(--card-bg); width: 90%; margin: 0 5%; border-radius: 20px; text-align: center; padding: 25px 0; gap: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: 0.4s ease; border: 1px solid var(--glass-border);}
             body.light-mode .nav-menu { box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
             .nav-menu.active { left: 0; }
+            
+            /* Tampilkan dropdown saat ada class 'show' di mobile */
             .dropdown-menu { position: relative; top: 0; box-shadow: none; border: none; background: transparent; padding: 0; transform: translateY(0); display: none; }
-            .dropdown:hover .dropdown-menu { display: block; }
+            .dropdown-menu.show { display: block; }
+            
             .menu-toggle { display: block; }
             .hero-title { font-size: 2.5rem; }
             .hero-buttons { flex-direction: column; align-items: center; }
@@ -440,7 +443,8 @@
                     <li><a href="#guidebook" class="nav-link"><i class="fa-solid fa-book-open"></i> Guidebook</a></li>
                     
                     <li class="dropdown">
-                        <a href="javascript:void(0)" class="nav-link"><i class="fa-solid fa-ellipsis"></i> Lainnya <i class="fa-solid fa-chevron-down" style="font-size:0.7rem; margin-left:4px;"></i></a>
+                        <!-- Tambahkan id dropdown-toggle untuk trigger JS -->
+                        <a href="javascript:void(0)" class="nav-link" id="dropdown-toggle"><i class="fa-solid fa-ellipsis"></i> Lainnya <i class="fa-solid fa-chevron-down" style="font-size:0.7rem; margin-left:4px;"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="#pendaftaran-lengkap"><i class="fa-solid fa-pen-to-square" style="width:20px;"></i> Pendaftaran</a></li>
                             <li><a href="#timeline"><i class="fa-solid fa-calendar-days" style="width:20px;"></i> Timeline</a></li>
@@ -512,7 +516,7 @@
                     </div>
                 </div>
 
-                <!-- Open House (PERSEGI PANJANG - FULL WIDTH) -->
+                <!-- Open House (FULL WIDTH PERSEGI PANJANG) -->
                 <div class="glass-card event-card span-full">
                     <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; width: 100%;">
                         <div style="flex: 1; min-width: 250px;">
@@ -815,7 +819,7 @@
         </div>
     </section>
 
-    <!-- Sub-bab Kontak & Modal Fitur Baru -->
+    <!-- Sub-bab Kontak & Modal Fitur Baru (FULL WIDTH INFO ACARA) -->
     <section id="contact" style="background: rgba(255, 42, 133, 0.03);">
         <div class="container">
             <h2 class="section-title">Pusat Informasi & Kontak</h2>
@@ -823,14 +827,15 @@
                 <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 25px;">Pilih narahubung yang ingin Anda hubungi dan isi formulir singkat untuk langsung terhubung via WhatsApp.</p>
                 
                 <div class="reg-grid">
-                    <div class="reg-card">
-                        <div>
+                    <!-- Info Acara Dibuat Full Width -->
+                    <div class="reg-card span-full" style="grid-column: 1 / -1; flex-direction: row; align-items: center; text-align: left; flex-wrap: wrap; gap: 20px;">
+                        <div style="flex: 1; min-width: 250px;">
                             <h4 style="margin-bottom:8px; font-weight:700; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-user-group" style="color:var(--purple-bright);"></i> Info Acara</h4>
-                            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px;">Pertanyaan seputar seluruh rangkaian acara.</p>
+                            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0;">Pertanyaan seputar seluruh rangkaian acara.</p>
                         </div>
-                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                            <button onclick="openCpModal('Nabil', '6281334826487', 'NB')" class="btn-3d btn-outline" style="flex:1; padding: 10px 5px; font-size:0.8rem; justify-content:center;"><i class="fa-brands fa-whatsapp"></i> Chat Nabil</button>
-                            <button onclick="openCpModal('Rama', '6285211910805', 'RM')" class="btn-3d btn-outline" style="flex:1; padding: 10px 5px; font-size:0.8rem; justify-content:center;"><i class="fa-brands fa-whatsapp"></i> Chat Rama</button>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-start;">
+                            <button onclick="openCpModal('Nabil', '6281334826487', 'NB')" class="btn-3d btn-outline" style="padding: 10px 15px; font-size:0.8rem;"><i class="fa-brands fa-whatsapp"></i> Chat Nabil</button>
+                            <button onclick="openCpModal('Rama', '6285211910805', 'RM')" class="btn-3d btn-outline" style="padding: 10px 15px; font-size:0.8rem;"><i class="fa-brands fa-whatsapp"></i> Chat Rama</button>
                         </div>
                     </div>
 
@@ -976,13 +981,43 @@
             }
         });
 
-        // --- Navbar Mobile ---
+        // --- Navbar Mobile (Perbaikan Dropdown) ---
         const mobileToggle = document.getElementById('mobile-toggle');
         const navList = document.getElementById('nav-list');
+        const dropdownToggle = document.getElementById('dropdown-toggle');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+
         mobileToggle.addEventListener('click', function() {
             navList.classList.toggle('active');
             const icon = mobileToggle.querySelector('i');
             icon.className = navList.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars-staggered';
+        });
+
+        // Toggle khusus untuk "Lainnya" di HP
+        dropdownToggle.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault(); // Mencegah pindah halaman
+                dropdownMenu.classList.toggle('show');
+            }
+        });
+
+        // Tutup menu mobile ketika link biasa diklik (Bukan dropdown)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Jika klik "Lainnya", jangan tutup navbar utamanya
+                if (this.id === 'dropdown-toggle' && window.innerWidth <= 768) {
+                    return;
+                }
+                
+                // Jika klik link di dalam dropdown
+                if (this.closest('.dropdown-menu')) {
+                    dropdownMenu.classList.remove('show');
+                }
+
+                navList.classList.remove('active');
+                const icon = mobileToggle.querySelector('i');
+                if(icon) icon.className = 'fa-solid fa-bars-staggered';
+            });
         });
 
         // --- LOGIKA MODAL CP ---
