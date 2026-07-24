@@ -461,7 +461,7 @@
 </head>
 <body>
 
-    <!-- Fast Loading Screen -->
+    <!-- Fast Loading Screen (Atom Spinner) -->
     <div id="fast-loader">
         <div class="atom-spinner">
             <div class="nucleus"></div>
@@ -475,8 +475,9 @@
         </div>
     </div>
 
-    <!-- Dekorasi Background -->
+    <!-- Dekorasi Floating Background (Rumus & Rasi Bintang Presisi Vektor) -->
     <div class="decorations-container">
+        <!-- Rasi Bintang Vektor (SVG) Eridanus/Achernar -->
         <svg viewBox="0 0 250 350" xmlns="http://www.w3.org/2000/svg" class="constellation-svg">
             <polyline points="200,20 160,70 180,130 120,180 140,250 50,320" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linejoin="round"/>
             <circle cx="200" cy="20" r="2.5" fill="#fff" />
@@ -484,13 +485,17 @@
             <circle cx="180" cy="130" r="2.5" fill="#fff" />
             <circle cx="120" cy="180" r="2" fill="#fff" />
             <circle cx="140" cy="250" r="3" fill="#fff" />
+            
+            <!-- Achernar (Bintang Ujung Terang Biru) -->
             <circle cx="50" cy="320" r="6" fill="var(--blue-accent)" class="achernar-star" />
+            
             <circle cx="220" cy="100" r="1.5" fill="#fff" opacity="0.5"/>
             <circle cx="90" cy="80" r="1" fill="#fff" opacity="0.3"/>
             <circle cx="160" cy="200" r="1.5" fill="#fff" opacity="0.6"/>
             <circle cx="70" cy="230" r="1" fill="#fff" opacity="0.4"/>
         </svg>
 
+        <!-- Rumus-rumus Fisika Floating -->
         <div class="math-formula f-1">E = mc²</div>
         <div class="math-formula f-2">∮ E·dA = q/ε₀</div>
         <div class="math-formula f-3">iℏ ∂Ψ/∂t = ĤΨ</div>
@@ -518,6 +523,7 @@
                     <li><a href="#guidebook" class="nav-link"><i class="fa-solid fa-book-open"></i> Guidebook</a></li>
                     
                     <li class="dropdown">
+                        <!-- Tambahkan id dropdown-toggle untuk trigger JS -->
                         <a href="javascript:void(0)" class="nav-link" id="dropdown-toggle"><i class="fa-solid fa-ellipsis"></i> Lainnya <i class="fa-solid fa-chevron-down" style="font-size:0.7rem; margin-left:4px;"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="#pendaftaran-lengkap"><i class="fa-solid fa-pen-to-square" style="width:20px;"></i> Pendaftaran</a></li>
@@ -530,13 +536,13 @@
                     </li>
                 </ul>
                 
-                <button id="theme-toggle" title="Ganti Mode Terang/Gelap"><i class="fa-solid fa-sun" style="color:#f59e0b;"></i></button>
+                <button id="theme-toggle" title="Ganti Mode Terang/Gelap (Secara default Dark/Poster Theme)"><i class="fa-solid fa-sun" style="color:#f59e0b;"></i></button>
                 <div class="menu-toggle" id="mobile-toggle"><i class="fa-solid fa-bars-staggered"></i></div>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Home Section -->
     <section id="home" class="hero-section">
         <img src="Maskot 2.png" alt="Maskot" class="mascot-deco mascot-hero-1" onerror="this.style.display='none'">
         <img src="maskot 3.png" alt="Maskot" class="mascot-deco mascot-hero-2" onerror="this.style.display='none'">
@@ -563,16 +569,15 @@
         <div class="container">
             <h2 class="section-title">Rangkaian Kegiatan</h2>
             
-            <!-- DROPDOWN POSTER (MENGHEMAT RUANG & ESTETIK) -->
+            <!-- DROPDOWN POSTER -->
             <div class="poster-select-wrapper">
                 <div class="poster-select-btn" onclick="togglePosterMenu()">
                     <span id="current-poster-name"> Poster Utama / Gabungan</span>
                     <i class="fa-solid fa-chevron-down"></i>
                 </div>
                 <ul class="poster-select-menu" id="poster-menu">
-                    <!-- Pastikan nama file di dalam tanda kutip tunggal ('...') persis sama dengan yang ada di GitHub -->
                     <li onclick="changePoster('poster opsi 2 (2).png', 'Poster Utama / Gabungan')">Poster Utama / Gabungan</li>
-                    <li onclick="changePoster('POSTER PSO (2).png', 'Olympiad (PSO)')">Olympiad (PSO)</li>
+                    <li onclick="changePoster('POSTER PSO.png', 'Olympiad (PSO)')">Olympiad (PSO)</li>
                     <li onclick="changePoster('POSTE PSIC (1).png', 'Innovation (PSIC)')">Innovation (PSIC)</li>
                     <li onclick="changePoster('OPEN HOUSE (3).png', 'Open House')">Open House</li>
                 </ul>
@@ -609,6 +614,8 @@
                         </div>
                         <p>Kompetisi karya tulis ilmiah bagi siswa SMA/SMK/sederajat untuk mengembangkan kemampuan berpikir kritis, kreatif, dan solutif. Prototipe karya finalis akan dipamerkan pada Open House.</p>
                     </div>
+                    <!-- TOMBOL PSIC -->
+                    <a href="psic.html" class="btn-3d btn-outline" style="margin-top: 15px; width: 100%; text-align: center; font-size: 0.85rem;"><i class="fa-solid fa-circle-info"></i> Detail & Sub-Tema PSIC</a>
                 </div>
 
                 <!-- Open House -->
@@ -625,6 +632,8 @@
                             <p style="margin-bottom: 0;">Kegiatan pengenalan lingkungan akademik Department of Physics ITS Surabaya. Tersedia tenant laboratorium yang ada di Department of Physics ITS Surabaya dan beberapa karya mahasiswa ITS yang akan ditampilkan.</p>
                         </div>
                     </div>
+                    <!-- TOMBOL OPEN HOUSE -->
+                    <a href="openhouse.html" class="btn-3d btn-outline" style="margin-top: 15px; width: 100%; text-align: center; font-size: 0.85rem;"><i class="fa-solid fa-circle-info"></i> Detail Info Open House</a>
                 </div>
             </div>
 
