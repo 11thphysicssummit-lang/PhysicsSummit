@@ -106,10 +106,11 @@
         .glass-card { background: var(--glass-bg); backdrop-filter: blur(14px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 35px; box-shadow: var(--shadow-3d); margin-bottom: 30px; }
         body.light-mode .glass-card { background: #ffffff; border-color: #cbd5e1; box-shadow: 0 10px 30px rgba(0,0,0,0.05);}
         
-        /* LIST STYLING */
+        /* LIST STYLING (FIXED ICON OVERLAP) */
         .custom-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
         .custom-list li { position: relative; padding-left: 28px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
-        .custom-list li i { position: absolute; left: 0; top: 4px; color: var(--pink-bright); font-size: 0.9rem; }
+        /* Tanda ">" memastikan hanya icon terluar (bullet) yang terpengaruh */
+        .custom-list li > i { position: absolute; left: 0; top: 4px; color: var(--pink-bright); font-size: 0.9rem; }
         .custom-list li strong { color: white; }
         body.light-mode .custom-list li strong { color: var(--text-dark); }
 
@@ -138,6 +139,8 @@
         /* Buttons */
         .btn-gradient { background: linear-gradient(45deg, var(--pink-bright), var(--purple-bright)); color: #ffffff; padding: 12px 26px; border-radius: 30px; border: none; cursor: pointer; font-weight: 600; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: var(--shadow-btn); transition: 0.3s;}
         .btn-gradient:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 25px rgba(255, 42, 133, 0.4); }
+        
+        .tag-freepass { background: linear-gradient(45deg, #f59e0b, #ea580c); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; margin-top: 5px; box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);}
 
         /* FOOTER */
         footer { background: #0f172a; color: #f8fafc; padding: 30px 0; text-align: center; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 50px; position: relative; z-index: 10;}
@@ -206,7 +209,7 @@
                         <h3 style="color: var(--pink-bright); margin-bottom: 5px; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-tower-broadcast"></i> Info Roadshow Physics Summit</h3>
                         <p style="color: var(--text-dark); font-size: 0.95rem; margin: 0;"><strong>Hari, Tanggal:</strong> Minggu, 09 Agustus <br><strong>Waktu:</strong> 13.00 WIB s.d Selesai (Online via Zoom)</p>
                     </div>
-                    <a href="https://its.id/M/RoadshowOnline11PhysicsSummit" target="_blank" class="btn-gradient" style="white-space: nowrap;"><i class="fa-solid fa-video"></i> Gabung Roadshow</a>
+                    <a href="https://its.id/m/ZoomRoadshow" target="_blank" class="btn-gradient" style="white-space: nowrap;"><i class="fa-solid fa-video"></i> Gabung Roadshow</a>
                 </div>
             </div>
         </section>
