@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="Logo.png">
+    
+    <title>Detail PSIC - 11th Physics Summit</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --pink-bright: #ff7eb3;
+            --purple-bright: #b829ea; 
+            --blue-accent: #87e0fd;
+            --bg-gradient: linear-gradient(135deg, #18052e 0%, #301050 50%, #140428 100%);
+            --text-dark: #ffffff;
+            --text-muted: #cbd5e1;
+            --glass-bg: rgba(68, 23, 109, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --card-bg: rgba(55, 18, 89, 0.8);
+            --table-border: #7e3af2;
+            --table-head-bg: #4c1d95;
+            --shadow-3d: 0 20px 40px rgba(0, 0, 0, 0.5);
+            --shadow-btn: 0 10px 20px rgba(184, 41, 234, 0.3);
+        }
+
+        body.light-mode {
+            --pink-bright: #e11d48;
+            --purple-bright: #6d28d9;
+            --blue-accent: #0284c7;
+            --bg-gradient: linear-gradient(135deg, #fff0f5 0%, #f3e8ff 50%, #f8fafc 100%);
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.9);
+            --card-bg: #ffffff;
+            --table-border: #cbd5e1;
+            --table-head-bg: #f1f5f9;
+            --shadow-3d: 0 20px 40px rgba(109, 40, 217, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
+            --shadow-btn: 0 10px 20px rgba(225, 29, 72, 0.25);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg-gradient); color: var(--text-dark); overflow-x: hidden; position: relative; transition: background 0.5s ease; }
+        h1, h2, h3, h4, h5, h6, .nav-logo, .section-title { font-family: 'Playfair Display', serif; }
+        .section-title { letter-spacing: 1px; font-size: 2.2rem; font-weight: 700; text-align: center; margin-bottom: 40px; color: var(--text-dark); }
+        html { scroll-behavior: smooth; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 10; }
+
+        /* DEKORASI RUMUS & RASI BINTANG SVG */
+        .decorations-container { position: fixed; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+        .math-formula { position: absolute; color: var(--text-muted); opacity: 0.15; font-family: 'Playfair Display', serif; font-weight: 800; animation: floatFly 15s infinite alternate; z-index: 1; }
+        body.light-mode .math-formula { opacity: 0.1; color: var(--purple-bright); }
+        .f-1 { top: 15%; left: 10%; font-size: 2rem; }
+        .f-2 { top: 65%; left: 5%; font-size: 1.5rem; animation-delay: 2s; }
+        .f-3 { top: 80%; right: 10%; font-size: 1.8rem; animation-delay: 3s; }
+
+        .constellation-svg { position: absolute; top: 10%; right: 5%; width: clamp(120px, 20vw, 250px); height: auto; z-index: 1; opacity: 0.7; animation: gentleFloat 6s ease-in-out infinite; }
+        .achernar-star { filter: drop-shadow(0 0 10px var(--blue-accent)); animation: pulse-achernar 2s infinite alternate; }
+        @keyframes pulse-achernar { 0% { filter: drop-shadow(0 0 5px var(--blue-accent)); r: 5; } 100% { filter: drop-shadow(0 0 20px var(--blue-accent)); r: 7.5; } }
+        body.light-mode .constellation-svg polyline { stroke: rgba(109, 40, 217, 0.4); }
+        body.light-mode .constellation-svg circle { fill: var(--purple-bright); }
+        body.light-mode .constellation-svg .achernar-star { fill: var(--pink-bright); filter: drop-shadow(0 0 8px var(--pink-bright)); }
+        
+        .shape-3d { position: absolute; background: #ffffff; filter: blur(50px); border-radius: 50%; opacity: 0.05; animation: floatShape 8s ease-in-out infinite alternate; }
+        body.light-mode .shape-3d { background: linear-gradient(45deg, var(--pink-bright), var(--purple-bright)); filter: blur(90px); opacity: 0.12; }
+        .shape-1 { width: 380px; height: 380px; top: 5%; right: -50px; }
+        .shape-2 { width: 480px; height: 480px; top: 50%; left: -100px; }
+        
+        @keyframes floatShape { 0% { transform: translateY(0) scale(1); } 100% { transform: translateY(-30px) scale(1.05); } }
+        @keyframes floatFly { 0% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } 100% { transform: translateY(0) rotate(0deg); } }
+        @keyframes gentleFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+        /* NAVBAR */
+        header { position: sticky; top: 16px; z-index: 1000; padding: 0 24px; }
+        .navbar { max-width: 950px; margin: 0 auto; background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 50px; padding: 10px 28px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); }
+        body.light-mode .navbar { box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); }
+        .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.2rem; background: linear-gradient(45deg, var(--pink-bright), var(--blue-accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+        body.light-mode .nav-logo { background: linear-gradient(45deg, var(--purple-bright), var(--pink-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+        .nav-actions { display: flex; align-items: center; gap: 15px; }
+        .btn-back { background: rgba(255,255,255,0.1); color: white; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.9rem; font-weight: 500; display: flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.2); transition: 0.3s; }
+        body.light-mode .btn-back { background: white; color: var(--purple-bright); border-color: var(--purple-bright); }
+        .btn-back:hover { background: var(--pink-bright); border-color: var(--pink-bright); color: white; }
+        #theme-toggle { background: transparent; border: none; font-size: 1.2rem; cursor: pointer; color: #fcd34d; padding: 5px; transition: 0.3s; }
+        body.light-mode #theme-toggle { color: var(--purple-bright); }
+
+        /* HERO PAGE KHUSUS */
+        .page-header { padding: 60px 0 40px; text-align: center; position: relative; z-index: 10; }
+        .page-title { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 15px; background: linear-gradient(135deg, var(--pink-bright) 0%, var(--blue-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        body.light-mode .page-title { background: linear-gradient(135deg, var(--purple-bright) 0%, var(--pink-bright) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .page-subtitle { font-size: 1rem; color: var(--text-muted); max-width: 750px; margin: 0 auto 30px; line-height: 1.6; }
+        
+        .badge { padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+        .badge-pink { background: rgba(255, 126, 179, 0.15); color: var(--pink-bright); border: 1px solid rgba(255, 126, 179, 0.3); }
+        .badge-blue { background: rgba(135, 224, 253, 0.15); color: var(--blue-accent); border: 1px solid rgba(135, 224, 253, 0.3); }
+        .badge-purple { background: rgba(184, 41, 234, 0.15); color: #c084fc; border: 1px solid rgba(184, 41, 234, 0.3); }
+        body.light-mode .badge-purple { color: var(--purple-bright); }
+        body.light-mode .badge-blue { color: #0284c7; }
+
+        /* GENERAL CARDS */
+        section { padding: 40px 0; position: relative; z-index: 10; }
+        .glass-card { background: var(--glass-bg); backdrop-filter: blur(14px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 35px; box-shadow: var(--shadow-3d); margin-bottom: 30px; }
+        
+        /* LIST STYLING */
+        .custom-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .custom-list li { position: relative; padding-left: 28px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+        .custom-list li i { position: absolute; left: 0; top: 4px; color: var(--pink-bright); font-size: 0.9rem; }
+        .custom-list li strong { color: white; }
+        body.light-mode .custom-list li strong { color: var(--text-dark); }
+
+        /* GRID LAYOUTS */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        
+        /* BOX THEMES & SUBTHEMES */
+        .theme-box { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px; text-align: center; margin-bottom: 25px;}
+        body.light-mode .theme-box { background: #f8fafc; border-color: #cbd5e1; }
+        .theme-box h3 { color: var(--pink-bright); font-size: 1.3rem; margin-bottom: 10px; font-family: 'Playfair Display', serif;}
+        .theme-box p { color: var(--text-dark); font-weight: 600; font-size: 1.1rem; font-style: italic;}
+        
+        .subtheme-card { background: var(--card-bg); border: 1px solid var(--glass-border); border-radius: 12px; padding: 18px; transition: 0.3s; }
+        body.light-mode .subtheme-card { border-color: #cbd5e1; box-shadow: 0 4px 10px rgba(0,0,0,0.05);}
+        .subtheme-card:hover { transform: translateY(-3px); border-color: var(--blue-accent); box-shadow: 0 10px 20px rgba(135, 224, 253, 0.15); }
+        body.light-mode .subtheme-card:hover { border-color: var(--purple-bright); box-shadow: 0 10px 20px rgba(109, 40, 217, 0.1); }
+        .subtheme-card h4 { color: var(--blue-accent); margin-bottom: 8px; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; font-family: 'Poppins', sans-serif;}
+        body.light-mode .subtheme-card h4 { color: var(--purple-bright); }
+        .subtheme-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin: 0;}
+
+        /* HIGHLIGHT BOX */
+        .highlight-box { background: rgba(135, 224, 253, 0.1); border-left: 4px solid var(--blue-accent); padding: 15px 20px; border-radius: 0 12px 12px 0; margin: 20px 0; }
+        body.light-mode .highlight-box { background: rgba(2, 132, 199, 0.05); border-left-color: #0284c7; }
+        .highlight-box p { margin: 0; font-size: 0.9rem; color: #e2e8f0; }
+        body.light-mode .highlight-box p { color: var(--text-dark); font-weight: 500;}
+        
+        .highlight-pink { background: rgba(255, 126, 179, 0.1); border-left: 4px solid var(--pink-bright); padding: 15px 20px; border-radius: 0 12px 12px 0; margin: 20px 0; }
+        body.light-mode .highlight-pink { background: rgba(225, 29, 72, 0.05); border-left-color: var(--pink-bright); }
+        
+        .tag-freepass { background: linear-gradient(45deg, #f59e0b, #ea580c); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; margin-top: 5px; box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);}
+
+        /* Buttons */
+        .btn-gradient { background: linear-gradient(45deg, var(--pink-bright), var(--purple-bright)); color: #ffffff; padding: 12px 26px; border-radius: 30px; border: none; cursor: pointer; font-weight: 600; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: var(--shadow-btn); transition: 0.3s;}
+        .btn-gradient:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 25px rgba(255, 42, 133, 0.4); }
+
+        /* FOOTER */
+        footer { background: #0f172a; color: #f8fafc; padding: 30px 0; text-align: center; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 50px; position: relative; z-index: 10;}
+        body.light-mode footer { background: #1e293b; }
+
+        @media (max-width: 768px) {
+            .page-title { font-size: 2rem; }
+            .glass-card { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dekorasi Floating -->
+    <div class="decorations-container">
+        <svg viewBox="0 0 250 350" xmlns="http://www.w3.org/2000/svg" class="constellation-svg">
+            <polyline points="200,20 160,70 180,130 120,180 140,250 50,320" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linejoin="round"/>
+            <circle cx="200" cy="20" r="2.5" fill="#fff" />
+            <circle cx="160" cy="70" r="2" fill="#fff" />
+            <circle cx="180" cy="130" r="2.5" fill="#fff" />
+            <circle cx="120" cy="180" r="2" fill="#fff" />
+            <circle cx="140" cy="250" r="3" fill="#fff" />
+            <circle cx="50" cy="320" r="6" fill="var(--blue-accent)" class="achernar-star" />
+        </svg>
+        <div class="math-formula f-1">E = mc²</div>
+        <div class="math-formula f-2">∮ E·dA = q/ε₀</div>
+        <div class="math-formula f-3">F = G(m₁m₂)/r²</div>
+        <div class="shape-3d shape-1"></div>
+        <div class="shape-3d shape-2"></div>
+    </div>
+
+    <!-- Navbar Minimalis -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="nav-logo">
+                <span>Physics Summit</span>
+            </a>
+            <div class="nav-actions">
+                <button id="theme-toggle" title="Ganti Mode Terang/Gelap"><i class="fa-solid fa-sun"></i></button>
+                <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Header Halaman -->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">Physics Summit Innovation Competition (PSIC)</h1>
+            <p class="page-subtitle">Kompetisi Karya Tulis Ilmiah (KTI) yang menantang peserta didik untuk mengembangkan pemikiran analitis, kreatif, dan solutif melalui pendekatan sains dan teknologi.</p>
+            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                <span class="badge badge-pink"><i class="fa-solid fa-pen-nib"></i> Karya Tulis Ilmiah</span>
+                <span class="badge badge-purple"><i class="fa-solid fa-user"></i> Individu / 2 Orang</span>
+                <span class="badge badge-blue"><i class="fa-solid fa-graduation-cap"></i> SMA/SMK Sederajat</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Konten Utama -->
+    <div class="container">
+        
+        <!-- Roadshow Info -->
+        <section style="padding-top: 0;">
+            <div class="glass-card highlight-pink" style="margin: 0; padding: 25px; border-left-width: 6px; border-radius: 16px;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px;">
+                    <div>
+                        <h3 style="color: var(--pink-bright); margin-bottom: 5px; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-tower-broadcast"></i> Info Roadshow PSIC</h3>
+                        <p style="color: var(--text-dark); font-size: 0.95rem; margin: 0;"><strong>Hari, Tanggal:</strong> Minggu, 09 Agustus <br><strong>Waktu:</strong> 13.00 WIB s.d Selesai (Online via Zoom)</p>
+                    </div>
+                    <a href="https://its.id/M/RoadshowOnline11PhysicsSummit" target="_blank" class="btn-gradient" style="white-space: nowrap;"><i class="fa-solid fa-video"></i> Gabung Roadshow</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hadiah & Benefit -->
+        <section style="padding-top: 0;">
+            <div class="glass-card">
+                <h2 style="font-size: 1.6rem; color: var(--pink-bright); margin-bottom: 20px;"><i class="fa-solid fa-trophy"></i> Hadiah & Benefit Pemenang</h2>
+                <div class="grid-2">
+                    <div>
+                        <ul class="custom-list">
+                            <li><i class="fa-solid fa-medal" style="color: gold;"></i> <strong>Juara I:</strong> Rp 1.250.000 + Trophy + Sertifikat <br><span class="tag-freepass"><i class="fa-solid fa-ticket"></i> Freepass Dept. Fisika ITS (S&K Berlaku)</span></li>
+                            <li><i class="fa-solid fa-medal" style="color: silver;"></i> <strong>Juara II:</strong> Rp 1.000.000 + Trophy + Sertifikat</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="custom-list">
+                            <li><i class="fa-solid fa-medal" style="color: #cd7f32;"></i> <strong>Juara III:</strong> Rp 750.000 + Trophy + Sertifikat</li>
+                            <li><i class="fa-solid fa-star" style="color: var(--blue-accent);"></i> <strong>Best Exhibition:</strong> Rp 500.000 + Trophy + Sertifikat</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Seluruh peserta dan guru pendamping mendapatkan <strong>E-Sertifikat</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tema & Sub-tema -->
+        <section>
+            <h2 class="section-title">Tema & Sub-Tema Karya</h2>
+            <div class="glass-card">
+                <div class="theme-box">
+                    <h3>Tema Utama PSIC 2026</h3>
+                    <p>"Facing New Horizons: Building Fundamental Innovations Towards A Golden Indonesia 2045"</p>
+                </div>
+                
+                <h4 style="color: white; margin-bottom: 15px; font-family: 'Playfair Display', serif;">Pilihan Sub-Tema:</h4>
+                <div class="grid-2">
+                    <div class="subtheme-card">
+                        <h4><i class="fa-solid fa-microchip"></i> Instrumentation</h4>
+                        <p>"Instrumentation Innovation: Smart System for Sustainable Living in Indonesia"</p>
+                    </div>
+                    <div class="subtheme-card">
+                        <h4><i class="fa-solid fa-heart-pulse"></i> Health</h4>
+                        <p>"Bio-Physical Innovation: Accessible Healthcare Technology for Indonesia's Future"</p>
+                    </div>
+                    <div class="subtheme-card">
+                        <h4><i class="fa-solid fa-earth-americas"></i> Geoscience</h4>
+                        <p>"Geo-Resilience Innovation: Disaster Mitigation and Energy Security for Indonesia"</p>
+                    </div>
+                    <div class="subtheme-card">
+                        <h4><i class="fa-solid fa-cubes"></i> Materials</h4>
+                        <p>"Terra-Material Innovation: Sustaining the Future of Indonesia"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ketentuan Peserta -->
+        <section>
+            <h2 class="section-title">Ketentuan Peserta & Karya</h2>
+            <div class="glass-card">
+                <div class="grid-2">
+                    <div>
+                        <h4 style="color: var(--blue-accent); margin-bottom: 15px; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">Ketentuan Peserta</h4>
+                        <ul class="custom-list">
+                            <li><i class="fa-solid fa-check"></i> Siswa/i aktif jenjang SMA/MA/SMK/sederajat kelas X, XI, XII di seluruh Indonesia.</li>
+                            <li><i class="fa-solid fa-check"></i> Individu atau kelompok maksimal 2 orang dari sekolah yang sama (boleh beda angkatan).</li>
+                            <li><i class="fa-solid fa-check"></i> Peserta dapat mengirim maksimal <strong>2 karya</strong>, tetapi hanya boleh menjadi Ketua Tim pada 1 karya (susunan anggota tim harus persis sama untuk kedua karya).</li>
+                            <li><i class="fa-solid fa-check"></i> Peserta wajib didampingi minimal <strong>1 guru pembimbing</strong>.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--pink-bright); margin-bottom: 15px; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">Ketentuan Karya</h4>
+                        <ul class="custom-list">
+                            <li><i class="fa-solid fa-check"></i> Karya asli (orisinal), belum pernah dipublikasikan, dan belum pernah juara di perlombaan lain.</li>
+                            <li><i class="fa-solid fa-check"></i> Ditulis dengan Bahasa Indonesia (PUEBI). Kata asing dicetak miring. Maksimal 15 halaman (isi utama).</li>
+                            <li><i class="fa-solid fa-check"></i> Berupa gagasan konseptual/aplikasi teori ilmiah yang objektif & didukung data.</li>
+                            <li><i class="fa-solid fa-check"></i> Prototipe baru diwajibkan jika lolos ke tahap Final (pameran pada Open House).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pendaftaran & Pembayaran -->
+        <section>
+            <h2 class="section-title">Pendaftaran & Pengumpulan</h2>
+            <div class="glass-card">
+                <div class="grid-2">
+                    <div>
+                        <h4 style="color: var(--blue-accent); margin-bottom: 10px;">Format Penamaan Berkas:</h4>
+                        <ul class="custom-list" style="font-size: 0.85rem;">
+                            <li><i class="fa-regular fa-file"></i> <strong>Kartu Pelajar:</strong><br> <span style="font-family: monospace; color: #a78bfa;">PSIC_KP_NamaSekolah_Provinsi_NamaLengkap</span></li>
+                            <li><i class="fa-regular fa-file"></i> <strong>Bukti Follow IG:</strong><br> <span style="font-family: monospace; color: #a78bfa;">PSIC_IG_NamaSekolah_Provinsi_NamaLengkap</span></li>
+                            <li><i class="fa-regular fa-file"></i> <strong>Bukti Twibbon:</strong><br> <span style="font-family: monospace; color: #a78bfa;">PSIC_BT_NamaSekolah_Provinsi_NamaLengkap</span></li>
+                            <li><i class="fa-regular fa-file"></i> <strong>Bukti Pembayaran:</strong><br> <span style="font-family: monospace; color: #a78bfa;">PSIC_BP_NamaSekolah_Provinsi_NamaLengkap</span></li>
+                        </ul>
+                        <div class="highlight-box" style="margin-top: 15px;">
+                            <p><em>*Pada tahap awal registrasi, peserta belum diwajibkan mengumpulkan KTI. Full paper baru dikumpulkan mulai 19 September 2026.</em></p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--pink-bright); margin-bottom: 10px;">Informasi Pembayaran:</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 10px;">Transfer/E-Wallet atas nama <strong>SARAS AYU ISMOYO PUTRI</strong>.</p>
+                        <ul class="custom-list" style="font-size: 0.85rem; margin-bottom: 20px;">
+                            <li><i class="fa-solid fa-building-columns"></i> <strong>BTN:</strong> 33801610064796</li>
+                            <li><i class="fa-solid fa-building-columns"></i> <strong>BRI:</strong> 0555 0104 7274 506</li>
+                            <li><i class="fa-solid fa-building-columns"></i> <strong>Bank Jago:</strong> 106685323434</li>
+                            <li><i class="fa-solid fa-mobile-screen"></i> <strong>GoPay/ShopeePay:</strong> 081249275384</li>
+                        </ul>
+                        <a href="https://its.id/m/Regist11thPS" target="_blank" class="btn-gradient" style="width: 100%; justify-content: center;"><i class="fa-solid fa-paper-plane"></i> Form Pendaftaran Lomba</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section>
+            <h2 class="section-title">Timeline Pelaksanaan PSIC</h2>
+            <div class="glass-card">
+                <div class="grid-2">
+                    <div>
+                        <h4 style="color: var(--blue-accent); margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Fase Pendaftaran & Pengumpulan</h4>
+                        <ul class="custom-list">
+                            <li><i class="fa-solid fa-calendar"></i> <strong>Early Bird:</strong> 1 - 3 Agustus 2026</li>
+                            <li><i class="fa-solid fa-calendar"></i> <strong>Batch I:</strong> 4 - 18 Agustus 2026</li>
+                            <li><i class="fa-solid fa-calendar"></i> <strong>Batch II:</strong> 19 Agt - 2 Sep 2026</li>
+                            <li><i class="fa-solid fa-chalkboard-user"></i> <strong>Coaching Session:</strong> 12 September 2026</li>
+                            <li><i class="fa-solid fa-file-arrow-up"></i> <strong>Full Paper Submission:</strong> 19 September 2026</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--pink-bright); margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Fase Seleksi & Final</h4>
+                        <ul class="custom-list">
+                            <li><i class="fa-solid fa-list-check"></i> <strong>Full Paper Selection:</strong> 20 Sep - 2 Okt 2026</li>
+                            <li><i class="fa-solid fa-bullhorn"></i> <strong>Pengumuman Lolos Final:</strong> 3 Oktober 2026</li>
+                            <li><i class="fa-solid fa-screwdriver-wrench"></i> <strong>Pembuatan PPT & Prototipe:</strong> 4 - 22 Oktober 2026</li>
+                            <li><i class="fa-solid fa-video"></i> <strong>Technical Meeting Final:</strong> 24 Oktober 2026</li>
+                            <li><i class="fa-solid fa-file-powerpoint"></i> <strong>Pengumpulan PPT:</strong> 30 Oktober 2026</li>
+                            <li><i class="fa-solid fa-flag-checkered"></i> <strong>Babak Final & Presentasi (Offline ITS):</strong> 31 Oktober 2026</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Physics Summit • Department of Physics ITS Surabaya. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // --- Dark Mode / Light Mode Toggle ---
+        document.body.classList.add('dark-mode'); 
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = themeToggleBtn.querySelector('i');
+        
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+        themeToggleBtn.style.color = '#f59e0b';
+        
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            
+            if(document.body.classList.contains('light-mode')) {
+                document.body.classList.remove('dark-mode');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                themeToggleBtn.style.color = 'var(--text-dark)';
+            } else {
+                document.body.classList.add('dark-mode');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                themeToggleBtn.style.color = '#f59e0b';
+            }
+        });
+    </script>
+</body>
+</html>
