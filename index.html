@@ -263,7 +263,7 @@
         .event-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
         .event-card h3 { font-size: 1.4rem; margin-bottom: 5px; font-family: 'Playfair Display', serif; font-weight: 700;}
 
-        /* Poster Wrapper Khusus */
+        /* Poster Wrapper Khusus (FIX GAMBAR POSTER) */
         .poster-wrapper {
             margin-bottom: 40px; 
             padding: 15px; 
@@ -498,9 +498,9 @@
         <div class="container">
             <h2 class="section-title">Rangkaian Kegiatan</h2>
             
-            <!-- Poster Gabungan -->
+            <!-- Poster Gabungan (SUDAH DIPERBAIKI MENGGUNAKAN LOCAL IMAGE) -->
             <div class="poster-wrapper glass-card">
-                <img src="https://drive.google.com/uc?export=view&id=1SHfW9XIW6k3QQR-E6QwEyMZp68Z1c6ap" alt="Poster Gabungan Physics Summit">
+                <img src="Poster.png" alt="Poster Gabungan Physics Summit" onerror="this.src='https://via.placeholder.com/800x400?text=Poster+Gabungan+(Upload+Poster.png)'">
             </div>
             
             <div class="events-grid">
@@ -547,7 +547,7 @@
                 </div>
             </div>
 
-            <!-- Form Registrasi (SEKARANG TAMPIL 3 KOLOM RAPI / TIDAK ADA RUANG KOSONG) -->
+            <!-- Form Registrasi -->
             <div id="pendaftaran-lengkap" style="margin-top: 65px;">
                 <div class="registration-box">
                     <img src="Maskot 2.png" alt="Maskot" class="mascot-deco mascot-reg-1" onerror="this.style.display='none'">
@@ -836,7 +836,7 @@
         </div>
     </section>
 
-    <!-- Sub-bab Kontak (SEKARANG TAMPIL 3 KOLOM RAPI) -->
+    <!-- Sub-bab Kontak -->
     <section id="contact" style="background: rgba(255, 42, 133, 0.03);">
         <div class="container">
             <h2 class="section-title">Pusat Informasi & Kontak</h2>
@@ -845,7 +845,6 @@
                 
                 <div class="reg-grid">
                     
-                    <!-- Kolom 1: Info Acara (Nabil & Rama Ditumpuk Atas-Bawah) -->
                     <div class="reg-card">
                         <div>
                             <h4 style="margin-bottom:8px; font-weight:700; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-user-group" style="color:var(--purple-bright);"></i> Info Acara</h4>
@@ -857,28 +856,21 @@
                         </div>
                     </div>
 
-                    <!-- Kolom 2: Sponsorship -->
                     <div class="reg-card">
                         <div>
                             <h4 style="margin-bottom:8px; font-weight:700; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-handshake" style="color:var(--pink-bright);"></i> Sponsorship</h4>
                             <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px;">Penawaran dan kerja sama sponsor.</p>
                         </div>
-                        <div style="display: flex; align-items: flex-end; height: 100%;">
-                            <button onclick="openCpModal('Amel', '6287721178073', 'AM')" class="btn-3d btn-outline" style="padding: 10px; font-size:0.85rem; justify-content:center; width: 100%;"><i class="fa-brands fa-whatsapp"></i> Chat Amel</button>
-                        </div>
+                        <button onclick="openCpModal('Amel', '6287721178073', 'AM')" class="btn-3d btn-outline" style="padding: 10px; font-size:0.85rem; justify-content:center; width: 100%;"><i class="fa-brands fa-whatsapp"></i> Chat Amel</button>
                     </div>
 
-                    <!-- Kolom 3: Medpart -->
                     <div class="reg-card">
                         <div>
                             <h4 style="margin-bottom:8px; font-weight:700; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-bullhorn" style="color:var(--blue-accent);"></i> Medpart</h4>
                             <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px;">Kerja sama media dan publikasi.</p>
                         </div>
-                        <div style="display: flex; align-items: flex-end; height: 100%;">
-                            <button onclick="openCpModal('Alya', '6285713319241', 'AL')" class="btn-3d btn-outline" style="padding: 10px; font-size:0.85rem; justify-content:center; width: 100%;"><i class="fa-brands fa-whatsapp"></i> Chat Alya</button>
-                        </div>
+                        <button onclick="openCpModal('Alya', '6285713319241', 'AL')" class="btn-3d btn-outline" style="padding: 10px; font-size:0.85rem; justify-content:center; width: 100%;"><i class="fa-brands fa-whatsapp"></i> Chat Alya</button>
                     </div>
-                    
                 </div>
             </div>
         </div>
