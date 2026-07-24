@@ -123,7 +123,7 @@
         @keyframes floatFly { 0% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } 100% { transform: translateY(0) rotate(0deg); } }
         @keyframes gentleFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
         
-        /* MASKOT FIX (Dibatasi ukurannya) */
+        /* MASKOT FIX */
         .mascot-deco { position: absolute; z-index: 0; opacity: 0.85; pointer-events: none; max-width: 140px; height: auto; }
         .mascot-hero-1 { bottom: 0; left: 2%; width: clamp(70px, 12vw, 130px); }
         .mascot-hero-2 { top: 10%; right: 2%; width: clamp(60px, 10vw, 110px); }
@@ -263,7 +263,7 @@
         .event-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
         .event-card h3 { font-size: 1.4rem; margin-bottom: 5px; font-family: 'Playfair Display', serif; font-weight: 700;}
 
-        /* Poster Wrapper Khusus (FIX GAMBAR POSTER) */
+        /* Poster Wrapper Khusus */
         .poster-wrapper {
             margin-bottom: 40px; 
             padding: 15px; 
@@ -493,18 +493,18 @@
         </div>
     </section>
     
-    <!-- Rangkaian Kegiatan (DENGAN POSTER GABUNGAN DI ATASNYA) -->
+    <!-- Rangkaian Kegiatan -->
     <section id="kompetisi">
         <div class="container">
             <h2 class="section-title">Rangkaian Kegiatan</h2>
             
-            <!-- Poster Gabungan (SUDAH DIPERBAIKI MENGGUNAKAN LOCAL IMAGE) -->
+            <!-- Poster Gabungan (Panggil file Poster.png yang kamu upload di GitHub) -->
             <div class="poster-wrapper glass-card">
-                <img src="Poster.png" alt="Poster Gabungan Physics Summit" onerror="this.src='https://via.placeholder.com/800x400?text=Poster+Gabungan+(Upload+Poster.png)'">
+                <img src="Poster.png" alt="Poster Gabungan Physics Summit" onerror="this.src='https://via.placeholder.com/800x400?text=Upload+gambar+dengan+nama+Poster.png+di+GitHub'">
             </div>
             
             <div class="events-grid">
-                <!-- PSO -->
+                <!-- PSO (Tambahkan link menuju halaman pso.html) -->
                 <div class="glass-card event-card">
                     <div>
                         <h3 style="font-size: 1.35rem; margin-bottom:10px; font-family: 'Playfair Display', serif;">Physics Summit Olympiad (PSO)</h3>
@@ -515,6 +515,7 @@
                         </div>
                         <p>Olimpiade fisika tingkat nasional bagi siswa SMA/SMK/sederajat yang dilaksanakan secara berkelompok dengan dua peserta dalam satu tim. Terdiri atas tahap penyisihan, semifinal, dan final.</p>
                     </div>
+                    <a href="pso.html" class="btn-3d btn-outline" style="margin-top: 15px; width: 100%; text-align: center; font-size: 0.85rem;"><i class="fa-solid fa-circle-info"></i> Detail & Silabus PSO</a>
                 </div>
 
                 <!-- PSIC -->
@@ -578,7 +579,7 @@
                             <a href="https://its.id/m/RSVPOpenHouse_11thPhysicsSummit" target="_blank" class="btn-3d btn-outline" style="padding: 10px 18px; font-size:0.85rem; justify-content:center; border-width:1px;">Form RSVP Open House</a>
                         </div>
                         
-                        <!-- Kolom Ketiga: Twibbon (Sejajar dengan Lomba & RSVP) -->
+                        <!-- Kolom Ketiga: Twibbon -->
                         <div class="reg-card">
                             <div>
                                 <h4 style="margin-bottom:8px; font-weight:700; display:flex; align-items:center; gap:8px; font-family: 'Playfair Display', serif;">
@@ -861,7 +862,9 @@
                             <h4 style="margin-bottom:8px; font-weight:700; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-handshake" style="color:var(--pink-bright);"></i> Sponsorship</h4>
                             <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px;">Penawaran dan kerja sama sponsor.</p>
                         </div>
-                        <button onclick="openCpModal('Amel', '6287721178073', 'AM')" class="btn-3d btn-outline" style="padding: 10px; font-size:0.85rem; justify-content:center; width: 100%;"><i class="fa-brands fa-whatsapp"></i> Chat Amel</button>
+                        <div style="display: flex; align-items: flex-end; height: 100%;">
+                            <button onclick="openCpModal('Amel', '6287721178073', 'AM')" class="btn-3d btn-outline" style="padding: 10px; font-size:0.85rem; justify-content:center; width: 100%;"><i class="fa-brands fa-whatsapp"></i> Chat Amel</button>
+                        </div>
                     </div>
 
                     <div class="reg-card">
@@ -869,8 +872,11 @@
                             <h4 style="margin-bottom:8px; font-weight:700; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-bullhorn" style="color:var(--blue-accent);"></i> Medpart</h4>
                             <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px;">Kerja sama media dan publikasi.</p>
                         </div>
-                        <button onclick="openCpModal('Alya', '6285713319241', 'AL')" class="btn-3d btn-outline" style="padding: 10px; font-size:0.85rem; justify-content:center; width: 100%;"><i class="fa-brands fa-whatsapp"></i> Chat Alya</button>
+                        <div style="display: flex; align-items: flex-end; height: 100%;">
+                            <button onclick="openCpModal('Alya', '6285713319241', 'AL')" class="btn-3d btn-outline" style="padding: 10px; font-size:0.85rem; justify-content:center; width: 100%;"><i class="fa-brands fa-whatsapp"></i> Chat Alya</button>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
