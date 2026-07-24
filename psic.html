@@ -90,9 +90,9 @@
 
         /* HERO PAGE KHUSUS */
         .page-header { padding: 60px 0 40px; text-align: center; position: relative; z-index: 10; }
-        .page-title { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 15px; background: linear-gradient(135deg, var(--pink-bright) 0%, var(--blue-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .page-title { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 15px; background: linear-gradient(135deg, var(--pink-bright) 0%, var(--blue-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2;}
         body.light-mode .page-title { background: linear-gradient(135deg, var(--purple-bright) 0%, var(--pink-bright) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .page-subtitle { font-size: 1rem; color: var(--text-muted); max-width: 750px; margin: 0 auto 30px; line-height: 1.6; }
+        .page-subtitle { font-size: 1rem; color: var(--text-muted); max-width: 800px; margin: 0 auto 30px; line-height: 1.6; }
         
         .badge { padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
         .badge-pink { background: rgba(255, 126, 179, 0.15); color: var(--pink-bright); border: 1px solid rgba(255, 126, 179, 0.3); }
@@ -106,15 +106,17 @@
         .glass-card { background: var(--glass-bg); backdrop-filter: blur(14px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 35px; box-shadow: var(--shadow-3d); margin-bottom: 30px; }
         body.light-mode .glass-card { background: #ffffff; border-color: #cbd5e1; box-shadow: 0 10px 30px rgba(0,0,0,0.05);}
         
-        /* LIST STYLING */
+        /* LIST STYLING (FIXED ICON OVERLAP) */
         .custom-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
         .custom-list li { position: relative; padding-left: 28px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
-        .custom-list li i { position: absolute; left: 0; top: 4px; color: var(--pink-bright); font-size: 0.9rem; }
+        /* Tanda ">" memastikan hanya icon terluar (bullet) yang terpengaruh */
+        .custom-list li > i { position: absolute; left: 0; top: 4px; color: var(--pink-bright); font-size: 0.9rem; }
         .custom-list li strong { color: white; }
         body.light-mode .custom-list li strong { color: var(--text-dark); }
 
         /* GRID LAYOUTS */
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
         
         /* BOX THEMES & SUBTHEMES */
         .theme-box { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px; text-align: center; margin-bottom: 25px;}
@@ -212,7 +214,7 @@
                         <h3 style="color: var(--pink-bright); margin-bottom: 5px; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-tower-broadcast"></i> Info Roadshow Physics Summit</h3>
                         <p style="color: var(--text-dark); font-size: 0.95rem; margin: 0;"><strong>Hari, Tanggal:</strong> Minggu, 09 Agustus <br><strong>Waktu:</strong> 13.00 WIB s.d Selesai (Online via Zoom)</p>
                     </div>
-                    <a href="https://its.id/M/RoadshowOnline11PhysicsSummit" target="_blank" class="btn-gradient" style="white-space: nowrap;"><i class="fa-solid fa-video"></i> Gabung Roadshow</a>
+                    <a href="https://its.id/m/ZoomRoadshow" target="_blank" class="btn-gradient" style="white-space: nowrap;"><i class="fa-solid fa-video"></i> Gabung Roadshow</a>
                 </div>
             </div>
         </section>
