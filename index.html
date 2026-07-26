@@ -348,7 +348,7 @@
         
         .benefit-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
         .benefit-list li { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; position: relative; padding-left: 24px; }
-        .benefit-list li i { position: absolute; left: 0; top: 3px; color: #10b981; font-size: 0.85rem; }
+        .benefit-list li > i { position: absolute; left: 0; top: 3px; color: #10b981; font-size: 0.85rem; }
         .tag-freepass { background: linear-gradient(45deg, #f59e0b, #ea580c); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3); letter-spacing: 0.5px; border: 1px solid #fcd34d; margin-top: 6px;}
 
         /* Timeline */
@@ -434,7 +434,7 @@
 </head>
 <body>
 
-    <!-- Fast Loading Screen -->
+    <!-- Fast Loading Screen (Atom Spinner) -->
     <div id="fast-loader">
         <div class="atom-spinner">
             <div class="nucleus"></div>
@@ -448,8 +448,9 @@
         </div>
     </div>
 
-    <!-- Dekorasi Floating Background -->
+    <!-- Dekorasi Floating Background (Rumus & Rasi Bintang Presisi Vektor) -->
     <div class="decorations-container">
+        <!-- Rasi Bintang Vektor (SVG) Eridanus/Achernar -->
         <svg viewBox="0 0 250 350" xmlns="http://www.w3.org/2000/svg" class="constellation-svg">
             <polyline points="200,20 160,70 180,130 120,180 140,250 50,320" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linejoin="round"/>
             <circle cx="200" cy="20" r="2.5" fill="#fff" />
@@ -457,13 +458,17 @@
             <circle cx="180" cy="130" r="2.5" fill="#fff" />
             <circle cx="120" cy="180" r="2" fill="#fff" />
             <circle cx="140" cy="250" r="3" fill="#fff" />
+            
+            <!-- Achernar (Bintang Ujung Terang Biru) -->
             <circle cx="50" cy="320" r="6" fill="var(--blue-accent)" class="achernar-star" />
+            
             <circle cx="220" cy="100" r="1.5" fill="#fff" opacity="0.5"/>
             <circle cx="90" cy="80" r="1" fill="#fff" opacity="0.3"/>
             <circle cx="160" cy="200" r="1.5" fill="#fff" opacity="0.6"/>
             <circle cx="70" cy="230" r="1" fill="#fff" opacity="0.4"/>
         </svg>
 
+        <!-- Rumus-rumus Fisika Floating -->
         <div class="math-formula f-1">E = mc²</div>
         <div class="math-formula f-2">∮ E·dA = q/ε₀</div>
         <div class="math-formula f-3">iℏ ∂Ψ/∂t = ĤΨ</div>
@@ -491,6 +496,7 @@
                     <li><a href="#guidebook" class="nav-link"><i class="fa-solid fa-book-open"></i> Guidebook</a></li>
                     
                     <li class="dropdown">
+                        <!-- Tambahkan id dropdown-toggle untuk trigger JS -->
                         <a href="javascript:void(0)" class="nav-link" id="dropdown-toggle"><i class="fa-solid fa-ellipsis"></i> Lainnya <i class="fa-solid fa-chevron-down" style="font-size:0.7rem; margin-left:4px;"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="#pendaftaran-lengkap"><i class="fa-solid fa-pen-to-square" style="width:20px;"></i> Pendaftaran</a></li>
@@ -503,13 +509,13 @@
                     </li>
                 </ul>
                 
-                <button id="theme-toggle" title="Ganti Mode Terang/Gelap"><i class="fa-solid fa-sun" style="color:#f59e0b;"></i></button>
+                <button id="theme-toggle" title="Ganti Mode Terang/Gelap (Secara default Dark/Poster Theme)"><i class="fa-solid fa-sun" style="color:#f59e0b;"></i></button>
                 <div class="menu-toggle" id="mobile-toggle"><i class="fa-solid fa-bars-staggered"></i></div>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Home Section -->
     <section id="home" class="hero-section">
         <img src="Maskot 2.png" alt="Maskot" class="mascot-deco mascot-hero-1" onerror="this.style.display='none'">
         <img src="maskot 3.png" alt="Maskot" class="mascot-deco mascot-hero-2" onerror="this.style.display='none'">
@@ -535,25 +541,36 @@
     <section id="kompetisi">
         <div class="container">
             <h2 class="section-title">Rangkaian Kegiatan</h2>
+
+            <!-- Roadshow Info -->
+            <div class="glass-card highlight-pink" style="margin-bottom: 40px; padding: 25px; border-left-width: 6px; border-radius: 16px;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px;">
+                    <div>
+                        <h3 style="color: var(--pink-bright); margin-bottom: 5px; font-family: 'Playfair Display', serif;"><i class="fa-solid fa-tower-broadcast"></i> Info Roadshow Physics Summit</h3>
+                        <p style="color: var(--text-dark); font-size: 0.95rem; margin: 0;"><strong>Hari, Tanggal:</strong> Minggu, 09 Agustus <br><strong>Waktu:</strong> 13.00 WIB s.d Selesai (Online via Zoom)</p>
+                    </div>
+                    <a href="https://its.id/m/ZoomRoadshow" target="_blank" class="btn-3d btn-gradient" style="white-space: nowrap;"><i class="fa-solid fa-video"></i> Gabung Roadshow</a>
+                </div>
+            </div>
             
             <!-- CONTAINER POSTER SLIDER (Bisa digeser) -->
             <div class="poster-slider-container">
                 <div class="poster-slider">
                     <!-- Poster Utama -->
                     <div class="poster-slide">
-                        <img src="poster opsi 2 (2).png" alt="Poster Utama / Gabungan" onerror="this.src='https://via.placeholder.com/800x400?text=Error+Loading+Poster'">
+                        <img src="ALL.png" alt="Poster Utama / Gabungan" onerror="this.src='https://via.placeholder.com/800x400?text=Error+Loading+Poster'">
                     </div>
                     <!-- Poster PSO -->
                     <div class="poster-slide">
-                        <img src="POSTER PSO (5).png" alt="Poster Physics Summit Olympiad (PSO)" onerror="this.src='https://via.placeholder.com/800x400?text=Error+Loading+Poster'">
+                        <img src="PSO.png" alt="Poster Physics Summit Olympiad (PSO)" onerror="this.src='https://via.placeholder.com/800x400?text=Error+Loading+Poster'">
                     </div>
                     <!-- Poster PSIC -->
                     <div class="poster-slide">
-                        <img src="POSTE PSIC (4).png" alt="Poster Physics Summit Innovation Competition (PSIC)" onerror="this.src='https://via.placeholder.com/800x400?text=Error+Loading+Poster'">
+                        <img src="PSIC.png" alt="Poster Physics Summit Innovation Competition (PSIC)" onerror="this.src='https://via.placeholder.com/800x400?text=Error+Loading+Poster'">
                     </div>
                     <!-- Poster Open House -->
                     <div class="poster-slide">
-                        <img src="OPEN HOUSE (6).png" alt="Poster Open House" onerror="this.src='https://via.placeholder.com/800x400?text=Error+Loading+Poster'">
+                        <img src="Oh.png" alt="Poster Open House" onerror="this.src='https://via.placeholder.com/800x400?text=Error+Loading+Poster'">
                     </div>
                 </div>
                 <p class="swipe-hint"><i class="fa-solid fa-arrows-left-right"></i> Geser untuk melihat poster lainnya</p>
