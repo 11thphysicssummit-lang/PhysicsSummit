@@ -116,7 +116,7 @@
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         
         /* TABLE STYLING */
-        .table-wrapper { overflow-x: auto; border-radius: 12px; border: 1px solid var(--table-border); }
+        .table-wrapper { overflow-x: auto; border-radius: 12px; border: 1px solid var(--table-border); margin-bottom: 20px;}
         table { width: 100%; border-collapse: collapse; text-align: left; background: var(--card-bg); }
         th, td { padding: 15px; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
         body.light-mode th, body.light-mode td { border-bottom-color: #e2e8f0; }
@@ -124,6 +124,9 @@
         body.light-mode th { background: #f1f5f9; color: var(--text-dark); }
         td { color: var(--text-muted); }
         tr:last-child td { border-bottom: none; }
+        /* Style list di dalam tabel agar lebih rapi */
+        td ul { padding-left: 20px; list-style-type: disc; margin: 5px 0;}
+        td ul li { margin-bottom: 4px; }
 
         /* HIGHLIGHT BOX */
         .highlight-box { background: rgba(135, 224, 253, 0.1); border-left: 4px solid var(--blue-accent); padding: 15px 20px; border-radius: 0 12px 12px 0; margin: 20px 0; }
@@ -298,7 +301,8 @@
                     </ul>
                     
                     <div class="highlight-box">
-                        <p><strong>Sistem Penilaian Babak Penyisihan:</strong><br>Jawaban Benar: <strong>+4 poin</strong> | Jawaban Salah: <strong>-1 poin</strong> | Tidak Menjawab: <strong>0 poin</strong>.</p>
+                        <p style="margin-bottom: 8px;"><strong>Sistem Penilaian Babak Penyisihan:</strong><br>Jawaban Benar: <strong>+4 poin</strong> | Jawaban Salah: <strong>-1 poin</strong> | Tidak Menjawab: <strong>0 poin</strong>.</p>
+                        <p style="font-size: 0.85rem; opacity: 0.8;"><em>*Catatan: Rincian sistem penilaian untuk babak Semifinal akan diinformasikan lebih lanjut oleh panitia.</em></p>
                     </div>
                 </div>
 
@@ -309,6 +313,10 @@
                         <li><i class="fa-solid fa-circle-dot"></i> Babak final diujikan dalam tiga tahap komprehensif: <strong>Tes Essay, Praktikum, dan Presentasi Hasil Praktikum.</strong></li>
                         <li><i class="fa-solid fa-circle-dot"></i> Keputusan dewan juri bersifat mutlak dan tidak dapat diganggu gugat.</li>
                     </ul>
+                    
+                    <div class="highlight-pink" style="margin-top: 15px;">
+                        <p style="font-size: 0.85rem; opacity: 0.9;"><em>*Catatan: Rincian sistem penilaian dan panduan teknis lengkap untuk babak Final akan diinformasikan lebih lanjut oleh panitia.</em></p>
+                    </div>
                 </div>
                 
             </div>
@@ -322,38 +330,127 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Topik / Materi Utama</th>
+                                <th style="width: 30%;">Topik / Materi Utama</th>
                                 <th>Cakupan Sub-Materi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><strong style="color: white;">Kinematika</strong></td>
-                                <td>Gerak Lurus, Gerak Parabola, Gerak Melingkar, Gerak Relatif.</td>
+                                <td>
+                                    <ul>
+                                        <li>Gerak Lurus</li>
+                                        <li>Gerak Parabola</li>
+                                        <li>Gerak Melingkar</li>
+                                        <li>Gerak Relatif</li>
+                                    </ul>
+                                </td>
                             </tr>
                             <tr>
-                                <td><strong style="color: white;">Dinamika Linier/Translasi</strong></td>
-                                <td>Hukum Newton, Gaya Normal & Gesek, Usaha Energi Daya, Kekekalan Energi, Momentum Linier, Pusat Massa, Tumbukan.</td>
+                                <td><strong style="color: white;">Dinamika Linier / Translasi</strong></td>
+                                <td>
+                                    <ul>
+                                        <li>Hukum Newton</li>
+                                        <li>Gaya Normal dan Gaya Gesek</li>
+                                        <li>Usaha, Energi, dan Daya</li>
+                                        <li>Energi Potensial dan Energi Kinetik</li>
+                                        <li>Hukum Kekekalan Energi</li>
+                                        <li>Momentum Linier dan Impuls</li>
+                                        <li>Sistem Partikel dan Pusat Massa</li>
+                                        <li>Tumbukan</li>
+                                    </ul>
+                                </td>
                             </tr>
                             <tr>
                                 <td><strong style="color: white;">Dinamika Rotasi</strong></td>
-                                <td>Momen Inersia, Torsi & Hukum Newton Rotasi, Momentum Sudut, Gerak Menggelinding.</td>
+                                <td>
+                                    <ul>
+                                        <li>Momen Inersia</li>
+                                        <li>Torsi dan Hukum Newton Rotasi</li>
+                                        <li>Momentum Sudut dan Impuls Sudut</li>
+                                        <li>Hukum Kekekalan Momentum Sudut</li>
+                                        <li>Gerak Menggelinding Dengan dan Tanpa Slip</li>
+                                    </ul>
+                                </td>
                             </tr>
                             <tr>
-                                <td><strong style="color: white;">Osilasi & Gravitasi</strong></td>
-                                <td>Osilasi Sistem Benda, Hukum Gravitasi Newton, Potensial Gravitasi, Hukum Kepler.</td>
+                                <td><strong style="color: white;">Osilasi dan Gravitasi</strong></td>
+                                <td>
+                                    <ul>
+                                        <li>Osilasi Sistem Satu Benda</li>
+                                        <li>Osilasi Sistem Beberapa Benda</li>
+                                        <li>Hukum Gravitasi Newton</li>
+                                        <li>Potensial Gravitasi</li>
+                                        <li>Hukum Kepler</li>
+                                    </ul>
+                                </td>
                             </tr>
                             <tr>
                                 <td><strong style="color: white;">Listrik Magnet</strong></td>
-                                <td>Hukum Coulomb, Medan & Potensial Listrik, Medan Magnet, GGL Induksi, Rangkaian RLC, Hukum Kirchoff & Ohm.</td>
+                                <td>
+                                    <ul>
+                                        <li>Hukum Coulomb</li>
+                                        <li>Medan Listrik</li>
+                                        <li>Potensial Listrik</li>
+                                        <li>Medan Magnet Akibat Arus Listrik</li>
+                                        <li>GGL Induksi</li>
+                                        <li>Rangkaian RLC Seri</li>
+                                        <li>Hukum Kirchoff</li>
+                                        <li>Hukum Ohm</li>
+                                    </ul>
+                                </td>
                             </tr>
                             <tr>
-                                <td><strong style="color: white;">Termodinamika & Optik</strong></td>
-                                <td>Temperatur, Kalor, Teori Kinetik Gas, Mesin Kalor & Entropi, Cermin & Lensa, Difraksi & Interferensi, Hukum Snell.</td>
+                                <td><strong style="color: white;">Termodinamika</strong></td>
+                                <td>
+                                    <ul>
+                                        <li>Temperatur</li>
+                                        <li>Kalor</li>
+                                        <li>Teori Kinetik Gas</li>
+                                        <li>Mesin Kalor, Entropi, dan Hukum Termodinamika</li>
+                                    </ul>
+                                </td>
                             </tr>
                             <tr>
-                                <td><strong style="color: white;">Lainnya</strong></td>
-                                <td>Fisika Modern (Fotolistrik, Relativitas, Nuklir), Fluida (Archimedes, Pascal, Bernoulli), Gelombang & Bunyi (Doppler, Elektromagnetik).</td>
+                                <td><strong style="color: white;">Fisika Modern</strong></td>
+                                <td>
+                                    <ul>
+                                        <li>Efek Fotolistrik</li>
+                                        <li>Relativitas Khusus</li>
+                                        <li>Efek Compton</li>
+                                        <li>Fisika Nuklir</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color: white;">Optik</strong></td>
+                                <td>
+                                    <ul>
+                                        <li>Pembiasan, Pemantulan, Hukum Snell</li>
+                                        <li>Cermin, Lensa</li>
+                                        <li>Difraksi dan Interferensi</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color: white;">Fluida</strong></td>
+                                <td>
+                                    <ul>
+                                        <li>Hukum Archimedes</li>
+                                        <li>Hukum Pascal</li>
+                                        <li>Hukum Bernoulli</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color: white;">Gelombang dan Bunyi</strong></td>
+                                <td>
+                                    <ul>
+                                        <li>Persamaan Gelombang</li>
+                                        <li>Efek Doppler</li>
+                                        <li>Gelombang Elektromagnetik</li>
+                                    </ul>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
