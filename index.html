@@ -263,62 +263,24 @@
         .event-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
         .event-card h3 { font-size: 1.4rem; margin-bottom: 5px; font-family: 'Playfair Display', serif; font-weight: 700;}
 
-        /* POSTER SLIDER CSS (PENGGANTI DROPDOWN) */
-        .poster-slider-container {
-            margin-bottom: 40px; 
-            position: relative;
-            width: 100%;
-        }
-        .poster-slider {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 20px;
-            padding-bottom: 15px;
-            scroll-behavior: smooth;
-        }
-        .poster-slider::-webkit-scrollbar {
-            height: 8px;
-        }
-        .poster-slider::-webkit-scrollbar-track {
-            background: rgba(255,255,255,0.05);
-            border-radius: 10px;
-        }
-        .poster-slider::-webkit-scrollbar-thumb {
-            background: var(--pink-bright);
-            border-radius: 10px;
-        }
-        .poster-slide {
-            flex: 0 0 100%; /* Memenuhi lebar penuh satu slide */
-            scroll-snap-align: center;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: var(--shadow-3d);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        body.light-mode .poster-slide {
-            background: #ffffff;
-            border-color: #cbd5e1;
-        }
-        .poster-slide img {
-            width: 100%;
-            max-height: 450px;
-            object-fit: contain;
-            border-radius: 12px;
-        }
-        .swipe-hint {
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            margin-top: 5px;
-        }
+        /* POSTER SLIDER CSS */
+        .poster-slider-container { margin-bottom: 40px; position: relative; width: 100%; }
+        .poster-slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding-bottom: 15px; scroll-behavior: smooth; }
+        .poster-slider::-webkit-scrollbar { height: 8px; }
+        .poster-slider::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 10px; }
+        .poster-slider::-webkit-scrollbar-thumb { background: var(--pink-bright); border-radius: 10px; }
+        .poster-slide { flex: 0 0 100%; scroll-snap-align: center; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 24px; padding: 20px; text-align: center; box-shadow: var(--shadow-3d); display: flex; justify-content: center; align-items: center; }
+        body.light-mode .poster-slide { background: #ffffff; border-color: #cbd5e1; }
+        .poster-slide img { width: 100%; max-height: 450px; object-fit: contain; border-radius: 12px; }
+        .swipe-hint { text-align: center; font-size: 0.85rem; color: var(--text-muted); font-weight: 500; margin-top: 5px; }
         body.light-mode .swipe-hint { color: #475569; }
+
+        /* LIST STYLING (FIXED ICON OVERLAP) */
+        .custom-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .custom-list li { position: relative; padding-left: 28px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+        .custom-list li > i { position: absolute; left: 0; top: 4px; color: var(--pink-bright); font-size: 0.9rem; }
+        .custom-list li strong { color: white; }
+        body.light-mode .custom-list li strong { color: var(--text-dark); }
 
         /* Pendaftaran Grid & Kontak Grid */
         .registration-box { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 24px; padding: 35px; text-align: center; box-shadow: var(--shadow-3d); max-width: 1050px; margin: 0 auto; position: relative; z-index: 10;}
@@ -434,7 +396,7 @@
 </head>
 <body>
 
-    <!-- Fast Loading Screen (Atom Spinner) -->
+    <!-- Fast Loading Screen -->
     <div id="fast-loader">
         <div class="atom-spinner">
             <div class="nucleus"></div>
@@ -448,9 +410,8 @@
         </div>
     </div>
 
-    <!-- Dekorasi Floating Background (Rumus & Rasi Bintang Presisi Vektor) -->
+    <!-- Dekorasi Floating Background -->
     <div class="decorations-container">
-        <!-- Rasi Bintang Vektor (SVG) Eridanus/Achernar -->
         <svg viewBox="0 0 250 350" xmlns="http://www.w3.org/2000/svg" class="constellation-svg">
             <polyline points="200,20 160,70 180,130 120,180 140,250 50,320" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linejoin="round"/>
             <circle cx="200" cy="20" r="2.5" fill="#fff" />
@@ -458,17 +419,13 @@
             <circle cx="180" cy="130" r="2.5" fill="#fff" />
             <circle cx="120" cy="180" r="2" fill="#fff" />
             <circle cx="140" cy="250" r="3" fill="#fff" />
-            
-            <!-- Achernar (Bintang Ujung Terang Biru) -->
             <circle cx="50" cy="320" r="6" fill="var(--blue-accent)" class="achernar-star" />
-            
             <circle cx="220" cy="100" r="1.5" fill="#fff" opacity="0.5"/>
             <circle cx="90" cy="80" r="1" fill="#fff" opacity="0.3"/>
             <circle cx="160" cy="200" r="1.5" fill="#fff" opacity="0.6"/>
             <circle cx="70" cy="230" r="1" fill="#fff" opacity="0.4"/>
         </svg>
 
-        <!-- Rumus-rumus Fisika Floating -->
         <div class="math-formula f-1">E = mc²</div>
         <div class="math-formula f-2">∮ E·dA = q/ε₀</div>
         <div class="math-formula f-3">iℏ ∂Ψ/∂t = ĤΨ</div>
@@ -496,7 +453,6 @@
                     <li><a href="#guidebook" class="nav-link"><i class="fa-solid fa-book-open"></i> Guidebook</a></li>
                     
                     <li class="dropdown">
-                        <!-- Tambahkan id dropdown-toggle untuk trigger JS -->
                         <a href="javascript:void(0)" class="nav-link" id="dropdown-toggle"><i class="fa-solid fa-ellipsis"></i> Lainnya <i class="fa-solid fa-chevron-down" style="font-size:0.7rem; margin-left:4px;"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="#pendaftaran-lengkap"><i class="fa-solid fa-pen-to-square" style="width:20px;"></i> Pendaftaran</a></li>
@@ -509,13 +465,13 @@
                     </li>
                 </ul>
                 
-                <button id="theme-toggle" title="Ganti Mode Terang/Gelap (Secara default Dark/Poster Theme)"><i class="fa-solid fa-sun" style="color:#f59e0b;"></i></button>
+                <button id="theme-toggle" title="Ganti Mode Terang/Gelap"><i class="fa-solid fa-sun" style="color:#f59e0b;"></i></button>
                 <div class="menu-toggle" id="mobile-toggle"><i class="fa-solid fa-bars-staggered"></i></div>
             </div>
         </nav>
     </header>
 
-    <!-- Home Section -->
+    <!-- Hero Section -->
     <section id="home" class="hero-section">
         <img src="Maskot 2.png" alt="Maskot" class="mascot-deco mascot-hero-1" onerror="this.style.display='none'">
         <img src="maskot 3.png" alt="Maskot" class="mascot-deco mascot-hero-2" onerror="this.style.display='none'">
@@ -553,7 +509,7 @@
                 </div>
             </div>
             
-            <!-- CONTAINER POSTER SLIDER (Bisa digeser) -->
+            <!-- CONTAINER POSTER SLIDER -->
             <div class="poster-slider-container">
                 <div class="poster-slider">
                     <!-- Poster Utama -->
@@ -681,12 +637,12 @@
                             <i class="fa-solid fa-file-pdf"></i> PDF Buku Panduan Resmi
                         </h4>
                     </div>
-                    <a href="https://drive.google.com/file/d/1IlTIjue4wUYhSkRbYedcVM6BXbZUjKtj/view?usp=sharing" target="_blank" class="btn-3d btn-gradient" style="padding: 10px 20px; font-size:0.85rem;">
+                    <a href="https://drive.google.com/file/d/1sitfFJywA-K6gREMXbsbtBKftgdcGrbt/view?usp=drivesdk" target="_blank" class="btn-3d btn-gradient" style="padding: 10px 20px; font-size:0.85rem;">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Fullscreen / Drive
                     </a>
                 </div>
                 <div class="guidebook-viewer">
-                    <iframe src="https://drive.google.com/file/d/1IlTIjue4wUYhSkRbYedcVM6BXbZUjKtj/preview" allow="autoplay"></iframe>
+                    <iframe src="https://drive.google.com/file/d/1sitfFJywA-K6gREMXbsbtBKftgdcGrbt/preview" allow="autoplay"></iframe>
                 </div>
             </div>
         </div>
@@ -1044,7 +1000,7 @@
     </footer>
 
     <script>
-        // --- Animasi Loading Default Dijalankan (Default = Tema Gelap/Poster) ---
+        // --- Animasi Loading Default Dijalankan ---
         document.body.classList.add('dark-mode'); 
 
         function hilangkanLoader() {
@@ -1078,7 +1034,7 @@
             }
         });
 
-        // --- Navbar Mobile (Perbaikan Dropdown) ---
+        // --- Navbar Mobile ---
         const mobileToggle = document.getElementById('mobile-toggle');
         const navList = document.getElementById('nav-list');
         const dropdownToggle = document.getElementById('dropdown-toggle');
@@ -1090,26 +1046,17 @@
             icon.className = navList.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars-staggered';
         });
 
-        // Toggle khusus untuk "Lainnya" di HP
         dropdownToggle.addEventListener('click', function(e) {
             if (window.innerWidth <= 768) {
-                e.preventDefault(); // Mencegah pindah halaman
+                e.preventDefault(); 
                 dropdownMenu.classList.toggle('show');
             }
         });
 
-        // Tutup menu mobile ketika link biasa diklik (Bukan dropdown)
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
-                // Jika klik "Lainnya", jangan tutup navbar utamanya
-                if (this.id === 'dropdown-toggle' && window.innerWidth <= 768) {
-                    return;
-                }
-                
-                // Jika klik link di dalam dropdown
-                if (this.closest('.dropdown-menu')) {
-                    dropdownMenu.classList.remove('show');
-                }
+                if (this.id === 'dropdown-toggle' && window.innerWidth <= 768) return;
+                if (this.closest('.dropdown-menu')) dropdownMenu.classList.remove('show');
 
                 navList.classList.remove('active');
                 const icon = mobileToggle.querySelector('i');
@@ -1158,7 +1105,6 @@
         // --- Accordion ---
         function toggleTimeline(element) { element.parentElement.classList.toggle('expanded'); }
         function toggleFaq(element) { element.classList.toggle('active'); }
-
     </script>
 </body>
 </html>
